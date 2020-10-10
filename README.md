@@ -7,7 +7,7 @@ BetterAll is an application that will encourage people to follow a healthy life 
 - Melike Arslan --> https://github.com/melikearslan // https://www.linkedin.com/in/melikearslan97/
 - İlknur Baş
 - Bora Birlikci
-- Berk Büyükdurak
+- Berk Büyükdurak --> https://github.com/berkbuyukdurak // https://www.linkedin.com/in/berkbuyukdurak/
 - Ece Çanga
 
 // TODO: daha düzgün linkler (icon şeklinde maybe)
