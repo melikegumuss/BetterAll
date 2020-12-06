@@ -5,7 +5,7 @@ BetterAll is an application that will encourage people to follow a healthy life 
 
 ### Team Members
 - Melike Arslan --> https://github.com/melikearslan // https://www.linkedin.com/in/melikearslan97/
-- İlknur Baş
+- İlknur Baş --> https://github.com/ilknurbas
 - Bora Birlikci --> https://github.com/borabirlikci
 - Berk Büyükdurak --> https://github.com/berkbuyukdurak // https://www.linkedin.com/in/berkbuyukdurak/
 - Ece Çanga --> https://github.com/ececanga
