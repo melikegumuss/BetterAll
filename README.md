@@ -9,13 +9,18 @@ Since a healthy mind is a healthy body, as a group of senior students, we are de
 // TODO: more description will be given later about release, development and installment.
 
 ### Team Members
-- Melike Arslan [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/melikearslan97/)
-                [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/melikearslan)
-- İlknur Baş [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/ilknurbas)
-- Bora Birlikci [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/borabirlikci)
-- Berk Büyükdurak [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/berkbuyukdurak/)
-                  [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/berkbuyukdurak)
-- Ece Çanga [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/ececanga/)
+- <a href="mailto:melike.arslan@gmail.com"> Melike Arslan </a>
+            [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/melikearslan97/)
+            [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/melikearslan)
+- <a href="mailto:ilknur.bas@ug.bilkent.edu.tr"> İlknur Baş </a>
+            [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/ilknurbas)
+- <a href="mailto:bora.birlikci@ug.bilkent.edu.tr"> Bora Birlikci </a>
+            [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/borabirlikci)
+- <a href="mailto:berk.buyukdurak@ug.bilkent.edu.tr"> Berk Büyükdurak </a>
+            [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/berkbuyukdurak/)
+            [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/berkbuyukdurak)
+- <a href="mailto:ece.canga@ug.bilkent.edu.tr"> Ece Çanga </a>
+            [<img src="https://img.icons8.com/color/18/000000/linkedin-2--v2.png"/>](https://www.linkedin.com/in/ececanga/)
             [<img src="https://img.icons8.com/fluent/18/000000/github.png"/>](https://github.com/ececanga)
 
 
@@ -27,8 +32,7 @@ Since a healthy mind is a healthy body, as a group of senior students, we are de
 - <a href="http://www.cs.bilkent.edu.tr/~calkan/">Can Alkan</a>
 
 ### Innovation Expert
-
-// TODO
+- <a href="mailto:ozer@ersteyazilim.com"> Özer Aydemir </a>
 
 ### Our github stats
 ![YOUR github stats](https://github-readme-stats.vercel.app/api?username=melikearslan)
