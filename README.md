@@ -43,8 +43,8 @@ Since a healthy mind is a healthy body, as a group of senior students, we are de
 
 ### References
 <ol type="1">
-  <li>“Body Mass Index (BMI)” [Online] Available at https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi) [Accessed October 7, 2020].</li>
-  <li>“Fact sheets - Malnutrition”  [Online] Available at https://www.who.int/news-room/fact-sheets/detail/malnutrition [Accessed October 7, 2020].</li>
-  <li>“WHO_Europe _ Nutrition - Body mass index - BMI”  [Online] Available at https://www.euro.who.int/en/health-topics/disease-prevention/nutrition/a-healthy-lifestyle/body-mass-index-bmi [Accessed October 7, 2020].</li>
-  <li>“Physical activity”  [Online] Available at https://www.who.int/news-room/fact-sheets/detail/physical-activity  [Accessed October 7, 2020].</li>
+  <li> <a href="https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi)">Body Mass Index (BMI)</a> </li>
+  <li> <a href="https://www.who.int/news-room/fact-sheets/detail/malnutrition">Fact sheets - Malnutrition</a> </li>
+  <li> <a href="https://www.euro.who.int/en/health-topics/disease-prevention/nutrition/a-healthy-lifestyle/body-mass-index-bmi">WHO Europe Nutrition</a> </li>
+  <li> <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity">Physical activity</a> </li>
 </ol>
