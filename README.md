@@ -37,7 +37,7 @@ Since a healthy mind is a healthy body, as a group of senior students, we are de
 ![YOUR github stats](https://github-readme-stats.vercel.app/api?username=berkbuyukdurak)
 ![YOUR github stats](https://github-readme-stats.vercel.app/api?username=ececanga)
 
-### Refereces
+### References
 <ol type="1">
   <li>“Body Mass Index (BMI)” [Online] Available at https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi) [Accessed October 7, 2020].</li>
   <li>“Fact sheets - Malnutrition”  [Online] Available at https://www.who.int/news-room/fact-sheets/detail/malnutrition [Accessed October 7, 2020].</li>
