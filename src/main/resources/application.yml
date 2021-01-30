@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: BetterAll
+
+server:
+  http2:
+    enabled: true
