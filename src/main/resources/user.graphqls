@@ -1,0 +1,19 @@
+type User {
+    id: ID!
+    username: String!
+    name: String!
+}
+
+input UserDto {
+    username: String!
+    name: String!
+}
+
+type Query {
+    getUsersByName(name: String):[User]
+    getById(id: ID):User
+}
+
+type Mutation {
+    createUser(user: UserDto):User
+}
