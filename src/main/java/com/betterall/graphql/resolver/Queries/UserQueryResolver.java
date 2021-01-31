@@ -1,4 +1,4 @@
-package com.betterall.graphql.resolver;
+package com.betterall.graphql.resolver.Queries;
 
 import com.betterall.graphql.domain.User;
 import com.betterall.graphql.repository.UserRepository;
@@ -19,7 +19,7 @@ public class UserQueryResolver implements GraphQLQueryResolver {
         return userRepository.getByName(name);
     }
 
-    public Optional<User> getById(Long id) {
+    public Optional<User> getByUserId(Long id) {
         return userRepository.findById(id);
     }
 

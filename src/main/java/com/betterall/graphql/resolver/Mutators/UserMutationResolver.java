@@ -1,4 +1,4 @@
-package com.betterall.graphql.resolver;
+package com.betterall.graphql.resolver.Mutators;
 
 import com.betterall.graphql.domain.User;
 import com.betterall.graphql.dto.UserDto;
@@ -21,6 +21,13 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setName(userDto.getName());
+        user.setAge(userDto.getAge());
+        user.setEmail(userDto.getEmail());
+        user.setHeight(userDto.getHeight());
+        user.setGender(userDto.isGender());
+        user.setBody_fat(userDto.getBody_fat());
+        user.setBmi(userDto.getBmi());
+        user.setUser_goal(userDto.getUser_goal());
         return user;
     }
 }

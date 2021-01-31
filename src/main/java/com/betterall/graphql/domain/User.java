@@ -1,5 +1,6 @@
 package com.betterall.graphql.domain;
 
+import com.betterall.graphql.enums.UserGoal;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,19 +8,41 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="registered_user")
+@Table(name = "registered_user")
 @Getter
 @Setter
 public class User implements Serializable {
 
     @Id
-    @SequenceGenerator(name="seq_user", allocationSize=1)
+    @SequenceGenerator(name = "seq_user", allocationSize = 1)
     @GeneratedValue(generator = "seq_user", strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long user_id;
 
-    @Column(length=100, name="username")
+    @Column(length = 100, name = "username")
     private String username;
 
-    @Column(length=100, name="name")
+    @Column(length = 100, name = "name")
     private String name;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(length = 100, name = "email")
+    private String email;
+
+    @Column(name = "height")
+    private float height;
+
+    @Column(name = "gender")
+    private boolean gender;
+
+    @Column(name = "body_fat")
+    private float body_fat;
+
+    @Column(name = "bmi")
+    private float bmi;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_goal")
+    private UserGoal user_goal;
 }

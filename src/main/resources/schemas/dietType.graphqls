@@ -1,0 +1,10 @@
+type DietType {
+    diet_type_id: ID!
+    diet_name: String!
+    diet_description: String
+}
+
+input DietTypeDto {
+    diet_name: String!
+    diet_description: String
+}
