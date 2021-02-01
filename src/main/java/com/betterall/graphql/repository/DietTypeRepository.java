@@ -1,10 +1,7 @@
 package com.betterall.graphql.repository;
 
-import com.betterall.graphql.domain.DietType;
-import com.betterall.graphql.domain.User;
+import com.betterall.graphql.domain.model.DietType;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface DietTypeRepository extends JpaRepository<DietType, Long> {
 

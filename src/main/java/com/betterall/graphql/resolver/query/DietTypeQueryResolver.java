@@ -1,13 +1,12 @@
-package com.betterall.graphql.resolver.Queries;
+package com.betterall.graphql.resolver.query;
 
-import com.betterall.graphql.domain.DietType;
+import com.betterall.graphql.domain.model.DietType;
 import com.betterall.graphql.repository.DietTypeRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 
-import java.util.List;
 import java.util.Optional;
 
 @Component

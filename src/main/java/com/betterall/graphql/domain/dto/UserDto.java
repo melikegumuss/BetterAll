@@ -1,6 +1,6 @@
-package com.betterall.graphql.dto;
+package com.betterall.graphql.domain.dto;
 
-import com.betterall.graphql.enums.UserGoal;
+import com.betterall.graphql.domain.enums.UserGoal;
 import lombok.Data;
 
 @Data

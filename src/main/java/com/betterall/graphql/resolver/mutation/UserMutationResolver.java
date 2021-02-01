@@ -1,7 +1,7 @@
-package com.betterall.graphql.resolver.Mutators;
+package com.betterall.graphql.resolver.mutation;
 
-import com.betterall.graphql.domain.User;
-import com.betterall.graphql.dto.UserDto;
+import com.betterall.graphql.domain.model.User;
+import com.betterall.graphql.domain.dto.UserDto;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;

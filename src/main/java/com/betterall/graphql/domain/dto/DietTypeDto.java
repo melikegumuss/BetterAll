@@ -1,4 +1,4 @@
-package com.betterall.graphql.dto;
+package com.betterall.graphql.domain.dto;
 
 import lombok.Data;
 

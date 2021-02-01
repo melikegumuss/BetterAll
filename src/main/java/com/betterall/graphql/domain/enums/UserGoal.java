@@ -1,4 +1,4 @@
-package com.betterall.graphql.enums;
+package com.betterall.graphql.domain.enums;
 
 public enum UserGoal {
     GAIN_WEIGHT,

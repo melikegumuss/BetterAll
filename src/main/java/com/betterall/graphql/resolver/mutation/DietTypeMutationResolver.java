@@ -1,7 +1,7 @@
-package com.betterall.graphql.resolver.Mutators;
+package com.betterall.graphql.resolver.mutation;
 
-import com.betterall.graphql.domain.DietType;
-import com.betterall.graphql.dto.DietTypeDto;
+import com.betterall.graphql.domain.model.DietType;
+import com.betterall.graphql.domain.dto.DietTypeDto;
 import com.betterall.graphql.repository.DietTypeRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;

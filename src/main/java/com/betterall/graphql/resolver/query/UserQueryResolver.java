@@ -1,6 +1,6 @@
-package com.betterall.graphql.resolver.Queries;
+package com.betterall.graphql.resolver.query;
 
-import com.betterall.graphql.domain.User;
+import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;

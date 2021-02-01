@@ -1,4 +1,4 @@
-package com.betterall.graphql.domain;
+package com.betterall.graphql.domain.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-package com.betterall.graphql.domain;
+package com.betterall.graphql.domain.model;
 
-import com.betterall.graphql.enums.UserGoal;
+import com.betterall.graphql.domain.enums.UserGoal;
 import lombok.Getter;
 import lombok.Setter;
 
