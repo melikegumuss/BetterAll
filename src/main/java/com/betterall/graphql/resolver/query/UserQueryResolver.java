@@ -1,6 +1,6 @@
-package com.betterall.graphql.resolver;
+package com.betterall.graphql.resolver.query;
 
-import com.betterall.graphql.domain.User;
+import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class UserQueryResolver implements GraphQLQueryResolver {
         return userRepository.getByName(name);
     }
 
-    public Optional<User> getById(Long id) {
+    public Optional<User> getByUserId(Long id) {
         return userRepository.findById(id);
     }
 

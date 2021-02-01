@@ -1,0 +1,30 @@
+type User {
+    user_id: ID!
+    username: String!
+    name: String!
+    email: String!
+    age: Int
+    height: Float
+    gender: Boolean
+    body_fat: Float
+    bmi: Float
+    user_goal: UserGoal
+}
+
+enum UserGoal {
+    GAIN_WEIGHT,
+    LOSE_WEIGHT,
+    MAINTAIN_WEIGHT
+}
+
+input UserDto {
+    username: String!
+    name: String!
+    email: String!
+    age: Int
+    height: Float
+    gender: Boolean
+    body_fat: Float
+    bmi: Float
+    user_goal: UserGoal
+}

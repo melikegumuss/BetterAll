@@ -1,6 +1,6 @@
 package com.betterall.graphql.repository;
 
-import com.betterall.graphql.domain.User;
+import com.betterall.graphql.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

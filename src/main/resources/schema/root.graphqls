@@ -1,0 +1,10 @@
+type Query {
+    getUsersByName(name: String):[User]
+    getByUserId(user_id: ID):User
+    getByDietTypeId(diet_type_id: ID):DietType
+}
+
+type Mutation {
+    createUser(user: UserDto):User
+    createDietType(diet_type: DietTypeDto):DietType
+}
