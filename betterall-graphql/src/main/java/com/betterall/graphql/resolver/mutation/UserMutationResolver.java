@@ -1,5 +1,6 @@
 package com.betterall.graphql.resolver.mutation;
 
+import com.betterall.graphql.domain.model.DietType;
 import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.domain.dto.UserDto;
 import com.betterall.graphql.repository.UserRepository;
@@ -31,7 +32,16 @@ public class UserMutationResolver implements GraphQLMutationResolver {
             found_user.setBody_fat(user.getBody_fat());
             found_user.setBmi(user.getBmi());
             found_user.setUser_goal(user.getUser_goal());
-            found_user.setDiet_type(user.getDiet_type());
+            return userRepository.save(found_user);
+        }
+        else
+            return null;
+    }
+
+    public User addDietTypeToUser(DietType dietType, User user){
+        User found_user = userRepository.findById(user.getUser_id()).orElse(null);
+        if (found_user != null) {
+            found_user.setDiet_type(dietType);
             return userRepository.save(found_user);
         }
         else

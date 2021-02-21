@@ -28,19 +28,19 @@ input UserDto {
     body_fat: Float
     bmi: Float
     user_goal: UserGoal
-    diet_type: DietTypeInput
+    diet_type: DietTypeUpdateRequest
 }
 
-input UserInput {
+input UserUpdateRequest {
     user_id: ID!
-    username: String!
-    name: String!
-    email: String!
+    username: String
+    name: String
+    email: String
     age: Int
     height: Float
     gender: Boolean
     body_fat: Float
     bmi: Float
     user_goal: UserGoal
-    diet_type: DietTypeInput
+    diet_type: DietTypeUpdateRequest
 }

@@ -9,8 +9,8 @@ input DietTypeDto {
     diet_description: String
 }
 
-input DietTypeInput {
+input DietTypeUpdateRequest {
     diet_type_id: ID!
-    diet_name: String!
+    diet_name: String
     diet_description: String
 }

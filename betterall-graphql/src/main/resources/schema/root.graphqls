@@ -6,6 +6,7 @@ type Query {
 
 type Mutation {
     createUser(user: UserDto):User
-    updateUser(user: UserInput): User
+    updateUser(user: UserUpdateRequest): User
+    addDietTypeToUser(dietType: DietTypeUpdateRequest user:UserUpdateRequest): User
     createDietType(diet_type: DietTypeDto):DietType
 }
