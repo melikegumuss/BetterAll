@@ -2,6 +2,9 @@ type Query {
     getUsersByName(name: String):[User]
     getByUserId(user_id: ID):User
     getByDietTypeId(diet_type_id: ID):DietType
+    getByConditionId(condition_id: ID):Condition
+    getConditionsByUserId(user_id: ID):[Condition]
+    getUsersByConditionId(condition_id: ID):[User]
 }
 
 type Mutation {
@@ -9,4 +12,6 @@ type Mutation {
     updateUser(user: UserUpdateRequest): User
     addDietTypeToUser(dietType: DietTypeUpdateRequest user:UserUpdateRequest): User
     createDietType(diet_type: DietTypeDto):DietType
+    createCondition(condition: ConditionDto):Condition
+    addConditionToUser(condition_id: ID user_id: ID): User
 }
