@@ -1,0 +1,16 @@
+type Condition{
+    condition_id: ID!
+    condition_type: String
+    condition_name: String
+    condition_description: String
+    duration: Float
+    users: [User]
+}
+
+input ConditionDto{
+    condition_type: String
+    condition_name: String
+    condition_description: String
+    duration: Float
+    users: [UserUpdateRequest]
+}

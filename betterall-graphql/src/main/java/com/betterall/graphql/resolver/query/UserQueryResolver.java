@@ -1,5 +1,6 @@
 package com.betterall.graphql.resolver.query;
 
+import com.betterall.graphql.domain.model.Condition;
 import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -23,4 +24,12 @@ public class UserQueryResolver implements GraphQLQueryResolver {
         return userRepository.findById(id);
     }
 
+    public List<Condition> getConditionsByUserId(Long user_id){
+        User user = userRepository.findById(user_id).orElse(null);
+        if (user != null){
+            return user.getConditions();
+        }else{
+            return null;
+        }
+    }
 }

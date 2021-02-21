@@ -31,7 +31,7 @@ public class Condition {
     @Column(name = "duration")
     private float duration;
 
-    @ManyToMany(mappedBy = "conditions")
+    @ManyToMany(mappedBy = "conditions", fetch=FetchType.EAGER)
     private List<User> users;
 
 

@@ -1,20 +1,23 @@
 package com.betterall.graphql.resolver.mutation;
 
+import com.betterall.graphql.domain.model.Condition;
 import com.betterall.graphql.domain.model.DietType;
 import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.domain.dto.UserDto;
+import com.betterall.graphql.repository.ConditionRepository;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class UserMutationResolver implements GraphQLMutationResolver {
 
     private final UserRepository userRepository;
+    private final ConditionRepository conditionRepository;
 
     public User createUser(UserDto userDto) {
         return userRepository.save(dtoToEntity(userDto));
@@ -46,6 +49,23 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         }
         else
             return null;
+    }
+
+    public User addConditionToUser(Long condition_id, Long user_id){
+        Condition condition = conditionRepository.findById(condition_id).orElse(null);
+        User user = userRepository.findById(user_id).orElse(null);
+        if (condition != null && user != null){
+            List<User> newUsers = condition.getUsers();
+            List<Condition> newConditions = user.getConditions();
+            newConditions.add(condition);
+            newUsers.add(user);
+            user.setConditions(newConditions);
+            condition.setUsers(newUsers);
+            conditionRepository.save(condition);
+            return userRepository.save(user);
+        }else{
+            return null;
+        }
     }
 
     private User dtoToEntity(UserDto userDto) {
