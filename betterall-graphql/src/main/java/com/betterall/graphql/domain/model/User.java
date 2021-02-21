@@ -45,4 +45,9 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "user_goal")
     private UserGoal user_goal;
+
+    @ManyToOne
+    @JoinColumn(name= "diet_type_id")
+    private DietType diet_type;
+
 }

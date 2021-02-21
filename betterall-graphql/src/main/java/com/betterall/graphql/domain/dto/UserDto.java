@@ -1,6 +1,7 @@
 package com.betterall.graphql.domain.dto;
 
 import com.betterall.graphql.domain.enums.UserGoal;
+import com.betterall.graphql.domain.model.DietType;
 import lombok.Data;
 
 @Data
@@ -14,4 +15,5 @@ public class UserDto {
     private float body_fat;
     private float bmi;
     private UserGoal user_goal;
+    private DietType diet_type;
 }

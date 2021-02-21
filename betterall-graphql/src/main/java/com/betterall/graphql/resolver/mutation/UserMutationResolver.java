@@ -7,6 +7,8 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class UserMutationResolver implements GraphQLMutationResolver {
@@ -15,6 +17,25 @@ public class UserMutationResolver implements GraphQLMutationResolver {
 
     public User createUser(UserDto userDto) {
         return userRepository.save(dtoToEntity(userDto));
+    }
+
+    public User updateUser(User user) {
+        User found_user = userRepository.findById(user.getUser_id()).orElse(null);
+        if (found_user != null) {
+            found_user.setUsername(user.getUsername());
+            found_user.setName(user.getName());
+            found_user.setAge(user.getAge());
+            found_user.setEmail(user.getEmail());
+            found_user.setHeight(user.getHeight());
+            found_user.setGender(user.isGender());
+            found_user.setBody_fat(user.getBody_fat());
+            found_user.setBmi(user.getBmi());
+            found_user.setUser_goal(user.getUser_goal());
+            found_user.setDiet_type(user.getDiet_type());
+            return userRepository.save(found_user);
+        }
+        else
+            return null;
     }
 
     private User dtoToEntity(UserDto userDto) {
@@ -28,6 +49,7 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         user.setBody_fat(userDto.getBody_fat());
         user.setBmi(userDto.getBmi());
         user.setUser_goal(userDto.getUser_goal());
+        user.setDiet_type(userDto.getDiet_type());
         return user;
     }
 }

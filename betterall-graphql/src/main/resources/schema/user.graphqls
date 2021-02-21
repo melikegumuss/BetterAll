@@ -9,6 +9,7 @@ type User {
     body_fat: Float
     bmi: Float
     user_goal: UserGoal
+    diet_type: DietType
 }
 
 enum UserGoal {
@@ -27,4 +28,19 @@ input UserDto {
     body_fat: Float
     bmi: Float
     user_goal: UserGoal
+    diet_type: DietTypeInput
+}
+
+input UserInput {
+    user_id: ID!
+    username: String!
+    name: String!
+    email: String!
+    age: Int
+    height: Float
+    gender: Boolean
+    body_fat: Float
+    bmi: Float
+    user_goal: UserGoal
+    diet_type: DietTypeInput
 }
