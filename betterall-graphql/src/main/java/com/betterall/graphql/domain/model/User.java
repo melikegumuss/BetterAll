@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "registered_user")
@@ -47,7 +48,15 @@ public class User implements Serializable {
     private UserGoal user_goal;
 
     @ManyToOne
-    @JoinColumn(name= "diet_type_id")
+    @JoinColumn(name = "diet_type_id")
     private DietType diet_type;
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_condition",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "condition_id")
+    )
+    private List<Condition> conditions;
 
 }
