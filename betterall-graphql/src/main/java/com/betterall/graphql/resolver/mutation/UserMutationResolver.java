@@ -98,6 +98,8 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         user.setBmi(userDto.getBmi());
         user.setUser_goal(userDto.getUser_goal());
         user.setDiet_type(userDto.getDiet_type());
+        user.setConditions(userDto.getConditions());
+        user.setMealPlan(userDto.getMealPlan());
         return user;
     }
 }

@@ -5,6 +5,7 @@ type Meal{
     protein: Float
     carbohydrate: Float
     fat: Float
+    meal_plans: [MealPlan]
 }
 
 input MealDto{
@@ -13,4 +14,15 @@ input MealDto{
     protein: Float
     carbohydrate: Float
     fat: Float
+    meal_plans: [MealPlanUpdateRequest]
+}
+
+input MealUpdateRequest{
+    meal_id: ID!
+    meal_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+    meal_plans: [MealPlanUpdateRequest]
 }

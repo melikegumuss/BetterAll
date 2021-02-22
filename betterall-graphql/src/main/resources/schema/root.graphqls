@@ -21,4 +21,5 @@ type Mutation {
     createMealPlan(meal_plan: MealPlanDto): MealPlan
     createMeal(meal: MealDto): Meal
     addMealPlanToUser(user_id: ID meal_plan_id: ID): User
+    addMealToMealPlan(meal_plan_id: ID meal_id: ID): MealPlan
 }

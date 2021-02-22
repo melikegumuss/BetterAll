@@ -1,5 +1,6 @@
 package com.betterall.graphql.domain.dto;
 
+import com.betterall.graphql.domain.model.Meal;
 import com.betterall.graphql.domain.model.User;
 import lombok.Data;
 
@@ -13,4 +14,5 @@ public class MealPlanDto {
     private float total_carbohydrate;
     private float total_fat;
     private int meal_count;
+    private List<Meal> meals;
 }

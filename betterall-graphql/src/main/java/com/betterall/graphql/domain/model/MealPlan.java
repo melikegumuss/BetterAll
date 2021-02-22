@@ -35,4 +35,12 @@ public class MealPlan {
     @Column(name = "meal_count")
     private int meal_count;
 
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "mealplan_meal",
+            joinColumns = @JoinColumn(name = "meal_plan_id"),
+            inverseJoinColumns = @JoinColumn(name = "meal_id")
+    )
+    private List<Meal> meals;
+
 }

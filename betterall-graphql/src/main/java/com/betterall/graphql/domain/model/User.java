@@ -51,7 +51,7 @@ public class User implements Serializable {
     @JoinColumn(name = "diet_type_id")
     private DietType diet_type;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(
         name = "user_condition",
         joinColumns = @JoinColumn(name = "user_id"),
