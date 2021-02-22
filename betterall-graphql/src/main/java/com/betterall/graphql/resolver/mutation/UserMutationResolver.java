@@ -72,6 +72,7 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         }
     }
 
+    //TODO: Add exceptions
     public User addMealPlanToUser(Long user_id, Long meal_plan_id){
         MealPlan mealPlan = mealPlanRepository.findById(meal_plan_id).orElse(null);
         User user = userRepository.findById(user_id).orElse(null);

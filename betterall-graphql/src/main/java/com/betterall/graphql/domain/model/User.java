@@ -59,7 +59,7 @@ public class User implements Serializable {
     )
     private List<Condition> conditions;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "user_mealplan", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "meal_plan_id", referencedColumnName = "meal_plan_id")})
     private MealPlan mealPlan;
 }

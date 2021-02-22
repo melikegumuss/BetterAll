@@ -35,7 +35,4 @@ public class MealPlan {
     @Column(name = "meal_count")
     private int meal_count;
 
-    @OneToOne(mappedBy = "mealPlan")
-    private User user;
-
 }
