@@ -51,7 +51,7 @@ public class User implements Serializable {
     @JoinColumn(name = "diet_type_id")
     private DietType diet_type;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(
         name = "user_condition",
         joinColumns = @JoinColumn(name = "user_id"),
@@ -59,4 +59,7 @@ public class User implements Serializable {
     )
     private List<Condition> conditions;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_mealplan", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "meal_plan_id", referencedColumnName = "meal_plan_id")})
+    private MealPlan mealPlan;
 }

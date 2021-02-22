@@ -1,0 +1,31 @@
+type MealPlan{
+    meal_plan_id: ID!
+    meal_plan_name: String
+    total_calorie: Float
+    total_protein: Float
+    total_carbohydrate: Float
+    total_fat: Float
+    meal_count: Int
+    meals: [Meal]
+}
+
+input MealPlanDto{
+    meal_plan_name: String
+    total_calorie: Float
+    total_protein: Float
+    total_carbohydrate: Float
+    total_fat: Float
+    meal_count: Int
+    meals: [MealUpdateRequest]
+}
+
+input MealPlanUpdateRequest{
+    meal_plan_id: ID!
+    meal_plan_name: String
+    total_calorie: Float
+    total_protein: Float
+    total_carbohydrate: Float
+    total_fat: Float
+    meal_count: Int
+    meals: [MealUpdateRequest]
+}
