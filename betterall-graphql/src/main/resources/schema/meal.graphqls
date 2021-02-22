@@ -1,0 +1,16 @@
+type Meal{
+    meal_id: ID!
+    meal_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+}
+
+input MealDto{
+    meal_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+}
