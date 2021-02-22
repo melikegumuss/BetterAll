@@ -2,9 +2,11 @@ package com.betterall.graphql.resolver.mutation;
 
 import com.betterall.graphql.domain.model.Condition;
 import com.betterall.graphql.domain.model.DietType;
+import com.betterall.graphql.domain.model.MealPlan;
 import com.betterall.graphql.domain.model.User;
 import com.betterall.graphql.domain.dto.UserDto;
 import com.betterall.graphql.repository.ConditionRepository;
+import com.betterall.graphql.repository.MealPlanRepository;
 import com.betterall.graphql.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ public class UserMutationResolver implements GraphQLMutationResolver {
 
     private final UserRepository userRepository;
     private final ConditionRepository conditionRepository;
+    private final MealPlanRepository mealPlanRepository;
 
     public User createUser(UserDto userDto) {
         return userRepository.save(dtoToEntity(userDto));
@@ -35,6 +38,7 @@ public class UserMutationResolver implements GraphQLMutationResolver {
             found_user.setBody_fat(user.getBody_fat());
             found_user.setBmi(user.getBmi());
             found_user.setUser_goal(user.getUser_goal());
+            found_user.setMealPlan(user.getMealPlan());
             return userRepository.save(found_user);
         }
         else
@@ -64,6 +68,19 @@ public class UserMutationResolver implements GraphQLMutationResolver {
             conditionRepository.save(condition);
             return userRepository.save(user);
         }else{
+            return null;
+        }
+    }
+
+    public User addMealPlanToUser(Long user_id, Long meal_plan_id){
+        MealPlan mealPlan = mealPlanRepository.findById(meal_plan_id).orElse(null);
+        User user = userRepository.findById(user_id).orElse(null);
+        if (mealPlan != null && user != null){
+            user.setMealPlan(mealPlan);
+            userRepository.save(user);
+            return user;
+        }
+        else{
             return null;
         }
     }

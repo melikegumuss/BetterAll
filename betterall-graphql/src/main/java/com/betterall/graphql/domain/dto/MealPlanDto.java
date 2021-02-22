@@ -13,4 +13,5 @@ public class MealPlanDto {
     private float total_carbohydrate;
     private float total_fat;
     private int meal_count;
+    private User user;
 }

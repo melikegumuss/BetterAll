@@ -20,4 +20,5 @@ type Mutation {
     createIngredient(ingredient: IngredientDto): Ingredient
     createMealPlan(meal_plan: MealPlanDto): MealPlan
     createMeal(meal: MealDto): Meal
+    addMealPlanToUser(user_id: ID meal_plan_id: ID): User
 }
