@@ -5,6 +5,7 @@ type Query {
     getByConditionId(condition_id: ID):Condition
     getConditionsByUserId(user_id: ID):[Condition]
     getUsersByConditionId(condition_id: ID):[User]
+    getByIngredientsId(ingredient_id: ID): Ingredient
 }
 
 type Mutation {
@@ -14,4 +15,5 @@ type Mutation {
     createDietType(diet_type: DietTypeDto):DietType
     createCondition(condition: ConditionDto):Condition
     addConditionToUser(condition_id: ID user_id: ID): User
+    createIngredient(ingredient: IngredientDto): Ingredient
 }

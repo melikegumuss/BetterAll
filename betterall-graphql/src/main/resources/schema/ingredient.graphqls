@@ -1,0 +1,16 @@
+type Ingredient{
+    ingredient_id: ID!
+    ingredient_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+}
+
+input IngredientDto{
+    ingredient_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+}
