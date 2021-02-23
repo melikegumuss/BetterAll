@@ -6,6 +6,7 @@ type Meal{
     carbohydrate: Float
     fat: Float
     meal_plans: [MealPlan]
+    ingredients: [Ingredient]
 }
 
 input MealDto{
@@ -15,6 +16,7 @@ input MealDto{
     carbohydrate: Float
     fat: Float
     meal_plans: [MealPlanUpdateRequest]
+    ingredients: [IngredientUpdateRequest]
 }
 
 input MealUpdateRequest{
@@ -25,4 +27,5 @@ input MealUpdateRequest{
     carbohydrate: Float
     fat: Float
     meal_plans: [MealPlanUpdateRequest]
+    ingredients: [IngredientUpdateRequest]
 }

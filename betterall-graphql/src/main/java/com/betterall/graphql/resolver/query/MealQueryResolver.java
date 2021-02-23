@@ -1,5 +1,6 @@
 package com.betterall.graphql.resolver.query;
 
+import com.betterall.graphql.domain.model.Ingredient;
 import com.betterall.graphql.domain.model.Meal;
 import com.betterall.graphql.repository.MealRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -18,6 +19,16 @@ public class MealQueryResolver implements GraphQLQueryResolver {
 
     public Optional<Meal> getByMealId(Long id) {
         return mealRepository.findById(id);
+    }
+
+    public List<Ingredient> getIngredientsByMealId(Long meal_id){
+        Meal meal = mealRepository.findById(meal_id).orElse(null);
+        if (meal != null){
+            return meal.getIngredients();
+        }
+        else{
+            return null;
+        }
     }
 
 }
