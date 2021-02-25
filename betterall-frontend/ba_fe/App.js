@@ -10,7 +10,7 @@ export default class App extends Component{
   render(){
     return(
       <View>
-        <Text>ALLAHIM SONUNDA OLDU</Text>
+        <Text>ALLAHIM SONUNDA OLDU ŞÜKÜR</Text>
       </View>
     );
   }
