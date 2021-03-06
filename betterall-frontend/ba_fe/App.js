@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import styles from './Styles/style'
 //#region Public class
 //#endregion
 export default class App extends Component{
@@ -8,14 +9,9 @@ export default class App extends Component{
   //#endregion
   render(){
     return(
-      <View style={style.welcome_area}>
-        <Text style={style.welcome_text}>aaaLorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+      <View style={styles.welcome_area}>
+        <Text style={styles.welcome_text}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
       </View>
     );
   }
 }
-
-const style = StyleSheet.create({
-  welcome_area: {paddingTop:150,backgroundColor:'red'},
-  welcome_text: {color:'blue', fontSize:20, fontFamily: 'Mulish-Regular'}
-});
