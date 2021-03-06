@@ -1,21 +1,50 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import styles from './Styles/style'
-//#region Public class
-//#endregion
-export default class App extends Component{
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-  //#region Program starts
-  //#endregion
-  render(){
-    return(
-      <View style={styles.welcome_area}>
-        <View style={{backgroundColor: 'green'}}/> 
-        <Text style={styles.welcome_text}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-        <View style={{paddingTop: 100, backgroundColor: 'green'}}/> 
-        <View style={{paddingTop: 100, backgroundColor: 'blue'}}/> 
-        <View style={{paddingTop: 100, backgroundColor: 'black'}}/> 
-      </View>
-    );
-  }
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
 }
+
+function DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.push('Details')}
+      />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button
+        title="Go back to first screen in stack"
+        onPress={() => navigation.popToTop()}
+      />
+    </View>
+  );
+}
+
+const Stack = createStackNavigator(
+);
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
