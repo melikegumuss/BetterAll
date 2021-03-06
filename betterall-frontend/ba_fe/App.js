@@ -10,7 +10,11 @@ export default class App extends Component{
   render(){
     return(
       <View style={styles.welcome_area}>
+        <View style={{backgroundColor: 'green'}}/> 
         <Text style={styles.welcome_text}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+        <View style={{paddingTop: 100, backgroundColor: 'green'}}/> 
+        <View style={{paddingTop: 100, backgroundColor: 'blue'}}/> 
+        <View style={{paddingTop: 100, backgroundColor: 'black'}}/> 
       </View>
     );
   }
