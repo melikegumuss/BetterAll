@@ -2,9 +2,11 @@ import * as React from 'react';
 import {SafeAreaView} from 'react-navigation';
 import {ScrollView, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import LoginScreen from '../LoginScreen';
 
 export default class Home extends React.Component {
-  constructor() {
+
+  constructor(props){
     super();
   }
   render() {
@@ -12,9 +14,9 @@ export default class Home extends React.Component {
       <SafeAreaView>
         <ScrollView>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('StartupScreen')}>
+            onPress={() => this.props.navigation.navigate('LoginScreen')}>
             <View>
-              <Text>Click for startup screen</Text>
+              <Text>Click for register or login</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity

@@ -1,30 +1,23 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import StartupScreen from './screens/StartupScreen';
-/*
-const HomeStack = createStackNavigator({
-  Home: {
-    screen: Home,
-  },
-});
+import Home from './screens/Home';
+import LoginScreen from './screens/LoginScreen';
 
 const LoginScreenA = createStackNavigator({
   LoginScreen: {
     screen: LoginScreen,
   },
 });
-*/
+
 const AppNavigator = createStackNavigator(
   {
-    StartupScreen: {
-      screen: StartupScreen,
-      navigationOptions: {
-        headerShown: false,
-      },
+    Home: {
+      screen: Home,
     },
+    LoginScreen: LoginScreen,
   },
   {
-    initialRouteName: 'StartupScreen',
+    initialRouteName: 'Home',
   },
 );
 
