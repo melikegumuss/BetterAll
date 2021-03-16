@@ -9,6 +9,7 @@ export default class StartupScreen extends React.Component {
     LogoTextAnime: new Animated.Value(0),
     loadingSpinner: false,
     redirect: false,
+
   };
 
   componentDidMount() {
