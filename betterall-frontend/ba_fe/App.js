@@ -63,12 +63,11 @@ export default class LoginScreen extends React.Component {
         </View>
     );
 }*/
-
 import * as React from 'react';
 import Route from './src/Route.js';
 export default class App extends React.Component {
   render() {
-    return <Route />;
+    return "";
   }
 }
 

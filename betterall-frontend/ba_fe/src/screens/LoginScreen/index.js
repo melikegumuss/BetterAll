@@ -1,6 +1,5 @@
 //import * as React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView } from "react-native";
 import React, {useState} from 'react';
 
 

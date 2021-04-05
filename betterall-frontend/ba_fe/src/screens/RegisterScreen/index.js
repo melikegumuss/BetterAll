@@ -1,6 +1,6 @@
 //import * as React from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "@react-native-gesture-handler";
 import React, {useState} from 'react';
 //import DateTimePicker from '@react-native-community/datetimepicker';
 

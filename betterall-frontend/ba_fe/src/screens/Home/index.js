@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {SafeAreaView} from 'react-navigation';
-import {ScrollView, Text, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {SafeAreaView} from '@react-navigation/native';
+import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
 import LoginScreen from '../LoginScreen';
 
 export default class Home extends React.Component {
