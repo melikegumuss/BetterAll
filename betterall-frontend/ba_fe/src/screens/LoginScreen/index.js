@@ -2,7 +2,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import React, {useState} from 'react';
-
+//import "fontsource-muli";
 
 export default class RegisterScreen extends React.Component {
   constructor() {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 48,
+    fontFamily: "Muli",
     color:'#7B8235',
     paddingBottom: 10,
     marginTop: 30,

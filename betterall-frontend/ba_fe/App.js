@@ -53,7 +53,7 @@ class App extends React.Component() {
     );
   }
 }
-/*import {Text, View} from "react-native";
+import {Text, View} from "react-native";
 import * as React from 'react';
 
 export default class LoginScreen extends React.Component {
@@ -63,12 +63,11 @@ export default class LoginScreen extends React.Component {
         </View>
     );
 }*/
-
 import * as React from 'react';
 import Route from './src/Route.js';
+//import Route from 'C:/Users/ececa/WebstormProjects/BetterAll/betterall-frontend/ba_fe/src/Route.js';
 export default class App extends React.Component {
   render() {
     return <Route />;
   }
 }
-
