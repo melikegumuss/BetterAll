@@ -5,8 +5,8 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import RegisterScreen from './src/screens/RegisterScreen/index';
-//import StartupScreen from './src/screens/StartupScreen/index';
-import LoginScreen from './src/screens/LoginScreen/index';
+import  {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Route from './src/Route.js';
 
-AppRegistry.registerComponent(appName, () => LoginScreen);
+AppRegistry.registerComponent(appName, () => Route);

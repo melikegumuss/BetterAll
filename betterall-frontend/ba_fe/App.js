@@ -68,6 +68,6 @@ import Route from './src/Route.js';
 //import Route from 'C:/Users/ececa/WebstormProjects/BetterAll/betterall-frontend/ba_fe/src/Route.js';
 export default class App extends React.Component {
   render() {
-    return <Route />;
+    return "";
   }
 }

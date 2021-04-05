@@ -57,10 +57,10 @@ export default class StartupScreen extends React.Component {
       );
     }
 }*/
-  render() {
-    if (this.state.redirect) {
+ render() {
+    /*if (this.state.redirect) {
       return <MainRoute />;
-    }
+    }*/
 
     return (
       <View style={styles.container}>
