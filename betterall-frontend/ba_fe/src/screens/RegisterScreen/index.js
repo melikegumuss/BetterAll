@@ -1,26 +1,33 @@
 //import * as React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from "react-native";
-import { ScrollView } from "@react-native-gesture-handler";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Button,
+} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import React, {useState} from 'react';
 //import DateTimePicker from '@react-native-community/datetimepicker';
+import {Component} from 'react';
+import LoginScreen from '../LoginScreen';
 
-export default class RegisterScreen extends React.Component {
+export default class RegisterScreen extends Component {
   constructor() {
     super();
   }
-  state={
-    username:"",
-    email:"",
-    password:"",
-    name:"",
-    surname:"",
-    height:"",
-    weight:"",
-    gender:"",
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    name: '',
+    surname: '',
+    height: '',
+    weight: '',
+    gender: '',
     //age: new Date(),
-  }
-
-
+  };
 
   render() {
     /*const [date, setDate] = useState(new Date(1598051730000));
@@ -48,19 +55,21 @@ export default class RegisterScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.header}>Register</Text>
         <ScrollView>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Username"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({username:text})}/>
+              onChangeText={(text) => this.setState({username: text})}
+            />
           </View>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="betterall@gmail.com"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({email:text})}/>
+              onChangeText={(text) => this.setState({email: text})}
+            />
           </View>
           <View style={styles.inputView}>
             <TextInput
@@ -68,21 +77,24 @@ export default class RegisterScreen extends React.Component {
               style={styles.inputText}
               placeholder="Password..."
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({password:text})}/>
+              onChangeText={(text) => this.setState({password: text})}
+            />
           </View>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Name"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({name:text})}/>
+              onChangeText={(text) => this.setState({name: text})}
+            />
           </View>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Surname"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({surname:text})}/>
+              onChangeText={(text) => this.setState({surname: text})}
+            />
           </View>
 
           {/*
@@ -102,28 +114,33 @@ export default class RegisterScreen extends React.Component {
               )
           </View>*/}
 
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Height"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({height:text})}/>
+              onChangeText={(text) => this.setState({height: text})}
+            />
           </View>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Weight"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({weight:text})}/>
+              onChangeText={(text) => this.setState({weight: text})}
+            />
           </View>
-          <View style={styles.inputView} >
+          <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
               placeholder="Gender"
               placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({gender:text})}/>
+              onChangeText={(text) => this.setState({gender: text})}
+            />
           </View>
-          <TouchableOpacity style={styles.signupButton}>
+          <TouchableOpacity
+            style={styles.signupButton}
+            onPress={() => this.props.navigation.navigate('LoginScreen')}>
             <Text style={styles.signupButtonText}>SIGN UP</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -141,7 +158,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 48,
-    color:'#7B8235',
+    color: '#7B8235',
     paddingBottom: 10,
     marginTop: 30,
     marginBottom: 40,
@@ -149,35 +166,35 @@ const styles = StyleSheet.create({
     //borderBottomColor: '#199187',
     borderBottomWidth: 1,
   },
-  inputView:{
-    width:"100%",
-    backgroundColor:'rgba(0,0,0,0.09)',
-    borderRadius:25,
-    height:30,
-    marginBottom:20,
-    justifyContent:"center",
-    padding:20,
+  inputView: {
+    width: '100%',
+    backgroundColor: 'rgba(0,0,0,0.09)',
+    borderRadius: 25,
+    height: 30,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
   },
-  inputText:{
-    height:50,
-    color:"white"
+  inputText: {
+    height: 50,
+    color: 'white',
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
   },
-  signupButton:{
-    width:"100%",
-    backgroundColor:"#ffcc33",
-    borderRadius:25,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:15,
-    marginBottom:10
+  signupButton: {
+    width: '100%',
+    backgroundColor: '#ffcc33',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    marginBottom: 10,
   },
-  signupButtonText:{
-    color:'rgba(0,0,0,0.6)',
+  signupButtonText: {
+    color: 'rgba(0,0,0,0.6)',
   },
   datePickerStyle: {
     width: 200,

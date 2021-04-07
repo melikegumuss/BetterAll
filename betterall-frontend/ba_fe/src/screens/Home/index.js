@@ -1,31 +1,24 @@
-import * as React from 'react';
-import {SafeAreaView} from '@react-navigation/native';
-import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
-import LoginScreen from '../LoginScreen';
+/*
+* This is only for debugging purposes. Will be deleted later.
+* */
+import {View, Button} from 'react-native';
+import React from 'react';
+import {Component} from 'react';
+import RegisterScreen from '../RegisterScreen';
 
-export default class Home extends React.Component {
-
-  constructor(props){
+export default class Home extends Component {
+  constructor() {
     super();
   }
   render() {
     return (
-      <SafeAreaView>
-        <ScrollView>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('LoginScreen')}>
-            <View>
-              <Text>Click for register or login</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('LoginScreen')}>
-            <View>
-              <Text>Click for login screen</Text>
-            </View>
-          </TouchableOpacity>
-        </ScrollView>
-      </SafeAreaView>
+      <View>
+        <Button
+          title="Click to go to the page."
+          //Insert the page name that you are working on for debug purposes
+          onPress={() => this.props.navigation.navigate('RegisterScreen')}
+        />
+      </View>
     );
   }
 }

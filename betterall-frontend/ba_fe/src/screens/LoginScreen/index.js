@@ -21,34 +21,33 @@ export default class RegisterScreen extends React.Component {
 
 
   render() {
-
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Welcome back!</Text>
-        <ScrollView>
-          <View style={styles.inputView} >
-            <TextInput
-              style={styles.inputText}
-              placeholder="Username"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({username:text})}/>
+          <View style={styles.container}>
+            <Text style={styles.header}>Welcome back!</Text>
+            <ScrollView>
+              <View style={styles.inputView} >
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Username"
+                    placeholderTextColor="rgba(0,0,0,0.35)"
+                    onChangeText={text => this.setState({username:text})}/>
+              </View>
+              <View style={styles.inputView}>
+                <TextInput
+                    secureTextEntry
+                    style={styles.inputText}
+                    placeholder="Password..."
+                    placeholderTextColor="rgba(0,0,0,0.35)"
+                    onChangeText={text => this.setState({password:text})}/>
+              </View>
+              <TouchableOpacity style={styles.forgotPassword}>
+                <Text style={styles.forgotPassword}>Forgot password?</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.loginButton}>
+                <Text style={styles.loginButtonText}>LOGIN</Text>
+              </TouchableOpacity>
+            </ScrollView>
           </View>
-          <View style={styles.inputView}>
-            <TextInput
-              secureTextEntry
-              style={styles.inputText}
-              placeholder="Password..."
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={text => this.setState({password:text})}/>
-          </View>
-          <TouchableOpacity style={styles.forgotPassword}>
-            <Text style={styles.forgotPassword}>Forgot password?</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>LOGIN</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
     );
   }
 }
