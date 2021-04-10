@@ -1,44 +1,54 @@
-/*import {Button, View, Text, ScrollView} from 'react-native';
-import {createAppContainer, SafeAreaView} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from 'react-navigation/stack';
-import {createAppContainer} from 'react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
+import StartupScreen from './src/screens/StartupScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
-function HomeScreen({navigation}) {
+const Stack = createStackNavigator();
+
+function NavStack() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+    <Stack.Navigator
+      initialRouteName="StartupScreen"
+      /*screenOptions={{
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#621FF7',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle :{
+              fontWeight: 'bold',
+            },
+          }}*/
+    >
+      <Stack.Screen
+        name="StartupScreen"
+        component={StartupScreen}
+        options={{title: 'StartupScreen'}}
       />
-      <Button
-        title="Go to Login Screen"
-        onPress={() => navigation.navigate('Login Screen')}
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{title: 'LoginScreen'}}
       />
-    </View>
+      <Stack.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={{title: 'RegisterScreen'}}
+      />
+    </Stack.Navigator>
   );
 }
 
-function DetailsScreen({navigation}) {
+export default function App() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      />
-    </View>
+    <NavigationContainer>
+      <NavStack />
+    </NavigationContainer>
   );
 }
+<<<<<<< HEAD
 
 class App extends React.Component() {
   render() {
@@ -71,3 +81,5 @@ export default class App extends React.Component {
     return "";
   }
 }
+=======
+>>>>>>> b192e3b38efeb00e8703c3c9b1f81265135cc330

@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {View, Image, Text, StyleSheet, Animated, LogBox} from 'react-native';
 import Logo from '../../../assets/images/betterall-logo-200x200.png';
-import MainRoute from '../../MainRoute';
+import RegisterScreen from '../RegisterScreen';
 
-export default class StartupScreen extends React.Component {
+export default class StartupScreen extends Component {
   state = {
     LogoAnime: new Animated.Value(0),
     LogoTextAnime: new Animated.Value(0),
     loadingSpinner: false,
     redirect: false,
-
   };
 
   componentDidMount() {
@@ -35,33 +34,16 @@ export default class StartupScreen extends React.Component {
     });
     // Ignoring Warning logs
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    this.id = setTimeout(() => this.setState({redirect: true}), 4000);
+    this.id = setTimeout(
+      () => this.props.navigation.navigate('RegisterScreen'),
+      4000,
+    );
   }
 
   componentWillUnmount() {
     clearTimeout(this.id);
   }
-  /* if (!this.state.redirect) {
-} else {
-  <Redirect to="./screens/Home"/>
-  -----
-
-
-    if (this.state.redirect) {
-      return (
-        <Router>
-          <div>
-            <Route path="./screens/Home" />
-          </div>
-        </Router>
-      );
-    }
-}*/
- render() {
-    /*if (this.state.redirect) {
-      return <MainRoute />;
-    }*/
-
+  render() {
     return (
       <View style={styles.container}>
         <Animated.View
@@ -81,9 +63,6 @@ export default class StartupScreen extends React.Component {
     );
   }
 }
-
-//export default StartupScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
