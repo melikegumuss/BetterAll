@@ -32,4 +32,6 @@ public class Ingredient {
     @Column(name = "fat")
     private float fat;
 
+    @ManyToMany(mappedBy = "ingredients", fetch=FetchType.EAGER)
+    private List<Meal> meals;
 }

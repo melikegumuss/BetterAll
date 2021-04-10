@@ -32,6 +32,16 @@ public class Meal {
     @Column(name = "total_fat")
     private float fat;
 
-    @ManyToMany(mappedBy = "meals", fetch=FetchType.EAGER)
+    //TODO: If fetch type eager is a must divide into two queries??? or use Set<MealPlan> instead
+    @ManyToMany(mappedBy = "meals", fetch=FetchType.LAZY)
     private List<MealPlan> meal_plans;
+
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "meal_ingredients",
+            joinColumns = @JoinColumn(name = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private List<Ingredient> ingredients;
+
 }

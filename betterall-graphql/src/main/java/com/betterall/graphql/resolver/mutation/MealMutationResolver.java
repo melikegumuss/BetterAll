@@ -28,6 +28,7 @@ public class MealMutationResolver implements GraphQLMutationResolver {
         meal.setProtein(mealDto.getProtein());
         meal.setFat(mealDto.getFat());
         meal.setMeal_plans(mealDto.getMeal_plans());
+        meal.setIngredients(mealDto.getIngredients());
         return meal;
     }
 }

@@ -5,6 +5,7 @@ type Ingredient{
     protein: Float
     carbohydrate: Float
     fat: Float
+    meals: [Meal]
 }
 
 input IngredientDto{
@@ -13,4 +14,15 @@ input IngredientDto{
     protein: Float
     carbohydrate: Float
     fat: Float
+    meals: [MealUpdateRequest]
+}
+
+input IngredientUpdateRequest{
+    ingredient_id: ID!
+    ingredient_name: String
+    calorie: Float
+    protein: Float
+    carbohydrate: Float
+    fat: Float
+    meals: [MealUpdateRequest]
 }
