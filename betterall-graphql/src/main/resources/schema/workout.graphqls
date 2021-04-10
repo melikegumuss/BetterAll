@@ -1,0 +1,19 @@
+type Workout{
+    workout_id: ID!
+    workout_name: String
+    workout_description: String
+    workout_duration: Float
+}
+
+input WorkoutDto{
+    workout_name: String
+    workout_description: String
+    workout_duration: Float
+}
+
+input WorkoutUpdateRequest{
+    workout_id: ID!
+    workout_name: String
+    workout_description: String
+    workout_duration: Float
+}

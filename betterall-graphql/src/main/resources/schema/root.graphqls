@@ -9,6 +9,8 @@ type Query {
     getByMealPlanId(meal_plan_id: ID): MealPlan
     getByMealId(meal_id: ID): Meal
     getIngredientsByMealId(meal_id: ID): [Ingredient]
+    getByWorkoutId(workout_id: ID): Workout
+    getByExerciseId(exercise_id: ID): Exercise
 }
 
 type Mutation {
@@ -24,4 +26,6 @@ type Mutation {
     addMealPlanToUser(user_id: ID meal_plan_id: ID): User
     addMealToMealPlan(meal_plan_id: ID meal_id: ID): MealPlan
     addIngredientToMeal(meal_id: ID ingredient_id: ID): Ingredient
+    createWorkout(workout: WorkoutDto): Workout
+    createExercise(exercise: ExerciseDto): Exercise
 }

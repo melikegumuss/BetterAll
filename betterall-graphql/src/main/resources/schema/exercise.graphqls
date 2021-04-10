@@ -1,0 +1,25 @@
+type Exercise{
+    exercise_id: ID!
+    exercise_type: String
+    exercise_name: String
+    exercise_duration: Float
+    exercise_repetition: Float
+    workouts: [Workout]
+}
+
+input ExerciseDto{
+    exercise_type: String
+    exercise_name: String
+    exercise_duration: Float
+    exercise_repetition: Float
+    workouts: [WorkoutUpdateRequest]
+}
+
+input ExerciseUpdateRequest{
+    exercise_id: ID!
+    exercise_type: String
+    exercise_name: String
+    exercise_duration: Float
+    exercise_repetition: Float
+    workouts: [WorkoutUpdateRequest]
+}
