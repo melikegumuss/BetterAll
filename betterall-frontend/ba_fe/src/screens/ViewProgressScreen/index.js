@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView
 import React, {useState} from 'react';
 
 
-export default class CalculateDailyCalorieScreen extends React.Component {
+export default class ViewProgressScreen extends React.Component {
   constructor() {
     super();
   }
@@ -23,7 +23,7 @@ export default class CalculateDailyCalorieScreen extends React.Component {
   render() {
     return (
           <View style={styles.container}>
-            <Text style={styles.header}>CalculateDailyCalorieScreen</Text>
+            <Text style={styles.header}>ViewProgressScreen</Text>
           </View>
     );
   }

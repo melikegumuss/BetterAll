@@ -12,6 +12,8 @@ import React, {useState} from 'react';
 //import DateTimePicker from '@react-native-community/datetimepicker';
 import {Component} from 'react';
 import LoginScreen from '../LoginScreen';
+import "../../../assets/fonts/Mulish-Regular.ttf";
+
 
 export default class RegisterScreen extends Component {
   constructor() {
@@ -158,6 +160,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 48,
+    fontFamily:'Mulish-Regular',
     color: '#7B8235',
     paddingBottom: 10,
     marginTop: 30,
@@ -167,6 +170,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   inputView: {
+    fontFamily:'Mulish-Regular',
     width: '100%',
     backgroundColor: 'rgba(0,0,0,0.09)',
     borderRadius: 25,
@@ -176,10 +180,12 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   inputText: {
+    fontFamily:'Mulish-Regular',
     height: 50,
     color: 'white',
   },
   buttonText: {
+    fontFamily:'Mulish-Regular',
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -194,6 +200,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   signupButtonText: {
+    fontFamily:'Mulish-Regular',
     color: 'rgba(0,0,0,0.6)',
   },
   datePickerStyle: {

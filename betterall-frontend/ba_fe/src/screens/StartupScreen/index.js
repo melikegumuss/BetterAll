@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Image, Text, StyleSheet, Animated, LogBox} from 'react-native';
 import Logo from '../../../assets/images/betterall-logo-200x200.png';
 import RegisterScreen from '../RegisterScreen';
+import "../../../assets/fonts/Mulish-Regular.ttf";
 
 export default class StartupScreen extends Component {
   state = {
@@ -16,6 +17,8 @@ export default class StartupScreen extends Component {
 
     Animated.parallel([
       Animated.spring(LogoAnime, {
+        fontFamily: "Mulish-Regular",
+
         toValue: 1,
         tension: 10,
         friction: 2,
@@ -23,6 +26,7 @@ export default class StartupScreen extends Component {
       }).start(),
 
       Animated.timing(LogoTextAnime, {
+        fontFamily: "Mulish-Regular",
         toValue: 1,
         duration: 1500,
         useNativeDriver: true,

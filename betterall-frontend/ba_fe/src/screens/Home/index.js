@@ -5,6 +5,8 @@ import {View, Button} from 'react-native';
 import React from 'react';
 import {Component} from 'react';
 import RegisterScreen from '../RegisterScreen';
+import "../../../assets/fonts/Mulish-Regular.ttf";
+
 
 export default class Home extends Component {
   constructor() {

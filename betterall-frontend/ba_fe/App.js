@@ -4,6 +4,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import StartupScreen from './src/screens/StartupScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import AppMenuScreen from './src/screens/AppMenuScreen';
+import CalculateDailyCalorieScreen from "./src/screens/CalculateDailyCalorieScreen";
+import CalculateBodyFatRatioScreen from "./src/screens/CalculateBodyFatRatioScreen";
+import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 
 const Stack = createStackNavigator();
 
@@ -25,7 +29,7 @@ function NavStack() {
       <Stack.Screen
         name="StartupScreen"
         component={StartupScreen}
-        options={{title: 'StartupScreen'}}
+        options={{title: ''}}
       />
       <Stack.Screen
         name="LoginScreen"
@@ -37,7 +41,28 @@ function NavStack() {
         component={RegisterScreen}
         options={{title: 'RegisterScreen'}}
       />
+      <Stack.Screen
+        name="AppMenuScreen"
+        component={AppMenuScreen}
+        options={{title: 'AppMenuScreen'}}
+      />
+      <Stack.Screen
+        name="CalculateDailyCalorieScreen"
+        component={CalculateDailyCalorieScreen}
+        options={{title: 'CalculateDailyCalorieScreen'}}
+      />
+      <Stack.Screen
+        name="CalculateBodyFatRatioScreen"
+        component={CalculateBodyFatRatioScreen}
+        options={{title: 'CalculateBodyFatRatioScreen'}}
+      />
+      <Stack.Screen
+        name="ViewProgressScreen"
+        component={ViewProgressScreen}
+        options={{title: 'ViewProgressScreen'}}
+      />
     </Stack.Navigator>
+
   );
 }
 
