@@ -2,6 +2,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView } from "react-native";
 import React, {useState} from 'react';
 //import "fontsource-muli";
+import AppMenuScreen from '../AppMenuScreen';
 
 export default class RegisterScreen extends React.Component {
   constructor() {
@@ -43,7 +44,9 @@ export default class RegisterScreen extends React.Component {
               <TouchableOpacity style={styles.forgotPassword}>
                 <Text style={styles.forgotPassword}>Forgot password?</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.loginButton}>
+              <TouchableOpacity
+                style={styles.loginButton}
+                onPress={() => this.props.navigation.navigate('AppMenuScreen')}>
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 48,
-    fontFamily: "Muli",
+    fontFamily:'Mulish-Regular',
     color:'#7B8235',
     paddingBottom: 10,
     marginTop: 30,
@@ -71,6 +74,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   inputView:{
+    fontFamily:'Mulish-Regular',
     width:"100%",
     backgroundColor:'rgba(0,0,0,0.09)',
     borderRadius:25,
@@ -80,10 +84,12 @@ const styles = StyleSheet.create({
     padding:20,
   },
   inputText:{
+    fontFamily:'Mulish-Regular',
     height:50,
     color:"white"
   },
   buttonText: {
+    fontFamily:'Mulish-Regular',
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -99,9 +105,11 @@ const styles = StyleSheet.create({
     //marginBottom:10
   },
   loginButtonText:{
+    fontFamily:'Mulish-Regular',
     color:'rgba(0,0,0,0.6)',
   },
   forgotPassword:{
+    fontFamily:'Mulish-Regular',
     color:'rgba(0,0,0,0.6)',
     marginLeft:120,
   },
