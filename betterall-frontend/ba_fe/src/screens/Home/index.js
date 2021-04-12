@@ -5,6 +5,7 @@ import {View, Button} from 'react-native';
 import React from 'react';
 import {Component} from 'react';
 import RegisterScreen from '../RegisterScreen';
+import CreateMealPlan from '../CreateMealPlan';
 
 export default class Home extends Component {
   constructor() {
@@ -14,9 +15,9 @@ export default class Home extends Component {
     return (
       <View>
         <Button
-          title="Click to go to the page."
+          title="Üzerinde çalıştığın sayfaya git."
           //Insert the page name that you are working on for debug purposes
-          onPress={() => this.props.navigation.navigate('RegisterScreen')}
+          onPress={() => this.props.navigation.navigate('CreateMealPlan')}
         />
       </View>
     );

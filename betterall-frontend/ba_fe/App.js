@@ -4,13 +4,15 @@ import {createStackNavigator} from '@react-navigation/stack';
 import StartupScreen from './src/screens/StartupScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import CreateMealPlan from './src/screens/CreateMealPlan';
+import CreateWorkoutPlan from './src/screens/CreateWorkoutPlan';
 
 const Stack = createStackNavigator();
 
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="StartupScreen"
+      initialRouteName="CreateWorkoutPlan"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -23,9 +25,20 @@ function NavStack() {
           }}*/
     >
       <Stack.Screen
+        name="CreateWorkoutPlan"
+        component={CreateWorkoutPlan}
+        options={{title: 'CreateWorkoutPlan'}}
+      />
+      <Stack.Screen
+        name="CreateMealPlan"
+        component={CreateMealPlan}
+        x
+        options={{title: 'CreateMealPlan'}}
+      />
+      <Stack.Screen
         name="StartupScreen"
         component={StartupScreen}
-        options={{title: 'StartupScreen'}}
+        options={{title: ''}}
       />
       <Stack.Screen
         name="LoginScreen"
