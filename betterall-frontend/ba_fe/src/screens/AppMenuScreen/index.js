@@ -6,6 +6,8 @@ import "../../../assets/fonts/Mulish-Regular.ttf";
 import CalculateDailyCalorieScreen from '../CalculateDailyCalorieScreen';
 import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
 import ViewProgressScreen from '../ViewProgressScreen';
+import CreateMealPlan from '../CreateMealPlan';
+import CreateWorkoutPlan from '../CreateWorkoutPlan';
 
 export default class AppMenuScreen extends React.Component {
   constructor() {
@@ -60,11 +62,15 @@ export default class AppMenuScreen extends React.Component {
 
         <ScrollView>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.planButton}>
+            <TouchableOpacity
+              style={styles.planButton}
+              onPress={() => this.props.navigation.navigate('CreateMealPlan')}>
               <ImageBackground source={require("../../../assets/images/mealPlan.png")}
                      style={styles.image}/>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.planButton}>
+            <TouchableOpacity
+              style={styles.planButton}
+              onPress={() => this.props.navigation.navigate('CreateWorkoutPlan')}>
               <ImageBackground source={require("../../../assets/images/workoutPlan.png")}
                      style={styles.image}/>
             </TouchableOpacity>

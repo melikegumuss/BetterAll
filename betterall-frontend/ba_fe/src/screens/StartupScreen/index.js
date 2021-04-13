@@ -4,6 +4,7 @@ import Logo from '../../../assets/images/betterall-logo-200x200.png';
 import RegisterScreen from '../RegisterScreen';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 
+
 export default class StartupScreen extends Component {
   state = {
     LogoAnime: new Animated.Value(0),
@@ -76,10 +77,9 @@ const styles = StyleSheet.create({
   },
 
   logoText: {
-    color: '#FFFFFF',
-    fontFamily: 'Mulish.Regular',
+    color: '#7B8235',
+    fontFamily:'Mulish-Regular',
     fontSize: 45,
-    fontWeight: '700',
     marginTop: 29.1,
   },
 });

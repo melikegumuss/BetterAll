@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {View, Button, Text, TextInput} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {View, Text} from 'react-native';
 import Vegan from '../../../assets/images/vegan.png';
 import Flexitarian from '../../../assets/images/flexitarian.png';
 import Macrobiotic from '../../../assets/images/macrobiotic.png';
 import Pescatarian from '../../../assets/images/pescatarian.png';
 import Vegetarian from '../../../assets/images/vegetarian.png';
+import "../../../assets/fonts/Mulish-Regular.ttf";
 
 import {
   SafeAreaView,
@@ -14,6 +14,12 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+
+
+
+import Tags from "react-native-tags";
+
+
 
 export default class CreateMealPlan extends Component {
   state = {
@@ -35,7 +41,8 @@ export default class CreateMealPlan extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+    <View style={styles.container}>
+
         {/*<Button title="Üzerinde çalıştığın sayfa." />
         <View>
           <Text>Please pick dietary restriction</Text>
@@ -63,14 +70,34 @@ export default class CreateMealPlan extends Component {
 
         <SafeAreaView>
           <ScrollView>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            <Text style={styles.titleStyle}>
+              Allergies
             </Text>
-            <View style={styles.column}>
-              <Text style={{fontSize: 20, paddingBottom: 10}}>
-                Dietary Restriction{' '}
+            <ScrollView horizontal={true}>
+              <Tags createTagOnReturn
+                initialText="monkey"
+                textInputProps={{
+                  placeholder: "Any type of animal"
+                }}
+                initialTags={["dog", "cat", "chicken"]}
+                onChangeTags={tags => console.log(tags)}
+                onTagPress={(index, tagLabel, event, deleted) =>
+                  console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                }
+                //createTagOnString={["\n"]}
+                containerStyle={{ justifyContent: "center" }}
+                inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                  <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                    <Text style={styles.tagTextStyle}>🤧 {tag}</Text>
+                  </TouchableOpacity>
+                )}
+              />
+          </ScrollView>
+
+          <View style={styles.column}>
+              <Text style={styles.titleStyle}>
+                Dietary Restriction
               </Text>
               <View style={styles.row}>
                 <TouchableOpacity
@@ -124,6 +151,58 @@ export default class CreateMealPlan extends Component {
                 </TouchableOpacity>
               </View>
             </View>
+
+            <Text style={styles.titleStyle}>
+              Diseases
+            </Text>
+            <ScrollView horizontal={true}>
+              <Tags createTagOnReturn
+                    initialText="monkey"
+                    textInputProps={{
+                      placeholder: "Any type of animal"
+                    }}
+                    initialTags={["dog", "cat", "chicken"]}
+                    onChangeTags={tags => console.log(tags)}
+                    onTagPress={(index, tagLabel, event, deleted) =>
+                      console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                    }
+                //createTagOnString={["\n"]}
+                    containerStyle={{ justifyContent: "center" }}
+                    inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                    renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                        <Text style={styles.tagTextStyle}>🏥 {tag}</Text>
+                      </TouchableOpacity>
+                    )}
+              />
+            </ScrollView>
+
+            <Text style={styles.titleStyle}>
+              Vitamins
+            </Text>
+            <ScrollView horizontal={true}>
+              <Tags createTagOnReturn
+                    initialText="monkey"
+                    textInputProps={{
+                      placeholder: "Any type of animal"
+                    }}
+                    initialTags={["dog", "cat", "chicken"]}
+                    onChangeTags={tags => console.log(tags)}
+                    onTagPress={(index, tagLabel, event, deleted) =>
+                      console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                    }
+                //createTagOnString={["\n"]}
+                    containerStyle={{ justifyContent: "center" }}
+                    inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                    renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                        <Text style={styles.tagTextStyle}>💊 {tag}</Text>
+                      </TouchableOpacity>
+                    )}
+              />
+            </ScrollView>
+
+
           </ScrollView>
         </SafeAreaView>
       </View>
@@ -134,9 +213,9 @@ export default class CreateMealPlan extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#CDDA7E',
-    //paddingLeft: 10,
-    //paddingRight: 10,
+    backgroundColor: '#CDDA7E',
+    paddingLeft: 10,
+    paddingRight: 10,
     justifyContent: 'center',
   },
   image: {
@@ -168,4 +247,27 @@ const styles = StyleSheet.create({
     //resizeMode: 'contain',
     marginBottom: 10,
   },
+  tagTouchable: {
+    width: 80,
+    height: 30,
+    resizeMode: 'contain',
+    backgroundColor: "#ffcc33",
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 8,
+  },
+  tagTextStyle: {
+    fontFamily: "Mulish-Regular",
+    color: "#eceece",
+  },
+  titleStyle: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontFamily:'Mulish-Regular',
+    fontSize: 26,
+    //fontWeight: '700',
+    color: "#7B8235",
+  },
+
 });

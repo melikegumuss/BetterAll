@@ -8,7 +8,8 @@ import AppMenuScreen from './src/screens/AppMenuScreen';
 import CalculateDailyCalorieScreen from "./src/screens/CalculateDailyCalorieScreen";
 import CalculateBodyFatRatioScreen from "./src/screens/CalculateBodyFatRatioScreen";
 import ViewProgressScreen from "./src/screens/ViewProgressScreen";
-
+import CreateMealPlan from "./src/screens/CreateMealPlan";
+import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
 const Stack = createStackNavigator();
 
 function NavStack() {
@@ -60,6 +61,16 @@ function NavStack() {
         name="ViewProgressScreen"
         component={ViewProgressScreen}
         options={{title: 'ViewProgressScreen'}}
+      />
+      <Stack.Screen
+        name="CreateMealPlan"
+        component={CreateMealPlan}
+        options={{title: 'CreateMealPlan'}}
+      />
+      <Stack.Screen
+        name="CreateWorkoutPlan"
+        component={CreateWorkoutPlan}
+        options={{title: 'CreateWorkoutPlan'}}
       />
     </Stack.Navigator>
 
