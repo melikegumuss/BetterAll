@@ -84,38 +84,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-<<<<<<< HEAD
-
-class App extends React.Component() {
-  render() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-          <Stack.Screen name="Login Screen" component={LoginScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
-}
-import {Text, View} from "react-native";
-import * as React from 'react';
-
-export default class LoginScreen extends React.Component {
-    return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>LoginScreen</Text>
-        </View>
-    );
-}*/
-import * as React from 'react';
-import Route from './src/Route.js';
-//import Route from 'C:/Users/ececa/WebstormProjects/BetterAll/betterall-frontend/ba_fe/src/Route.js';
-export default class App extends React.Component {
-  render() {
-    return "";
-  }
-}
-=======
->>>>>>> b192e3b38efeb00e8703c3c9b1f81265135cc330
