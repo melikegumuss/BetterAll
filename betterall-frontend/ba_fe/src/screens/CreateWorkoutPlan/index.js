@@ -4,6 +4,7 @@ import GainWeight from '../../../assets/images/gainWeight.png';
 import GetFit from '../../../assets/images/getFit.png';
 import GetStronger from '../../../assets/images/getStronger.png';
 import LoseWeight from '../../../assets/images/loseWeight.png';
+import Slider from '@react-native-community/slider';
 
 import {
   SafeAreaView,
@@ -18,6 +19,8 @@ export default class CreateWorkoutPlan extends Component {
   state = {
     goal: '',
     text: '',
+    value: 0
+
   };
 
   constructor() {
@@ -26,9 +29,31 @@ export default class CreateWorkoutPlan extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+
+
+      <View style= {styles.container}>
         <SafeAreaView>
-        <ScrollView>
+
+        <ScrollView style={{marginTop:80}}>
+                <Text style={styles.titleStyle}>
+                     Fitness level
+                </Text>
+                <View style= {{alignItems: 'center'}}>
+                    <Slider
+                         style={{width: 300, height: 40}}
+                         minimumValue={0}
+                         maximumValue={6}
+                         minimumTrackTintColor="#FFFFFF"
+                         maximumTrackTintColor="#000000"
+                         value={this.state.value}
+                         step={1}
+                         onValueChange={value => this.setState({ value })}
+                    />
+                </View>
+                <Text>
+                   Value: {this.state.value}
+                </Text>
+
           <Text style={styles.titleStyle}>
             Weakest muscle group
           </Text>
@@ -170,6 +195,7 @@ export default class CreateWorkoutPlan extends Component {
           </ScrollView>
         </SafeAreaView>
       </View>
+
     );
   }
 }
