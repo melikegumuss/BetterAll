@@ -83,11 +83,12 @@ export default class AppMenuScreen extends React.Component {
               <ImageBackground source={require("../../../assets/images/bodyFat.png")}
                      style={styles.image}/>
             </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.planButton}
               onPress={() => this.props.navigation.navigate('CalculateDailyCalorieScreen')}>
               <ImageBackground source={require("../../../assets/images/dailyCalorie.png")}
-                     style={styles.image}/>
+                               style={styles.image}/>
             </TouchableOpacity>
           </View>
 

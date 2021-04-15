@@ -1,7 +1,17 @@
 //import * as React from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView } from "react-native";
 import React, {useState} from 'react';
+import { Dimensions } from "react-native";
+const screenWidth = Dimensions.get("window").width;
 
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart
+} from "react-native-chart-kit";
 
 export default class CalculateDailyCalorieScreen extends React.Component {
   constructor() {
@@ -20,10 +30,46 @@ export default class CalculateDailyCalorieScreen extends React.Component {
   }
 
 
+
   render() {
     return (
           <View style={styles.container}>
-            <Text style={styles.header}>CalculateDailyCalorieScreen</Text>
+            <Text style={styles.header}>Daily Calories</Text>
+            <StackedBarChart
+              style={{
+                borderRadius: 16,
+                propsForDots: {
+                  r: "600",
+                  strokeWidth: "2",
+                  stroke: "#ffa726"
+                }
+              }}
+              data={{
+                labels: ["Breakfast", "Lunch", "Dinner", "Snack"],
+                legend: ["Protein", "Carbs", "Fat"],
+                data: [
+                  [600, 600, 600],
+                  [500, 300, 600],
+                  [100, 1200, 600],
+                  [300, 700, 800]
+                ],
+                barColors: ["#70c278", "#7494ea", "#ffc533"]
+              }}
+              withHorizontalLabels={false}
+              barPercentage={50}
+              //showLegend={false}
+              width={360}
+              height={320}
+              chartConfig={{
+                barPercentage: 1.1,
+                backgroundColor: "#ffc533",
+                backgroundGradientFrom: "#473933",
+                backgroundGradientTo: "#FF0054",
+                decimalPlaces: 2, // optional, defaults to 2dp
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              }}
+            />
           </View>
     );
   }

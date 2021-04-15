@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Button, Text, TextInput} from 'react-native';
+import {View, Text} from 'react-native';
 import GainWeight from '../../../assets/images/gainWeight.png';
 import GetFit from '../../../assets/images/getFit.png';
 import GetStronger from '../../../assets/images/getStronger.png';
