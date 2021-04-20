@@ -10,13 +10,29 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/stack": "^5.14.4",
+    "fontsource-muli": "^4.0.0",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-android-dialog-picker": "^0.1.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-profile-picture": "^1.0.0",
+    "react-native-reanimated": "^2.0.0",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^2.18.1",
+    "react-native-select-multiple": "^2.1.0",
+    "react-native-tags": "^2.2.0",
+    "react-native-tags-input": "^1.0.10",
+    "react-navigation-stack": "^2.10.4",
+    "react-router-redirect": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/runtime": "^7.13.7",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.3",
     "babel-jest": "^26.6.3",
     "eslint": "^7.20.0",
     "jest": "^26.6.3",
