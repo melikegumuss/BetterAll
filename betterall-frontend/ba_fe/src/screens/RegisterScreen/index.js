@@ -11,7 +11,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import React, {useState} from 'react';
 //import DateTimePicker from '@react-native-community/datetimepicker';
 import {Component} from 'react';
-import UserScreen from '../UserScreen';
+import LoginScreen from '../LoginScreen';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 
 
@@ -142,7 +142,7 @@ export default class RegisterScreen extends Component {
           </View>
           <TouchableOpacity
             style={styles.signupButton}
-            onPress={() => this.props.navigation.navigate('UserScreen')}>
+            onPress={() => this.props.navigation.navigate('LoginScreen')}>
             <Text style={styles.signupButtonText}>SIGN UP</Text>
           </TouchableOpacity>
         </ScrollView>
