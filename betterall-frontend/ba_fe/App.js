@@ -10,12 +10,37 @@ import CalculateBodyFatRatioScreen from "./src/screens/CalculateBodyFatRatioScre
 import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
+import UserScreen from "./src/screens/UserScreen";
+import Home from "./src/screens/Home";
+//import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+
 const Stack = createStackNavigator();
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
+const Tab = createMaterialBottomTabNavigator();
+
+function MainTabNavigator({navigation, route}){
+    return (
+        <Tab.Navigator
+            initialRouteName={UserScreen}
+
+            tabBarOptions={{
+              activeTintColor: 'green',
+              style: {
+                backgroundColor: 'whitesmoke'
+              }
+            }}>
+            <Tab.Screen name='AppMenuScreen' component={AppMenuScreen} />
+            <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan} />
+            <Tab.Screen name='CreateWorkn' component={CreateWorkoutPlan} />
+        </Tab.Navigator>
+    )
+}
 
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="StartupScreen"
+      initialRouteName="UserScreen"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -27,6 +52,13 @@ function NavStack() {
             },
           }}*/
     >
+    <Stack.Screen
+        name="UserScreen"
+        component={MainTabNavigator}
+        options={{
+            headerTitle: 'UserScreen'
+        }}
+    />
       <Stack.Screen
         name="StartupScreen"
         component={StartupScreen}
@@ -72,6 +104,14 @@ function NavStack() {
         component={CreateWorkoutPlan}
         options={{title: 'CreateWorkoutPlan'}}
       />
+
+        <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{title: 'Home'}}
+        />
+
+
     </Stack.Navigator>
 
   );
