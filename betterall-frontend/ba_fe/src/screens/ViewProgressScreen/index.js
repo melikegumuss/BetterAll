@@ -1,6 +1,5 @@
 //import * as React from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, Button, ScrollView } from "react-native";
-//import React, {useState} from 'react';
 
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
