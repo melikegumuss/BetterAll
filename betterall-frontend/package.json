@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@react-navigation/stack": "^5.14.4",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-picker-select": "^8.0.4"
+  }
+}
