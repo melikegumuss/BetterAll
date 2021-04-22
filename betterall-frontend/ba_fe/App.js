@@ -10,29 +10,91 @@ import CalculateBodyFatRatioScreen from "./src/screens/CalculateBodyFatRatioScre
 import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
-import UserScreen from "./src/screens/UserScreen";
+//import UserScreen from "./src/screens/UserScreen";
 import Home from "./src/screens/Home";
-//import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
+import "../ba_fe/assets/images/mealPlan.png";
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { Image } from "react-native";
+
 
 const Tab = createMaterialBottomTabNavigator();
 
 function MainTabNavigator({navigation, route}){
     return (
+      //NavStack(),
         <Tab.Navigator
-            initialRouteName={UserScreen}
-
+            initialRouteName={AppMenuScreen}
+            barStyle={{ backgroundColor: '#CDDA7E', height: 60 }}
             tabBarOptions={{
-              activeTintColor: 'green',
+              activeTintColor: "#937298",
               style: {
-                backgroundColor: 'whitesmoke'
+                backgroundColor: "#937298",
               }
             }}>
-            <Tab.Screen name='AppMenuScreen' component={AppMenuScreen} />
-            <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan} />
-            <Tab.Screen name='CreateWorkn' component={CreateWorkoutPlan} />
+          <Tab.Screen name='AppMenuScreen' component={AppMenuScreen}
+            options={{
+              title: '',
+              tabBarIcon: ({size,focused,color}) => {
+                return (
+                  <Image
+                    style={{ width: 85, height: 85,     alignItems: 'center',
+                      justifyContent: 'center'}}
+                    source={
+                      require("../ba_fe/assets/images/ic_accessibility_white.png")
+                    }
+                  />
+                );
+              },
+            }}
+
+          />
+          <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan}
+                      options={{
+                        title: '',
+                        tabBarIcon: ({size,focused,color}) => {
+                          return (
+                            <Image
+                              style={{ width: 45, height: 45,     alignItems: 'center',
+                                justifyContent: 'center'}}
+                              source={
+                                require("../ba_fe/assets/images/workoutPlan.png")
+                              }
+                            />
+                          );
+                        },
+                      }}/>
+          <Tab.Screen name='CreateMealPlan' component={CreateMealPlan}
+                      options={{
+                        title: '',
+                        tabBarIcon: ({size,focused,color}) => {
+                          return (
+                            <Image
+                              style={{ width: 45, height: 45,     alignItems: 'center',
+                                justifyContent: 'center'}}
+                              source={
+                                require("../ba_fe/assets/images/mealPlan.png")
+                              }
+                            />
+                          );
+                        },
+                      }}/>
+          <Tab.Screen name='ViewProgressScreen' component={ViewProgressScreen}
+                      options={{
+                        title: '',
+                        tabBarIcon: ({size,focused,color}) => {
+                          return (
+                            <Image
+                              style={{ width: 45, height: 45,     alignItems: 'center',
+                                justifyContent: 'center'}}
+                              source={
+                                require("../ba_fe/assets/images/seeProgress.png")
+                              }
+                            />
+                          );
+                        },
+                      }}/>
         </Tab.Navigator>
     )
 }
@@ -40,7 +102,7 @@ function MainTabNavigator({navigation, route}){
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="UserScreen"
+      initialRouteName="StartupScreen"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -53,10 +115,10 @@ function NavStack() {
           }}*/
     >
     <Stack.Screen
-        name="UserScreen"
+        name="AppMenuScreen"
         component={MainTabNavigator}
         options={{
-            headerTitle: 'UserScreen'
+            headerTitle: 'AppMenuScreen'
         }}
     />
       <Stack.Screen
@@ -74,34 +136,35 @@ function NavStack() {
         component={RegisterScreen}
         options={{title: 'RegisterScreen'}}
       />
-      <Stack.Screen
-        name="AppMenuScreen"
-        component={AppMenuScreen}
-        options={{title: 'AppMenuScreen'}}
-      />
+
       <Stack.Screen
         name="CalculateDailyCalorieScreen"
         component={CalculateDailyCalorieScreen}
         options={{title: 'CalculateDailyCalorieScreen'}}
+        //component={MainTabNavigator}
       />
       <Stack.Screen
         name="CalculateBodyFatRatioScreen"
+        //component={MainTabNavigator}
         component={CalculateBodyFatRatioScreen}
         options={{title: 'CalculateBodyFatRatioScreen'}}
       />
       <Stack.Screen
         name="ViewProgressScreen"
+        //component={MainTabNavigator}
         component={ViewProgressScreen}
         options={{title: 'ViewProgressScreen'}}
       />
       <Stack.Screen
         name="CreateMealPlan"
-        component={CreateMealPlan}
+        component={MainTabNavigator}
+        //component={CreateMealPlan}
         options={{title: 'CreateMealPlan'}}
       />
       <Stack.Screen
         name="CreateWorkoutPlan"
-        component={CreateWorkoutPlan}
+        component={MainTabNavigator}
+        //component={CreateWorkoutPlan}
         options={{title: 'CreateWorkoutPlan'}}
       />
 

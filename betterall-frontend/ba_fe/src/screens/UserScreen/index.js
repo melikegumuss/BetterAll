@@ -13,8 +13,8 @@ import CreateMealPlan from "../CreateMealPlan";
 import CreateWorkoutPlan from "../CreateWorkoutPlan";
 import {NavigationContainer} from "@react-navigation/native";
 
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-const Tab = createMaterialBottomTabNavigator();
+//import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+//const Tab = createMaterialBottomTabNavigator();
 
 export default class UserScreen extends Component {
 
@@ -27,6 +27,7 @@ export default class UserScreen extends Component {
         return (
             <View>
                 <Text>efwe</Text>
+                {/*this.props.navigation.navigate('AppMenuScreen')*/}
             </View>
 
 
