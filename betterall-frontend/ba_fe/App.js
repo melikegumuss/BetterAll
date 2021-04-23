@@ -102,7 +102,7 @@ function MainTabNavigator({navigation, route}){
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="StartupScreen"
+      initialRouteName="Home"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
