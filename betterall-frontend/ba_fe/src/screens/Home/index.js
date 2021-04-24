@@ -4,13 +4,11 @@
 import {View, Button, StyleSheet, Dimensions, TouchableOpacity, Text} from 'react-native';
 import React from 'react';
 import {Component} from 'react';
-import RegisterScreen from '../RegisterScreen';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import {locations} from '../data/data';
 import RNGooglePlaces from 'react-native-google-places';
 import Geolocation from '@react-native-community/geolocation';
-//import PlaceList from "../Home/PlaceList";
 
 const styles = StyleSheet.create({
   container: {
