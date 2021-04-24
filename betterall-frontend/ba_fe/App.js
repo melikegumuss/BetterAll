@@ -118,60 +118,59 @@ function NavStack() {
         name="AppMenuScreen"
         component={MainTabNavigator}
         options={{
-            headerTitle: 'AppMenuScreen'
-        }}
+            headerTitle: 'AppMenuScreen', headerShown: false}}
     />
       <Stack.Screen
         name="StartupScreen"
         component={StartupScreen}
-        options={{title: ''}}
+        options={{title: '', headerShown: false}}
       />
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{title: 'LoginScreen'}}
+        options={{title: 'LoginScreen', headerShown: false}}
       />
       <Stack.Screen
         name="RegisterScreen"
         component={RegisterScreen}
-        options={{title: 'RegisterScreen'}}
+        options={{title: 'RegisterScreen', headerShown: false}}
       />
 
       <Stack.Screen
         name="CalculateDailyCalorieScreen"
         component={CalculateDailyCalorieScreen}
-        options={{title: 'CalculateDailyCalorieScreen'}}
+        options={{title: 'CalculateDailyCalorieScreen', headerShown: false}}
         //component={MainTabNavigator}
       />
       <Stack.Screen
         name="CalculateBodyFatRatioScreen"
         //component={MainTabNavigator}
         component={CalculateBodyFatRatioScreen}
-        options={{title: 'CalculateBodyFatRatioScreen'}}
+        options={{title: 'CalculateBodyFatRatioScreen', headerShown: false}}
       />
       <Stack.Screen
         name="ViewProgressScreen"
         //component={MainTabNavigator}
         component={ViewProgressScreen}
-        options={{title: 'ViewProgressScreen'}}
+        options={{title: 'ViewProgressScreen', headerShown: false}}
       />
       <Stack.Screen
         name="CreateMealPlan"
         component={MainTabNavigator}
         //component={CreateMealPlan}
-        options={{title: 'CreateMealPlan'}}
+        options={{title: 'CreateMealPlan', headerShown: false}}
       />
       <Stack.Screen
         name="CreateWorkoutPlan"
         component={MainTabNavigator}
         //component={CreateWorkoutPlan}
-        options={{title: 'CreateWorkoutPlan'}}
+        options={{title: 'CreateWorkoutPlan', headerShown: false}}
       />
 
       <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'Home'}}
+          options={{title: 'Home', headerShown: false}}
       />
 
 
