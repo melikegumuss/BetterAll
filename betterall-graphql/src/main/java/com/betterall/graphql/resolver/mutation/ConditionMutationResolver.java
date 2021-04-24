@@ -23,11 +23,21 @@ public class ConditionMutationResolver implements GraphQLMutationResolver {
     public Condition updateCondition(Condition condition) {
         Condition found_condition = conditionRepository.findById(condition.getCondition_id()).orElse(null);
         if (found_condition != null) {
-            found_condition.setCondition_name(condition.getCondition_name());
-            found_condition.setCondition_type(condition.getCondition_type());
-            found_condition.setCondition_description(condition.getCondition_description());
-            found_condition.setUsers(condition.getUsers());
-            found_condition.setDuration(condition.getDuration());
+            if (!condition.getCondition_name().isEmpty()){
+                found_condition.setCondition_name(condition.getCondition_name());
+            }
+            if (!condition.getCondition_type().isEmpty()){
+                found_condition.setCondition_type(condition.getCondition_type());
+            }
+            if (condition.getCondition_description().isEmpty()){
+                found_condition.setCondition_description(condition.getCondition_description());
+            }
+            if (!condition.getUsers().isEmpty()){
+                found_condition.setUsers(condition.getUsers());
+            }
+            if (condition.getDuration() != 0){
+                found_condition.setDuration(condition.getDuration());
+            }
             return conditionRepository.save(found_condition);
         }
         else

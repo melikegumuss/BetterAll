@@ -28,36 +28,88 @@ public class UserMutationResolver implements GraphQLMutationResolver {
     public User updateUser(User user) {
         User found_user = userRepository.findById(user.getUser_id()).orElse(null);
         if (found_user != null) {
-            found_user.setThird_party_id(user.getThird_party_id());
-            found_user.setProgram_id(user.getProgram_id());
-            found_user.setProgram_name(user.getProgram_name());
-            found_user.setUsername(user.getUsername());
-            found_user.setName(user.getName());
-            found_user.setAge(user.getAge());
-            found_user.setEmail(user.getEmail());
-            found_user.setStarting_weight(user.getStarting_weight());
-            found_user.setTarget_weight(user.getTarget_weight());
-            found_user.setHeight(user.getHeight());
+            if(!user.getThird_party_id().isEmpty()){
+                found_user.setThird_party_id(user.getThird_party_id());
+            }
+            if (!user.getProgram_id().isEmpty()){
+                found_user.setProgram_id(user.getProgram_id());
+            }
+            if (!user.getProgram_name().isEmpty()){
+                found_user.setProgram_name(user.getProgram_name());
+            }
+            if (!user.getUsername().isEmpty()){
+                found_user.setUsername(user.getUsername());
+            }
+            if (!user.getName().isEmpty()){
+                found_user.setName(user.getName());
+            }
+            if (user.getAge() != 0){
+                found_user.setAge(user.getAge());
+            }
+            if (!user.getEmail().isEmpty()){
+                found_user.setEmail(user.getEmail());
+            }
+            if (user.getStarting_weight() != 0){
+                found_user.setStarting_weight(user.getStarting_weight());
+            }
+            if (user.getTarget_weight() != 0){
+                found_user.setTarget_weight(user.getTarget_weight());
+            }
+            if (user.getHeight() != 0){
+                found_user.setHeight(user.getHeight());
+            }
             found_user.setGender(user.isGender());
-            found_user.setBody_fat(user.getBody_fat());
-            found_user.setBmi(user.getBmi());
-            found_user.setDaily_calorie_intake(user.getDaily_calorie_intake());
-            found_user.setCalorie_deficit(user.getCalorie_deficit());
-            found_user.setTotal_daily_energy_expenditure(user.getTotal_daily_energy_expenditure());
-            found_user.setBasal_metabolic_rate(user.getBasal_metabolic_rate());
+            if (user.getBody_fat() != 0){
+                found_user.setBody_fat(user.getBody_fat());
+            }
+            if (user.getBmi() != 0){
+                found_user.setBmi(user.getBmi());
+            }
+            if (user.getDaily_calorie_intake() != 0){
+                found_user.setDaily_calorie_intake(user.getDaily_calorie_intake());
+            }
+            if (user.getCalorie_deficit() != 0){
+                found_user.setCalorie_deficit(user.getCalorie_deficit());
+            }
+            if (user.getTotal_daily_energy_expenditure() != 0){
+                found_user.setTotal_daily_energy_expenditure(user.getTotal_daily_energy_expenditure());
+            }
+            if (user.getBasal_metabolic_rate() != 0){
+                found_user.setBasal_metabolic_rate(user.getBasal_metabolic_rate());
+            }
             found_user.setWeekly_weight_goal(user.getWeekly_weight_goal());
             found_user.setActivity_level(user.getActivity_level());
-            found_user.setConditions(user.getConditions());
+            if (!user.getConditions().isEmpty()){
+                found_user.setConditions(user.getConditions());
+            }
             found_user.setImperial(user.isImperial());
-            found_user.setTimezone(user.getTimezone());
-            found_user.setRestrictions(user.getRestrictions());
-            found_user.setHba1c(user.getHba1c());
-            found_user.setTotal_cholesterol(user.getTotal_cholesterol());
-            found_user.setCholesterol_ldl(user.getCholesterol_ldl());
-            found_user.setVitamin_d(user.getVitamin_d());
-            found_user.setVitamin_b12(user.getVitamin_b12());
-            found_user.setCortisol(user.getCortisol());
-            found_user.setFerritin(user.getFerritin());
+            if (!user.getTimezone().isEmpty()){
+                found_user.setTimezone(user.getTimezone());
+            }
+            if (!user.getRestrictions().isEmpty()){
+                found_user.setRestrictions(user.getRestrictions());
+            }
+            if (user.getHba1c() != 0){
+                found_user.setHba1c(user.getHba1c());
+            }
+            if (user.getTotal_cholesterol() != 0){
+                found_user.setTotal_cholesterol(user.getTotal_cholesterol());
+            }
+            if (user.getCholesterol_ldl() != 0){
+                found_user.setCholesterol_ldl(user.getCholesterol_ldl());
+            }
+            if (user.getVitamin_d() != 0){
+                found_user.setVitamin_d(user.getVitamin_d());
+            }
+            if (user.getVitamin_b12() != 0){
+                found_user.setVitamin_b12(user.getVitamin_b12());
+            }
+            if (user.getCortisol() != 0){
+                found_user.setCortisol(user.getCortisol());
+            }
+            if (user.getFerritin() != 0){
+                found_user.setFerritin(user.getFerritin());
+            }
             return userRepository.save(found_user);
         }
         else

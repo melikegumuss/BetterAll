@@ -23,9 +23,15 @@ public class RestrictionMutationResolver implements GraphQLMutationResolver{
     public Restriction updateRestriction(Restriction restriction) {
         Restriction found_restriction = restrictionRepository.findById(restriction.getRestriction_id()).orElse(null);
         if (found_restriction != null) {
-            found_restriction.setRestriction_name(restriction.getRestriction_name());
-            found_restriction.setThird_party_restriction_id(restriction.getThird_party_restriction_id());
-            found_restriction.setUsers(restriction.getUsers());
+            if (!restriction.getRestriction_name().isEmpty()){
+                found_restriction.setRestriction_name(restriction.getRestriction_name());
+            }
+            if (!restriction.getThird_party_restriction_id().isEmpty()){
+                found_restriction.setThird_party_restriction_id(restriction.getThird_party_restriction_id());
+            }
+            if (!restriction.getUsers().isEmpty()){
+                found_restriction.setUsers(restriction.getUsers());
+            }
             return restrictionRepository.save(found_restriction);
         }
         else
