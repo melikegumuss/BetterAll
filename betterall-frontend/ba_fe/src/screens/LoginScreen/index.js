@@ -48,7 +48,6 @@ export default class LoginScreen extends React.Component {
         this.setState({ nameList });
       })
   }*/
-
   function1(){
     console.log("IN HERE");
 
@@ -71,20 +70,19 @@ export default class LoginScreen extends React.Component {
   }
 
   render() {
-    const {nameList} = this.state;
     return (
-          <View style={styles.container}>
-            <Text style={styles.header}>Welcome back!</Text>
-            <ScrollView>
-              <View style={styles.inputView} >
-                <TextInput
-                    style={styles.inputText}
-                    placeholder="Username"
-                    placeholderTextColor="rgba(0,0,0,0.35)"
-                    onChangeText={text => this.setState({username:text})}/>
-              </View>
-              <View style={styles.inputView}>
-                <TextInput
+      <View style={styles.container}>
+        <Text style={styles.header}>Welcome back!</Text>
+          <ScrollView>
+            <View style={styles.inputView} >
+              <TextInput
+                style={styles.inputText}
+                placeholder="Username"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={text => this.setState({username:text})}/>
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
                     secureTextEntry
                     style={styles.inputText}
                     placeholder="Password..."
@@ -97,7 +95,7 @@ export default class LoginScreen extends React.Component {
               <TouchableOpacity
                 style={styles.loginButton}
                 //onPress={() => this.props.navigation.navigate('AppMenuScreen')}>
-                onPress={() => this.function1()}>
+                onPress={() => { this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
