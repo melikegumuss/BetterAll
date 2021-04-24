@@ -1,0 +1,19 @@
+type Restriction {
+    restriction_id: ID!
+    third_party_restriction_id: String
+    restriction_name: String
+    users: [User]
+}
+
+input RestrictionDto {
+    third_party_restriction_id: String
+    restriction_name: String
+    users: [UserUpdateRequest]
+}
+
+input RestrictionUpdateRequest {
+    restriction_id: ID!
+    third_party_restriction_id: String
+    restriction_name: String
+    users: [UserUpdateRequest]
+}

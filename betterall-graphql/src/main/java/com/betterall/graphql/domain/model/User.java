@@ -1,6 +1,7 @@
 package com.betterall.graphql.domain.model;
 
-import com.betterall.graphql.domain.enums.UserGoal;
+import com.betterall.graphql.domain.enums.ActivityLevel;
+import com.betterall.graphql.domain.enums.WeeklyWeightGoal;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,15 @@ public class User implements Serializable {
     @GeneratedValue(generator = "seq_user", strategy = GenerationType.SEQUENCE)
     private Long user_id;
 
+    @Column(length = 100, name = "third_party_id")
+    private String third_party_id;
+
+    @Column(length = 100, name = "program_id")
+    private String program_id;
+
+    @Column(length = 100, name = "program_name")
+    private String program_name;
+
     @Column(length = 100, name = "username")
     private String username;
 
@@ -30,6 +40,12 @@ public class User implements Serializable {
 
     @Column(length = 100, name = "email")
     private String email;
+
+    @Column(name = "starting_weight")
+    private float starting_weight;
+
+    @Column(name = "target_weight")
+    private int target_weight;
 
     @Column(name = "height")
     private float height;
@@ -43,13 +59,25 @@ public class User implements Serializable {
     @Column(name = "bmi")
     private float bmi;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "user_goal")
-    private UserGoal user_goal;
+    @Column(name = "daily_calorie_intake")
+    private int daily_calorie_intake;
 
-    @ManyToOne
-    @JoinColumn(name = "diet_type_id")
-    private DietType diet_type;
+    @Column(name = "calorie_deficit")
+    private int calorie_deficit;
+
+    @Column(name = "total_daily_energy_expenditure")
+    private int total_daily_energy_expenditure;
+
+    @Column(name = "basal_metabolic_rate")
+    private int basal_metabolic_rate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "weekly_weight_goal")
+    private WeeklyWeightGoal weekly_weight_goal;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "activity_level")
+    private ActivityLevel activity_level;
 
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(
@@ -59,8 +87,40 @@ public class User implements Serializable {
     )
     private List<Condition> conditions;
 
+    @Column(name = "imperial")
+    private boolean imperial;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_mealplan", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "meal_plan_id", referencedColumnName = "meal_plan_id")})
-    private MealPlan mealPlan;
+    @Column(length = 100, name = "timezone")
+    private String timezone;
+
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name = "user_restriction",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "restriction_id")
+    )
+    private List<Restriction> restrictions;
+
+    @Column(name = "hba1c")
+    private float hba1c;
+
+    @Column(name = "total_cholesterol")
+    private int total_cholesterol;
+
+    @Column(name = "cholesterol_ldl")
+    private int cholesterol_ldl;
+
+    @Column(name = "vitamin_d")
+    private int vitamin_d;
+
+    @Column(name = "vitamin_b12")
+    private int vitamin_b12;
+
+    @Column(name = "cortisol")
+    private int cortisol;
+
+    @Column(name = "ferritin")
+    private int ferritin;
+
+
 }

@@ -1,46 +1,114 @@
 type User {
     user_id: ID!
+    third_party_id: String
     username: String!
     name: String!
     email: String!
+    program_id: String
+    program_name: String
     age: Int
+    starting_weight: Float
+    target_weight: Int
     height: Float
     gender: Boolean
     body_fat: Float
     bmi: Float
-    user_goal: UserGoal
-    diet_type: DietType
+    daily_calorie_intake: Int
+    calorie_deficit: Int
+    total_daily_energy_expenditure: Int
+    basal_metabolic_rate: Int
+    weekly_weight_goal: WeeklyWeightGoal
+    activity_level: ActivityLevel
+    conditions: [Condition]
+    imperial: Boolean
+    timezone: String
+    restrictions: [Restriction]
+    hba1c: Float
+    total_cholesterol: Float
+    cholesterol_ldl: Float
+    vitamin_d: Float
+    vitamin_b12: Float
+    cortisol: Float
+    ferritin: Float
 }
 
-enum UserGoal {
-    GAIN_WEIGHT,
-    LOSE_WEIGHT,
-    MAINTAIN_WEIGHT
+enum ActivityLevel {
+    NOT_ACTIVE,
+    EXERCISE_1,
+    EXERCISE_2
+}
+
+enum WeeklyWeightGoal {
+    MANTAIN,
+    GOAL_1,
+    GOAL_2,
+    GOAL_3,
+    GOAL_4
 }
 
 input UserDto {
+    third_party_id: String
     username: String!
     name: String!
     email: String!
+    program_id: String
+    program_name: String
     age: Int
+    starting_weight: Float
+    target_weight: Int
     height: Float
     gender: Boolean
     body_fat: Float
     bmi: Float
-    user_goal: UserGoal
-    diet_type: DietTypeUpdateRequest
+    daily_calorie_intake: Int
+    calorie_deficit: Int
+    total_daily_energy_expenditure: Int
+    basal_metabolic_rate: Int
+    weekly_weight_goal: WeeklyWeightGoal
+    activity_level: ActivityLevel
+    conditions: [ConditionUpdateRequest]
+    imperial: Boolean
+    timezone: String
+    restrictions: [RestrictionUpdateRequest]
+    hba1c: Float
+    total_cholesterol: Float
+    cholesterol_ldl: Float
+    vitamin_d: Float
+    vitamin_b12: Float
+    cortisol: Float
+    ferritin: Float
 }
 
 input UserUpdateRequest {
     user_id: ID!
+    third_party_id: String
     username: String
     name: String
     email: String
+    program_id: String
+    program_name: String
     age: Int
+    starting_weight: Float
+    target_weight: Int
     height: Float
     gender: Boolean
     body_fat: Float
     bmi: Float
-    user_goal: UserGoal
-    diet_type: DietTypeUpdateRequest
+    daily_calorie_intake: Int
+    calorie_deficit: Int
+    total_daily_energy_expenditure: Int
+    basal_metabolic_rate: Int
+    weekly_weight_goal: WeeklyWeightGoal
+    activity_level: ActivityLevel
+    conditions: [ConditionUpdateRequest]
+    imperial: Boolean
+    timezone: String
+    restrictions: [RestrictionUpdateRequest]
+    hba1c: Float
+    total_cholesterol: Float
+    cholesterol_ldl: Float
+    vitamin_d: Float
+    vitamin_b12: Float
+    cortisol: Float
+    ferritin: Float
 }

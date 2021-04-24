@@ -1,4 +1,4 @@
-type Condition{
+type Condition {
     condition_id: ID!
     condition_type: String
     condition_name: String
@@ -7,7 +7,16 @@ type Condition{
     users: [User]
 }
 
-input ConditionDto{
+input ConditionDto {
+    condition_type: String
+    condition_name: String
+    condition_description: String
+    duration: Float
+    users: [UserUpdateRequest]
+}
+
+input ConditionUpdateRequest {
+    condition_id: ID!
     condition_type: String
     condition_name: String
     condition_description: String

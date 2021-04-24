@@ -1,14 +1,12 @@
 type Query {
     getUsersByName(name: String):[User]
     getByUserId(user_id: ID):User
-    getByDietTypeId(diet_type_id: ID):DietType
     getByConditionId(condition_id: ID):Condition
     getConditionsByUserId(user_id: ID):[Condition]
     getUsersByConditionId(condition_id: ID):[User]
-    getByIngredientsId(ingredient_id: ID): Ingredient
-    getByMealPlanId(meal_plan_id: ID): MealPlan
-    getByMealId(meal_id: ID): Meal
-    getIngredientsByMealId(meal_id: ID): [Ingredient]
+    getByRestrictionId(restriction_id: ID):Restriction
+    getRestrictionsByUserId(user_id: ID):[Restriction]
+    getUsersByRestrictionId(restriction_id: ID):[User]
     getByWorkoutId(workout_id: ID): Workout
     getByExerciseId(exercise_id: ID): Exercise
 }
@@ -16,16 +14,12 @@ type Query {
 type Mutation {
     createUser(user: UserDto):User
     updateUser(user: UserUpdateRequest): User
-    addDietTypeToUser(dietType: DietTypeUpdateRequest user:UserUpdateRequest): User
-    createDietType(diet_type: DietTypeDto):DietType
     createCondition(condition: ConditionDto):Condition
+    updateCondition(condition: ConditionUpdateRequest):Condition
     addConditionToUser(condition_id: ID user_id: ID): User
-    createIngredient(ingredient: IngredientDto): Ingredient
-    createMealPlan(meal_plan: MealPlanDto): MealPlan
-    createMeal(meal: MealDto): Meal
-    addMealPlanToUser(user_id: ID meal_plan_id: ID): User
-    addMealToMealPlan(meal_plan_id: ID meal_id: ID): MealPlan
-    addIngredientToMeal(meal_id: ID ingredient_id: ID): Ingredient
+    createRestriction(restriction: RestrictionDto):Restriction
+    updateRestriction(restriction: RestrictionUpdateRequest):Restriction
+    addRestrictionToUser(restriction_id: ID user_id: ID): User
     createWorkout(workout: WorkoutDto): Workout
     createExercise(exercise: ExerciseDto): Exercise
 }

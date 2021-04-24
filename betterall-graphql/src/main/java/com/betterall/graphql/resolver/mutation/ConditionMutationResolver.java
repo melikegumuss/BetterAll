@@ -20,6 +20,20 @@ public class ConditionMutationResolver implements GraphQLMutationResolver {
         return conditionRepository.save(dtoToEntity(conditionDto));
     }
 
+    public Condition updateCondition(Condition condition) {
+        Condition found_condition = conditionRepository.findById(condition.getCondition_id()).orElse(null);
+        if (found_condition != null) {
+            found_condition.setCondition_name(condition.getCondition_name());
+            found_condition.setCondition_type(condition.getCondition_type());
+            found_condition.setCondition_description(condition.getCondition_description());
+            found_condition.setUsers(condition.getUsers());
+            found_condition.setDuration(condition.getDuration());
+            return conditionRepository.save(found_condition);
+        }
+        else
+            return null;
+    }
+
 
     private Condition dtoToEntity(ConditionDto conditionDto) {
         Condition condition = new Condition();
