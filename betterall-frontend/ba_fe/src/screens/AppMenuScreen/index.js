@@ -8,6 +8,7 @@ import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
 import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
+import Home from '../Home';
 
 export default class AppMenuScreen extends React.Component {
   constructor() {
@@ -100,6 +101,13 @@ export default class AppMenuScreen extends React.Component {
                      style={styles.progressImage}/>
             </TouchableOpacity>
           </View>
+
+          <TouchableOpacity
+            style={styles.planButton}
+            onPress={() => this.props.navigation.navigate('Home')}>
+            <ImageBackground source={require("../../../assets/images/dailyCalorie.png")}
+                             style={styles.image}/>
+          </TouchableOpacity>
 
 
         </ScrollView>

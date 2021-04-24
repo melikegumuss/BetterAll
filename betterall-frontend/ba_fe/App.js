@@ -102,7 +102,7 @@ function MainTabNavigator({navigation, route}){
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="StartupScreen"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -168,11 +168,11 @@ function NavStack() {
         options={{title: 'CreateWorkoutPlan'}}
       />
 
-        <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{title: 'Home'}}
-        />
+      <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{title: 'Home'}}
+      />
 
 
     </Stack.Navigator>
