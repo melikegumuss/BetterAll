@@ -51,8 +51,9 @@ export default class LoginScreen extends React.Component {
 
   function1(){
     console.log("IN HERE");
+
         try{
-          fetch('https://webhook.site/70c62502-d5d5-4ce7-8cce-119694571a31',{
+          fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
           method: 'post',
           mode: 'no-cors',
           headers: {

@@ -20,16 +20,58 @@ export default class RegisterScreen extends Component {
     super();
   }
   state = {
-    username: '',
-    email: '',
-    password: '',
-    name: '',
-    surname: '',
-    height: '',
-    weight: '',
-    gender: '',
+    username: null,
+    email: null,
+    password: null,
+    name: null,
+    surname: null,
+    height: 0,
+    starting_weight: 0,
+    gender: true,
     //age: new Date(),
   };
+
+  async function1(){
+    console.log("IN HERE");
+    console.log(`mutation {
+                      createUser(user: {username: "${this.state.username}", name: "${this.state.name}", 
+                      email: "${this.state.email}", name: "${this.state.name} ${this.state.surname}",
+                      height: ${this.state.height}, starting_weight: ${this.state.weight}, gender: true}) {
+                        user_id
+                        username
+                        name
+                        email
+                      }
+                    }`);
+    try{
+      const response = fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
+        method: 'post',
+        mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            query: `mutation {
+                      createUser(user: {username: "${this.state.username}", 
+                      email: "${this.state.email}", name: "${this.state.name} ${this.state.surname}",
+                      height: ${this.state.height}, starting_weight: ${this.state.starting_weight}, gender: true}) {
+                        user_id
+                        username
+                        name
+                        email
+                      }
+                    }`,
+        })
+      });
+      console.log(response.data);
+      const responseData = (await response).json();
+      console.log("Response: " , responseData);
+    }catch(e){
+      console.log(e);
+    }
+  }
+
 
   render() {
     /*const [date, setDate] = useState(new Date(1598051730000));
@@ -142,7 +184,7 @@ export default class RegisterScreen extends Component {
           </View>
           <TouchableOpacity
             style={styles.signupButton}
-            onPress={() => this.props.navigation.navigate('LoginScreen')}>
+            onPress={() => {this.function1(); this.props.navigation.navigate('LoginScreen')}}>
             <Text style={styles.signupButtonText}>SIGN UP</Text>
           </TouchableOpacity>
         </ScrollView>
