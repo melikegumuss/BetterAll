@@ -12,8 +12,11 @@ import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
 import Welcome from "./src/screens/Welcome";
 import Home from "./src/screens/Home";
+import EditProfile from "./src/screens/EditProfile";
 
 import "../ba_fe/assets/images/mealPlan.png";
+import editProfile from "../ba_fe/assets/images/edit-profile.png";
+import home from "../ba_fe/assets/images/home.png";
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Image } from "react-native";
@@ -39,18 +42,16 @@ function MainTabNavigator({navigation, route}){
               tabBarIcon: ({size,focused,color}) => {
                 return (
                   <Image
-                    style={{ width: 85, height: 85,     alignItems: 'center',
+                    style={{ width: 50, height: 44,     alignItems: 'center',
                       justifyContent: 'center'}}
-                    source={
-                      require("../ba_fe/assets/images/ic_accessibility_white.png")
-                    }
+                    source={home}
                   />
                 );
               },
             }}
 
           />
-          <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan}
+          <Tab.Screen name='EditProfile' component={EditProfile}
                       options={{
                         title: '',
                         tabBarIcon: ({size,focused,color}) => {
@@ -58,43 +59,12 @@ function MainTabNavigator({navigation, route}){
                             <Image
                               style={{ width: 45, height: 45,     alignItems: 'center',
                                 justifyContent: 'center'}}
-                              source={
-                                require("../ba_fe/assets/images/workoutPlan.png")
-                              }
+                              source={editProfile}
                             />
                           );
                         },
                       }}/>
-          <Tab.Screen name='CreateMealPlan' component={CreateMealPlan}
-                      options={{
-                        title: '',
-                        tabBarIcon: ({size,focused,color}) => {
-                          return (
-                            <Image
-                              style={{ width: 45, height: 45,     alignItems: 'center',
-                                justifyContent: 'center'}}
-                              source={
-                                require("../ba_fe/assets/images/mealPlan.png")
-                              }
-                            />
-                          );
-                        },
-                      }}/>
-          <Tab.Screen name='ViewProgressScreen' component={ViewProgressScreen}
-                      options={{
-                        title: '',
-                        tabBarIcon: ({size,focused,color}) => {
-                          return (
-                            <Image
-                              style={{ width: 45, height: 45,     alignItems: 'center',
-                                justifyContent: 'center'}}
-                              source={
-                                require("../ba_fe/assets/images/seeProgress.png")
-                              }
-                            />
-                          );
-                        },
-                      }}/>
+
         </Tab.Navigator>
     )
 }
@@ -114,22 +84,26 @@ function NavStack() {
             },
           }}*/
     >
-    <Stack.Screen
-        name="AppMenuScreen"
-        component={MainTabNavigator}
-        options={{
-            headerTitle: 'AppMenuScreen', headerShown: false}}
-    />
+       <Stack.Screen
+          name="AppMenuScreen"
+          component={MainTabNavigator}
+          options={{headerTitle: 'AppMenuScreen', headerShown: false}}
+       />
+       <Stack.Screen
+           name="EditProfile"
+           component={EditProfile}
+           options={{headerTitle: 'EditProfile', headerShown: false}}
+       />
       <Stack.Screen
         name="StartupScreen"
         component={StartupScreen}
         options={{title: '', headerShown: false}}
       />
-        <Stack.Screen
-            name="Welcome"
-            component={Welcome}
-            options={{title: '', headerShown: false}}
-        />
+      <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{title: '', headerShown: false}}
+      />
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
@@ -161,13 +135,13 @@ function NavStack() {
       />
       <Stack.Screen
         name="CreateMealPlan"
-        component={MainTabNavigator}
+        component={CreateMealPlan}
         //component={CreateMealPlan}
         options={{title: 'CreateMealPlan', headerShown: false}}
       />
       <Stack.Screen
         name="CreateWorkoutPlan"
-        component={MainTabNavigator}
+        component={CreateWorkoutPlan}
         //component={CreateWorkoutPlan}
         options={{title: 'CreateWorkoutPlan', headerShown: false}}
       />

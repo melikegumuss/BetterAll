@@ -5,10 +5,8 @@ import ProfilePicture from "react-native-profile-picture";
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import CalculateDailyCalorieScreen from '../CalculateDailyCalorieScreen';
 import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
-import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
-import Home from '../Home';
 
 export default class AppMenuScreen extends React.Component {
   constructor() {
@@ -30,7 +28,6 @@ export default class AppMenuScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
 
         {/*
         ***** These methods of displaying profile pictures might be used when there is a photo of the user
@@ -92,23 +89,6 @@ export default class AppMenuScreen extends React.Component {
                                style={styles.image}/>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.row}>
-            <TouchableOpacity
-              style={styles.progressButton}
-              onPress={() => this.props.navigation.navigate('ViewProgressScreen')}>
-              <ImageBackground source={require("../../../assets/images/seeProgress.png")}
-                     style={styles.progressImage}/>
-            </TouchableOpacity>
-          </View>
-
-          <TouchableOpacity
-            style={styles.planButton}
-            onPress={() => this.props.navigation.navigate('Home')}>
-            <ImageBackground source={require("../../../assets/images/dailyCalorie.png")}
-                             style={styles.image}/>
-          </TouchableOpacity>
-
 
         </ScrollView>
       </View>

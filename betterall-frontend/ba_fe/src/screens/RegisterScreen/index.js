@@ -186,7 +186,7 @@ export default class RegisterScreen extends Component {
           </View>
           <TouchableOpacity
             style={styles.signupButton}
-            onPress={() => {this.function1(); this.props.navigation.navigate('LoginScreen')}}>
+            onPress={() => {this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
             <Text style={styles.signupButtonText}>SIGN UP</Text>
           </TouchableOpacity>
         </ScrollView>

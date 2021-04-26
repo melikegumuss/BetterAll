@@ -6,6 +6,7 @@ import Macrobiotic from '../../../assets/images/macrobiotic.png';
 import Pescatarian from '../../../assets/images/pescatarian.png';
 import Vegetarian from '../../../assets/images/vegetarian.png';
 import "../../../assets/fonts/Mulish-Regular.ttf";
+import Modal from 'react-native-modal';
 
 import {
   SafeAreaView,
@@ -15,15 +16,15 @@ import {
   ScrollView,
 } from 'react-native';
 
-
-
 import Tags from "react-native-tags";
+
 
 
 
 export default class CreateMealPlan extends Component {
   state = {
     dietaryRestriction: '',
+    isModalVisible:false,
   };
 
   constructor() {
@@ -36,6 +37,14 @@ export default class CreateMealPlan extends Component {
 
     });
     console.log('Obama isa ' + this.state.dietaryRestriction)
+  };
+
+  toggleModal = () => {
+    this.setState({
+      isModalVisible: !this.state.isModalVisible,
+
+    });
+    console.log(' lütfen ' + this.state.isModalVisible)
   };
 
   suggestic = () => {
@@ -94,148 +103,165 @@ export default class CreateMealPlan extends Component {
         */}
 
         <SafeAreaView>
-          <ScrollView>
-            <Text style={styles.titleStyle}>
-              Allergies
-            </Text>
-            <ScrollView horizontal={true}>
-              <Tags createTagOnReturn
-                initialText="Insert your allergies"
-                textInputProps={{
-                  placeholder: "Any type of allergy"
-                }}
-                    initialTags={[]}
-                onChangeTags={tags => console.log(tags)}
-                onTagPress={(index, tagLabel, event, deleted) =>
-                  console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                }
-                //createTagOnString={["\n"]}
-                containerStyle={{ justifyContent: "center" }}
-                inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                  <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                    <Text style={styles.tagTextStyle}>🤧 {tag}</Text>
-                  </TouchableOpacity>
-                )}
-              />
-          </ScrollView>
+          <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Meal Plans</Text>
 
-          <View style={styles.column}>
+
+          <View  style={{alignContent:"center",marginTop: 20}}>
+            <TouchableOpacity onPress={this.toggleModal} style={styles.forModal}>
+              <Text> I want to create a new meal plan</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Modal isVisible={this.state.isModalVisible}>
+            <ScrollView>
               <Text style={styles.titleStyle}>
-                Dietary Restriction
+                Allergies
               </Text>
-              <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}
-                  onPress={this.suggestic}>
-                <Text style={styles.titleStyle}>Click</Text>
-              </TouchableOpacity>
-
-              <View style={styles.row}>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}>
-                  <View>
-                    <Image source={Vegan} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}
-                  onPress={this.onPress}>
-                  <View>
-                    <Image source={Flexitarian} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.row}>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}>
-                  <View>
-                    <Image source={Macrobiotic} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}>
-                  <View>
-                    <Image source={Pescatarian} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.row}>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}>
-                  <View>
-                    <Image source={Vegetarian} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.buttonStyle}
-                  activeOpacity={0.5}>
-                  <View style={{elevation: 10}}>
-                    <Image source={Vegan} style={styles.image} />
-                  </View>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <Text style={styles.titleStyle}>
-              Diseases
-            </Text>
-            <ScrollView horizontal={true}>
-              <Tags createTagOnReturn
-                    initialText="Insert your diseases"
-                    textInputProps={{
-                      placeholder: "Any type of disease"
-                    }}
-                    initialTags={[]}
-                    onChangeTags={tags => console.log(tags)}
-                    onTagPress={(index, tagLabel, event, deleted) =>
-                      console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                    }
-                //createTagOnString={["\n"]}
-                    containerStyle={{ justifyContent: "center" }}
-                    inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                    renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                        <Text style={styles.tagTextStyle}>🏥 {tag}</Text>
-                      </TouchableOpacity>
-                    )}
-              />
+              <ScrollView horizontal={true}>
+                <Tags createTagOnReturn
+                  initialText="Insert your allergies"
+                  textInputProps={{
+                    placeholder: "Any type of allergy"
+                  }}
+                      initialTags={[]}
+                  onChangeTags={tags => console.log(tags)}
+                  onTagPress={(index, tagLabel, event, deleted) =>
+                    console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                  }
+                  //createTagOnString={["\n"]}
+                  containerStyle={{ justifyContent: "center" }}
+                  inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                  renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                    <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                      <Text style={styles.tagTextStyle}>🤧 {tag}</Text>
+                    </TouchableOpacity>
+                  )}
+                />
             </ScrollView>
 
-            <Text style={styles.titleStyle}>
-              Vitamins
-            </Text>
-            <ScrollView horizontal={true}>
-              <Tags createTagOnReturn
-                    initialText="monkey"
-                    textInputProps={{
-                      placeholder: "Any type of animal"
-                    }}
-                    initialTags={["dog", "cat", "chicken"]}
-                    onChangeTags={tags => console.log(tags)}
-                    onTagPress={(index, tagLabel, event, deleted) =>
-                      console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                    }
-                //createTagOnString={["\n"]}
-                    containerStyle={{ justifyContent: "center" }}
-                    inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                    renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                        <Text style={styles.tagTextStyle}>💊 {tag}</Text>
-                      </TouchableOpacity>
-                    )}
-              />
+            <View style={styles.column}>
+                <Text style={styles.titleStyle}>
+                  Dietary Restriction
+                </Text>
+                <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}
+                    onPress={this.suggestic}>
+                  <Text style={styles.titleStyle}>List from Suggestic</Text>
+                </TouchableOpacity>
+
+                <View style={styles.row}>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}>
+                    <View>
+                      <Image source={Vegan} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}
+                    onPress={this.onPress}>
+                    <View>
+                      <Image source={Flexitarian} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={styles.row}>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}>
+                    <View>
+                      <Image source={Macrobiotic} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}>
+                    <View>
+                      <Image source={Pescatarian} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={styles.row}>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}>
+                    <View>
+                      <Image source={Vegetarian} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.buttonStyle}
+                    activeOpacity={0.5}>
+                    <View style={{elevation: 10}}>
+                      <Image source={Vegan} style={styles.image} />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <Text style={styles.titleStyle}>
+                Diseases
+              </Text>
+              <ScrollView horizontal={true}>
+                <Tags createTagOnReturn
+                      initialText="Insert your diseases"
+                      textInputProps={{
+                        placeholder: "Any type of disease"
+                      }}
+                      initialTags={[]}
+                      onChangeTags={tags => console.log(tags)}
+                      onTagPress={(index, tagLabel, event, deleted) =>
+                        console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                      }
+                  //createTagOnString={["\n"]}
+                      containerStyle={{ justifyContent: "center" }}
+                      inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                      renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                        <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                          <Text style={styles.tagTextStyle}>🏥 {tag}</Text>
+                        </TouchableOpacity>
+                      )}
+                />
+              </ScrollView>
+
+              <Text style={styles.titleStyle}>
+                Vitamins
+              </Text>
+              <ScrollView horizontal={true}>
+                <Tags createTagOnReturn
+                      initialText="monkey"
+                      textInputProps={{
+                        placeholder: "Any type of animal"
+                      }}
+                      initialTags={["dog", "cat", "chicken"]}
+                      onChangeTags={tags => console.log(tags)}
+                      onTagPress={(index, tagLabel, event, deleted) =>
+                        console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+                      }
+                  //createTagOnString={["\n"]}
+                      containerStyle={{ justifyContent: "center" }}
+                      inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
+                      renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+                        <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
+                          <Text style={styles.tagTextStyle}>💊 {tag}</Text>
+                        </TouchableOpacity>
+                      )}
+                />
+              </ScrollView>
+
+              <View  style={{alignContent:"center",marginTop: 20}}>
+                <TouchableOpacity onPress={this.toggleModal} style={styles.forCreate}>
+                  <Text> Create !</Text>
+                </TouchableOpacity>
+              </View>
+
             </ScrollView>
+          </Modal>
 
-
-          </ScrollView>
         </SafeAreaView>
       </View>
     );
@@ -248,7 +274,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#CDDA7E',
     paddingLeft: 10,
     paddingRight: 10,
-    justifyContent: 'center',
+    //justifyContent: 'center',
   },
   image: {
     //flex: 1,
@@ -300,6 +326,25 @@ const styles = StyleSheet.create({
     fontSize: 26,
     //fontWeight: '700',
     color: "#7B8235",
+  },
+  forModal: {
+    width: 250,
+    height: 40,
+    alignItems: 'center',
+    backgroundColor: "#ffcc33",
+    borderRadius: 100,
+    justifyContent: 'center',
+    marginRight: 8,
+  },
+
+  forCreate: {
+    width: 100,
+    height: 40,
+    alignItems: 'center',
+    backgroundColor: "#ffcc33",
+    borderRadius: 100,
+    justifyContent: 'center',
+    marginRight: 8,
   },
 
 });
