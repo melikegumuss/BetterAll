@@ -1,7 +1,7 @@
 //import * as React from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView,FlatList } from "react-native";
 import React, {useState} from 'react';
-//import "fontsource-muli";
+import "../../../assets/fonts/Mulish-Regular.ttf";
 import AppMenuScreen from '../AppMenuScreen';
 import axios from 'axios';
 export default class LoginScreen extends React.Component {

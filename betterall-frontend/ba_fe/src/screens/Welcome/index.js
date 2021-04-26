@@ -1,7 +1,7 @@
 //import * as React from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView,FlatList } from "react-native";
 import React, {useState} from 'react';
-//import "fontsource-muli";
+import "../../../assets/fonts/Mulish-Regular.ttf";
 import LoginScreen from '../LoginScreen';
 import RegisterScreen from '../RegisterScreen';
 
@@ -15,41 +15,28 @@ export default class Welcome extends React.Component {
     render() {
         return (
             <View style={styles.container} >
-                <View  style={styles.whole}>
+                <ScrollView>
                     <Text style={styles.textBetterAll}>BetterAll</Text>
                     <Text style={styles.smallText}>Maintain a healthier lifestyle with meal plans, workout plans and progress tracking all in one app. </Text>
 
-                    <Text style={{fontSize:15,marginTop:50, color:'#F5F5F5',}}>Sign up to get started</Text>
-                    <ScrollView>
+                    <Text style={styles.buttonInfoText}></Text>
 
                         <View style={{marginTop:10}}>
-                            <Button onPress={() => { this.props.navigation.navigate('RegisterScreen')}}
-                                    title="Sign up for free !"
-                                    color="#354A21"
-                            ></Button>
+                            <TouchableOpacity
+                              style={styles.button}
+                              onPress={() => { this.props.navigation.navigate('RegisterScreen')}}>
+                              <Text style={styles.buttonText}> Sign up to get started </Text>
+                            </TouchableOpacity>
                         </View>
 
-                       {/* <Button
-                            style={styles.login}
-                            onPress={() => { this.props.navigation.navigate('LoginScreen')}}>
-                            <Text >Sign up for free</Text>
-                        </Button>*/}
-
-                        <Text style={{marginTop:40, color:'#F5F5F5',fontSize:15}}> ALREADY A BETTERALL MEMBER?</Text>
-
-                        {/*<TouchableOpacity
-                            onPress={() => { this.props.navigation.navigate('LoginScreen')}}>
-                            <Text >Sign up for free</Text>
-                        </TouchableOpacity>*/}
                         <View style={{marginTop:8}}>
-                            <Button onPress={() => { this.props.navigation.navigate('LoginScreen')}}
-                                    title="Login"
-                                    color="#354A21"
-                            ></Button>
+                            <TouchableOpacity
+                              style={styles.button}
+                              onPress={() => { this.props.navigation.navigate('LoginScreen')}}>
+                                <Text style={styles.buttonText}> ALREADY A BETTERALL MEMBER? </Text>
+                            </TouchableOpacity>
                         </View>
-
-                    </ScrollView>
-                </View>
+                </ScrollView>
             </View>
         );
     }
@@ -57,25 +44,28 @@ export default class Welcome extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 150,
         flex: 1,
         backgroundColor: '#CDDA7E',
         paddingLeft: 30,
         paddingRight: 30,
     },
     textBetterAll: {
+        fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:60,
         fontWeight:'bold',
-        color:'#B2C248',
+        color:'#7b8235',
         paddingLeft: 40,
         paddingRight: 30,
     },
 
     smallText: {
+        fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:20,
-        color:'#F5F5F5',
-        paddingTop:50,
+        color:'#B2C248',
+        paddingTop:80,
         paddingLeft: 5,
         paddingRight: 5,
     },
@@ -90,5 +80,30 @@ const styles = StyleSheet.create({
         marginRight:50,
         color:'black',
 
+    },
+    button:{
+        width:300,
+        height: 50,
+        backgroundColor:"#CDDA7E",
+        borderRadius:25,
+        alignItems:"center",
+        justifyContent:"center",
+        marginLeft:30,
+        marginTop:15,
+        //marginBottom:10
+    },
+    buttonText:{
+        fontFamily:'Mulish-Regular',
+        color: '#eceece',
+        fontSize: 18,
+    },
+    buttonInfoText:{
+        fontFamily:'Mulish-Regular',
+        textAlign:'center',
+        fontSize:18,
+        color:'#eceece',
+        paddingTop:50,
+        paddingLeft: 5,
+        paddingRight: 5,
     },
 });
