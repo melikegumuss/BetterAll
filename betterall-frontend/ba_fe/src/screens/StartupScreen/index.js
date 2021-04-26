@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Image, Text, StyleSheet, Animated, LogBox} from 'react-native';
 import Logo from '../../../assets/images/betterall-logo-200x200.png';
 import RegisterScreen from '../RegisterScreen';
+import Welcome from '../Welcome';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 
 
@@ -40,7 +41,7 @@ export default class StartupScreen extends Component {
     // Ignoring Warning logs
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
     this.id = setTimeout(
-      () => this.props.navigation.navigate('RegisterScreen'),
+      () => this.props.navigation.navigate('Welcome'),
       4000,
     );
   }

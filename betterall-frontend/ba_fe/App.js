@@ -10,7 +10,7 @@ import CalculateBodyFatRatioScreen from "./src/screens/CalculateBodyFatRatioScre
 import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
-//import UserScreen from "./src/screens/UserScreen";
+import Welcome from "./src/screens/Welcome";
 import Home from "./src/screens/Home";
 
 import "../ba_fe/assets/images/mealPlan.png";
@@ -125,6 +125,11 @@ function NavStack() {
         component={StartupScreen}
         options={{title: '', headerShown: false}}
       />
+        <Stack.Screen
+            name="Welcome"
+            component={Welcome}
+            options={{title: '', headerShown: false}}
+        />
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
