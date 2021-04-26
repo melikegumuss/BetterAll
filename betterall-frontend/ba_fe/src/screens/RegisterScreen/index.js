@@ -44,7 +44,7 @@ export default class RegisterScreen extends Component {
                       }
                     }`);
     try{
-      const response = fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
+      fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
         method: 'post',
         mode: 'no-cors',
         headers: {
@@ -63,10 +63,12 @@ export default class RegisterScreen extends Component {
                       }
                     }`,
         })
-      });
-      console.log(response.data);
+      }).then(response=>response.json()).then(data=>{console.log(data);
+
+      }).catch(err=>console.error(err));
+      /*console.log(response.data);
       const responseData = (await response).json();
-      console.log("Response: " , responseData);
+      console.log("Response: " , responseData);*/
     }catch(e){
       console.log(e);
     }

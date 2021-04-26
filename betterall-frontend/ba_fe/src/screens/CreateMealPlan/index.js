@@ -38,6 +38,31 @@ export default class CreateMealPlan extends Component {
     console.log('Obama isa ' + this.state.dietaryRestriction)
   };
 
+  suggestic = () => {
+      fetch('https://production.suggestic.com/graphql',{
+        method: 'post',
+        mode: 'no-cors',
+        headers: {
+          'Authorization': 'Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef',
+          'sg-user': '3d719962-cca4-4a88-b7e4-402ef42e8cd2',
+          'Accept': '',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          query: `mutation {
+                    profileRestrictionsUpdate(
+                    restrictions: [
+                      "UmVzdHJpY3Rpb246M2ZmZDQ1OGUtMjczZi00MTZmLWE5NjYtNmFkYzliYjQ3OWE1",
+                      "UmVzdHJpY3Rpb246ODU1ZjkzZjYtODQzOC00MTIzLTk3YzktM2U2YzU2MzllZjli"
+                    ]) {
+                     success
+                  }}`,
+        })
+
+      }).then(response=>response.json()).then(data=>{console.log(data);
+      }).catch(err=>console.error(err));
+  };
+
 
   render() {
     return (
@@ -75,11 +100,11 @@ export default class CreateMealPlan extends Component {
             </Text>
             <ScrollView horizontal={true}>
               <Tags createTagOnReturn
-                initialText="monkey"
+                initialText="Insert your allergies"
                 textInputProps={{
-                  placeholder: "Any type of animal"
+                  placeholder: "Any type of allergy"
                 }}
-                initialTags={["dog", "cat", "chicken"]}
+                    initialTags={[]}
                 onChangeTags={tags => console.log(tags)}
                 onTagPress={(index, tagLabel, event, deleted) =>
                   console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
@@ -99,6 +124,13 @@ export default class CreateMealPlan extends Component {
               <Text style={styles.titleStyle}>
                 Dietary Restriction
               </Text>
+              <TouchableOpacity
+                  style={styles.buttonStyle}
+                  activeOpacity={0.5}
+                  onPress={this.suggestic}>
+                <Text style={styles.titleStyle}>Click</Text>
+              </TouchableOpacity>
+
               <View style={styles.row}>
                 <TouchableOpacity
                   style={styles.buttonStyle}
@@ -157,11 +189,11 @@ export default class CreateMealPlan extends Component {
             </Text>
             <ScrollView horizontal={true}>
               <Tags createTagOnReturn
-                    initialText="monkey"
+                    initialText="Insert your diseases"
                     textInputProps={{
-                      placeholder: "Any type of animal"
+                      placeholder: "Any type of disease"
                     }}
-                    initialTags={["dog", "cat", "chicken"]}
+                    initialTags={[]}
                     onChangeTags={tags => console.log(tags)}
                     onTagPress={(index, tagLabel, event, deleted) =>
                       console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")

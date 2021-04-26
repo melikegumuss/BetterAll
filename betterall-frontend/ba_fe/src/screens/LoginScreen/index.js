@@ -48,12 +48,12 @@ export default class LoginScreen extends React.Component {
         this.setState({ nameList });
       })
   }*/
-  function1(){
+   getData(){
     console.log("IN HERE");
 
         try{
           fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
-          method: 'post',
+          method: 'get',
           mode: 'no-cors',
           headers: {
           'Accept': 'application/json',
@@ -61,6 +61,7 @@ export default class LoginScreen extends React.Component {
         },
         body: JSON.stringify({
           username: this.state.username,
+          //TO DO
           password: this.state.password
         })
       });
@@ -95,7 +96,7 @@ export default class LoginScreen extends React.Component {
               <TouchableOpacity
                 style={styles.loginButton}
                 //onPress={() => this.props.navigation.navigate('AppMenuScreen')}>
-                onPress={() => { this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
+                onPress={() => { this.getData(); this.props.navigation.navigate('AppMenuScreen')}}>
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
