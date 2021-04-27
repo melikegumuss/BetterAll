@@ -84,6 +84,7 @@ export default class Home extends Component<Props> {
   }
 
   componentDidMount(){
+
     this.watchId = Geolocation.watchPosition(
       (position) => {
         this.setState({
