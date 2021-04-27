@@ -16,7 +16,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Tags from "react-native-tags";
-import Modal from "react-native-modal";
+//import Modal from "react-native-modal";
 
 
 
@@ -31,13 +31,13 @@ export default class CreateWorkoutPlan extends Component {
   constructor() {
     super();
   }
-  toggleModal = () => {
+/*  toggleModal = () => {
     this.setState({
       isModalVisible: !this.state.isModalVisible,
 
     });
     console.log(' lütfen ' + this.state.isModalVisible)
-  };
+  };*/
 
   render() {
     return (
@@ -46,12 +46,12 @@ export default class CreateWorkoutPlan extends Component {
           <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Workout Plans</Text>
 
           <View  style={{alignContent:"center",marginTop: 20}}>
-            <TouchableOpacity onPress={this.toggleModal} style={styles.forModal}>
+{/*            <TouchableOpacity onPress={this.toggleModal} style={styles.forModal}>
               <Text> I want to create a new workout plan</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
           </View>
 
-          <Modal isVisible={this.state.isModalVisible}>
+         {/* <Modal isVisible={this.state.isModalVisible}>*/}
             <ScrollView>
             <Text style={styles.titleStyle}>
               Weakest muscle group
@@ -190,12 +190,12 @@ export default class CreateWorkoutPlan extends Component {
                 </View>
               </View>
               <View  style={{alignContent:"center",marginTop: 20}}>
-                <TouchableOpacity onPress={this.toggleModal} style={styles.forCreate}>
+{/*                <TouchableOpacity onPress={this.toggleModal} style={styles.forCreate}>
                   <Text> Create !</Text>
-                </TouchableOpacity>
+                </TouchableOpacity>*/}
               </View>
             </ScrollView>
-         </Modal>
+{/*         </Modal>*/}
         </SafeAreaView>
       </View>
     );
