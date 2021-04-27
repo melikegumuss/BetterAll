@@ -8,6 +8,7 @@ import Vegetarian from '../../../assets/images/vegetarian.png';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import Modal from 'react-native-modal';
 
+
 import {
   SafeAreaView,
   StyleSheet,

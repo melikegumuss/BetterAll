@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     width: 400,
   },
 });*/
+
 const styles = StyleSheet.create({
   container:{
     flex: 1,
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
 /*
 const styles = StyleSheet.create({
   container: {
-    
+
     position: 'absolute',
     top: 0,
     left: 0,

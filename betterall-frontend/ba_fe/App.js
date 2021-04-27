@@ -69,6 +69,7 @@ function MainTabNavigator({navigation, route}){
     )
 }
 
+
 function NavStack() {
   return (
     <Stack.Navigator
