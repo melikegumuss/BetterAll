@@ -84,19 +84,22 @@ export default class Home extends Component<Props> {
   }
 
   componentDidMount(){
-
-    this.watchId = Geolocation.watchPosition(
-      (position) => {
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        });
-      },
-      (error) => {
-        this.setState({error: error.message})
-      },
-      {enableHighAccuracy: false, timeout:1, maximumAge: 1, distanceFilter: 1}
-    )
+    try {
+      this.watchId = Geolocation.watchPosition(
+          (position) => {
+            this.setState({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            });
+          },
+          (error) => {
+            this.setState({error: error.message})
+          },
+          {enableHighAccuracy: false, timeout: 1, maximumAge: 1, distanceFilter: 1}
+      )
+    }catch(e){
+      console.log(e);
+    }
   }
   /*constructor() {
     super()
