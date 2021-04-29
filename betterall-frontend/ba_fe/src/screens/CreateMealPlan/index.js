@@ -1,30 +1,52 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
+import { useState } from 'react';
 import Vegan from '../../../assets/images/vegan.png';
 import Flexitarian from '../../../assets/images/flexitarian.png';
-import Macrobiotic from '../../../assets/images/macrobiotic.png';
-import Pescatarian from '../../../assets/images/pescatarian.png';
+
 import Vegetarian from '../../../assets/images/vegetarian.png';
 import "../../../assets/fonts/Mulish-Regular.ttf";
-import { Alert, Modal, StyleSheet, Text, Pressable, View, ScrollView, TouchableOpacity, Image } from "react-native";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  TextInput
+} from "react-native";
 import Tags from "react-native-tags";
+import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
 
 export default class CreateMealPlan extends Component {
   state = {
     dietaryRestriction: '',
-    modalVisible: false
+    modalVisible: false,
+    calorie:'',
+    carbsPerc:'',
+    proteinPerc:'',
+    fatPerc:'',
+    omega3Perc:'',
+    error:0.1,
+    addDays:false,
+    ignoreLock:false,
+    repeat:null,
+    kcalLimit: 0.50,
+    maxNumOfServings:15,
+    maxServingWeight:600,
+    minServingWeight:100,
+    breakfastDistribution:'',
+    lunchDistribution:'',
+    dinnerDistribution:'',
+    snackDistribution:'',
+
   };
 
   constructor() {
     super();
   }
-
-  onPress = () => {
-    this.setState({
-      dietaryRestriction: 'Flexitarian',
-
-    });
-    console.log('Obama isa ' + this.state.dietaryRestriction)
-  };
 
   suggestic = () => {
     fetch('https://production.suggestic.com/graphql',{
@@ -54,184 +76,378 @@ export default class CreateMealPlan extends Component {
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
+  handleText = (text) => {
+    this.setState({ calorie: text });
+    console.log('caloriecalorie',this.state.calorie)
+  }
+  handleCarb= (text) => {
+    this.setState({ carbsPerc: text });
+  }
+  handleProtein= (text) => {
+    this.setState({ proteinPerc: text });
+  }
+  handleFat= (text) => {
+    this.setState({ fatPerc: text });
+  }
+  handleOmega= (text) => {
+    this.setState({ omega3Perc: text });
+  }
+  handleError= (text) => {
+    this.setState({ error: text });
+  }
+  kcalLimitFunction= (text) => {
+    this.setState({ kcalLimit: text });
+  }
+  maxNumOfServingsFunction= (text) => {
+    this.setState({ maxNumOfServings: text });
+  }
+  maxServingWeightFunction= (text) => {
+    this.setState({ maxServingWeight: text });
+  }
+  minServingWeightFunction= (text) => {
+    this.setState({ minServingWeight: text });
+  }
+  breakfastDistributionFunction= (text) => {
+    this.setState({ breakfastDistribution: text });
+  }
+  lunchDistributionFunction= (text) => {
+    this.setState({ lunchDistribution: text });
+  }
+  dinnerDistributionFunction= (text) => {
+    this.setState({ dinnerDistribution: text });
+  }
+  snackDistributionFunction= (text) => {
+    this.setState({ snackDistribution: text });
+  }
+  ignoreLockFunction= (text) => {
+    this.setState({ ignoreLock: text });
+  }
+  repeatFunction= (text) => {
+    this.setState({ repeat: text });
+  }
+
 
   render() {
     const { modalVisible } = this.state;
+    let data_allergy = [{
+      value: 'allergy',
+    }, {
+      value: 'allergy',
+    }, {
+      value: 'allergy',
+    }];
+    let data = [{
+      value: 'Vegan',
+    }, {
+      value: 'Vegan',
+    }, {
+      value: 'Vegan',
+    }];
+
+    let data_meal_time = [{
+      value: 'BREAKFAST',
+    }, {
+      value: 'SNACK',
+    }, {
+      value: 'LUNCH',
+    },{
+      value: 'DINNER',
+    }];
+
+
+
+
     return (
         <View style={styles.container}>
+          <View style={styles.centeredView}>
+            <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Meal Plans</Text>
 
-        <View style={styles.centeredView}>
-          <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Meal Plans</Text>
 
-          <Modal
-              animationType="slide"
-              transparent={true}
-              visible={modalVisible}
-              onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
-                this.setModalVisible(!modalVisible);
-              }}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>Hello World!</Text>
-                <ScrollView>
-                  <Text style={styles.titleStyle}>
-                    Allergies
-                  </Text>
-                  <ScrollView horizontal={true}>
-                    <Tags createTagOnReturn
-                          initialText="Insert your allergies"
-                          textInputProps={{
-                            placeholder: "Any type of allergy"
-                          }}
-                          initialTags={[]}
-                          onChangeTags={tags => console.log(tags)}
-                          onTagPress={(index, tagLabel, event, deleted) =>
-                              console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                          }
-                        //createTagOnString={["\n"]}
-                          containerStyle={{ justifyContent: "center" }}
-                          inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                          renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                              <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                                <Text style={styles.tagTextStyle}>🤧 {tag}</Text>
-                              </TouchableOpacity>
-                          )}
-                    />
-                  </ScrollView>
 
-                  <View style={styles.column}>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                  Alert.alert("Modal has been closed.");
+                  this.setModalVisible(!modalVisible);
+                }}
+            >
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+
+                  <ScrollView>
                     <Text style={styles.titleStyle}>
-                      Dietary Restriction
+                      Allergies
                     </Text>
-                    <TouchableOpacity
-                        style={styles.buttonStyle}
-                        activeOpacity={0.5}
-                        onPress={this.suggestic}>
-                      <Text style={styles.titleStyle}>List from Suggestic</Text>
-                    </TouchableOpacity>
+                    <Dropdown
+                        icon='chevron-down'
+                        iconColor='#E1E1E1'
+                        label='List from Suggestic'
+                        data={data_allergy}
 
-                    <View style={styles.row}>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}>
-                        <View>
-                          <Image source={Vegan} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}
-                          onPress={this.onPress}>
-                        <View>
-                          <Image source={Flexitarian} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                    </View>
-
-                    <View style={styles.row}>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}>
-                        <View>
-                          <Image source={Macrobiotic} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}>
-                        <View>
-                          <Image source={Pescatarian} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                    </View>
-
-                    <View style={styles.row}>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}>
-                        <View>
-                          <Image source={Vegetarian} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                          style={styles.buttonStyle}
-                          activeOpacity={0.5}>
-                        <View style={{elevation: 10}}>
-                          <Image source={Vegan} style={styles.image} />
-                        </View>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-
-                  <Text style={styles.titleStyle}>
-                    Diseases
-                  </Text>
-                  <ScrollView horizontal={true}>
-                    <Tags createTagOnReturn
-                          initialText="Insert your diseases"
-                          textInputProps={{
-                            placeholder: "Any type of disease"
-                          }}
-                          initialTags={[]}
-                          onChangeTags={tags => console.log(tags)}
-                          onTagPress={(index, tagLabel, event, deleted) =>
-                              console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                          }
-                        //createTagOnString={["\n"]}
-                          containerStyle={{ justifyContent: "center" }}
-                          inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                          renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                              <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                                <Text style={styles.tagTextStyle}>🏥 {tag}</Text>
-                              </TouchableOpacity>
-                          )}
                     />
+
+                    <View style={styles.column}>
+                      <Text style={styles.titleStyle}>
+                        Dietary Restriction
+                      </Text>
+
+                      <Dropdown
+                         icon='chevron-down'
+                          iconColor='#E1E1E1'
+                          label='List from Suggestic'
+                          data={data}
+                      />
+                    </View>
+
+                    <View style={styles.column}>
+                      <Text style={styles.titleStyle}>
+                        Meal Time Type
+                      </Text>
+
+                      <Dropdown
+                          icon='chevron-down'
+                          iconColor='#E1E1E1'
+                          label='Meal Time Type'
+                          data={data_meal_time}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Calories
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Total Calories per day!"
+                          onChangeText={this.handleText}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Percent of Carbs
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Percent of Carbs!"
+                          onChangeText={this.handleCarb}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Percent of Protein
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Percent of Protein!"
+                          onChangeText={this.handleProtein}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Percent of Fat
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Percent of Fat!"
+                          onChangeText={this.handleFat}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Percent of Omega 3
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Percent of Omega 3!"
+                          onChangeText={this.handleOmega}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Margin of error
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Margin of error for calories!"
+                          onChangeText={this.handleError}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Upper kcal limit
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Upper kcal limit per meal as %!"
+                          onChangeText={this.kcalLimitFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Maximum number of servings
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Between 1 and 15 per meal!"
+                          onChangeText={this.maxNumOfServingsFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Maximum serving weight
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="ın grams per meal!"
+                          onChangeText={this.maxServingWeightFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Minimum serving weight
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="ın grams per meal!"
+                          onChangeText={this.minServingWeightFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Breakfast Distribution
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="% of the daily calories goal that each breakfast covers!"
+                          onChangeText={this.breakfastDistributionFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Lunch Distribution
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="% of the daily calories goal that each lunch covers!"
+                          onChangeText={this.lunchDistributionFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Dinner Distribution
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="% of the daily calories goal that each dinner covers!"
+                          onChangeText={this.dinnerDistributionFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Snack Distribution
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="% of the daily calories goal that each snack covers!"
+                          onChangeText={this.snackDistributionFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Ignore Lock
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Allow generating a new meal plan any time!"
+                          onChangeText={this.ignoreLockFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+                    <View>
+                      <Text style={styles.titleStyle}>
+                        Repeat
+                      </Text>
+
+                      <TextInput
+                          style={{height: 40}}
+                          placeholder="Create a new meal plan repeating the 7 dates after repeat!"
+                          onChangeText={this.repeatFunction}
+                          //defaultValue={text}
+                      />
+                    </View>
+
+
+
+
+
+
+
                   </ScrollView>
 
-                  <Text style={styles.titleStyle}>
-                    Vitamins
-                  </Text>
-                  <ScrollView horizontal={true}>
-                    <Tags createTagOnReturn
-                          initialText="monkey"
-                          textInputProps={{
-                            placeholder: "Any type of animal"
-                          }}
-                          initialTags={["dog", "cat", "chicken"]}
-                          onChangeTags={tags => console.log(tags)}
-                          onTagPress={(index, tagLabel, event, deleted) =>
-                              console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
-                          }
-                        //createTagOnString={["\n"]}
-                          containerStyle={{ justifyContent: "center" }}
-                          inputStyle={{ backgroundColor: '#eceece', borderRadius: 100, color: '#9cb3d3'}}
-                          renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-                              <TouchableOpacity key={`${tag}-${index}`} onPress={onPress} style={styles.tagTouchable}>
-                                <Text style={styles.tagTextStyle}>💊 {tag}</Text>
-                              </TouchableOpacity>
-                          )}
-                    />
-                  </ScrollView>
-                </ScrollView>
-
-                <Pressable
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => this.setModalVisible(!modalVisible)}
-                >
-                  <Text style={styles.textStyle}>Hide Modal</Text>
-                </Pressable>
+                  <TouchableOpacity
+                      style={[styles.button, styles.buttonClose]}
+                      onPress={() => this.setModalVisible(!modalVisible)}
+                  >
+                    <Text style={styles.textStyle}>GET YOUR MEAL PLAN!</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          </Modal>
-          <Pressable
-              style={[styles.button, styles.buttonOpen]}
-              onPress={() => this.setModalVisible(true)}
-          >
-            <Text style={styles.textStyle}>Show Modal</Text>
-          </Pressable>
-        </View>
+            </Modal>
+
+            <TouchableOpacity
+                style={styles.planButton}
+                onPress={() => this.setModalVisible(true)}>
+              <ImageBackground source={require("../../../assets/images/mealPlan.png")}
+                               style={styles.image}/>
+            </TouchableOpacity>
+
+          </View>
         </View>
 
     );
@@ -246,16 +462,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     //justifyContent: 'center',
   },
-  image: {
-    //flex: 1,
-    width: 170,
-    height: 170,
-    //resizeMode: 'contain',
-    //justifyContent: 'space-evenly',
-    //backgroundColor: 'black',
-    //marginRight:50,
-  },
-
   buttonStyle: {
     //flex: 1,
     width: 170,
@@ -293,7 +499,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     fontFamily:'Mulish-Regular',
-    fontSize: 26,
+    fontSize: 23,
     //fontWeight: '700',
     color: "#7B8235",
   },
@@ -317,16 +523,16 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   centeredView: {
-    flex: 1,
+    //flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22
   },
   modalView: {
-    margin: 20,
+    margin: 30,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    padding: 55,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -339,22 +545,44 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 20,
-    padding: 10,
-    elevation: 2
+    padding: 20,
+    elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "#ffcc33",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#ffcc33",
+    width:250,
+    alignItems:'center'
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    //textAlign: "center"
   },
   modalText: {
     marginBottom: 15,
     textAlign: "center"
-  }
+  },
+  image: {
+    flex: 1,
+    width: 150,
+    height: 150,
+    justifyContent: 'center',
+    //alignItems: 'center',
+    //resizeMode: 'contain'
+  },
+  planButton:{
+    width: 140,
+    height: 140,
+    justifyContent: 'center',
+    alignItems: 'center',
+    //borderColor:'rgba(0,0,0,0.6)',
+    //backgroundColor: 'white',
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 25,
+    marginBottom: 25,
+  },
 });
