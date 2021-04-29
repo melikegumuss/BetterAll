@@ -78,13 +78,13 @@ export default class StartupScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#CDDA7E',
+    backgroundColor: '#cdda7e',
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   logoText: {
-    color: '#7B8235',
+    color: '#eceece',
     fontFamily:'Mulish-Regular',
     fontSize: 45,
     marginTop: 29.1,

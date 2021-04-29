@@ -1,10 +1,10 @@
 //import * as React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView,FlatList } from "react-native";
+import { StyleSheet, Text, ImageBackground, TouchableOpacity, View, Button, ScrollView,FlatList } from "react-native";
 import React, {useState} from 'react';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import LoginScreen from '../LoginScreen';
 import RegisterScreen from '../RegisterScreen';
-
+import SunflowerBG from '../../../assets/images/wallpaperSunflower.png'
 export default class Welcome extends React.Component {
     constructor() {
         super();
@@ -18,8 +18,11 @@ export default class Welcome extends React.Component {
             <View style={styles.container} >
                 <View style={styles.centeredView}>
                 <ScrollView>
-                    <Text style={styles.textBetterAll}>BetterAll</Text>
-                    <Text style={styles.smallText}>Maintain a healthier lifestyle with meal plans, workout plans and progress tracking all in one app. </Text>
+                    <ImageBackground source={SunflowerBG}  style={styles.container}/>
+
+                    <Text style={styles.smallText}>Maintain your well-being with meal & workout plans,
+                        see your progress and many more... </Text>
+                    <Text style={styles.smallTextSlogan}>BetterAll in one app. </Text>
 
                     <Text style={styles.buttonInfoText}></Text>
 
@@ -49,16 +52,19 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 150,
         flex: 1,
-        backgroundColor: '#CDDA7E',
+        backgroundColor: '#cdda7e',
         paddingLeft: 30,
         paddingRight: 30,
+    },
+    backgroundImage:{
+        alignSelf: 'stretch',
     },
     textBetterAll: {
         fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:60,
         fontWeight:'bold',
-        color:'#7b8235',
+        color:'#7F8343',
         paddingLeft: 40,
         paddingRight: 30,
     },
@@ -66,11 +72,26 @@ const styles = StyleSheet.create({
     smallText: {
         fontFamily:'Mulish-Regular',
         textAlign:'center',
-        fontSize:20,
-        color:'#B2C248',
+        fontSize:26,
+        color:'#ECEECE',
         paddingTop:80,
+        paddingBottom:40,
         paddingLeft: 5,
         paddingRight: 5,
+    },
+    smallTextSlogan: {
+        fontFamily:'Mulish-Regular',
+        textAlign:'center',
+        fontSize:22,
+        color:'#7F8343',
+        //paddingBottom:10,
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
+    buttonText:{
+        fontFamily:'Mulish-Regular',
+        color: '#222b14',
+        fontSize: 18,
     },
     whole: {
         alignItems:'center',
@@ -86,25 +107,20 @@ const styles = StyleSheet.create({
     },
     button:{
         width:300,
-        height: 50,
-        backgroundColor:"#CDDA7E",
+        height: 30,
+        //backgroundColor:"#F7C916",
         borderRadius:26,
         alignItems:"center",
         justifyContent:"center",
         marginLeft:30,
-        marginTop:15,
+        marginTop:5,
         //marginBottom:10
-    },
-    buttonText:{
-        fontFamily:'Mulish-Regular',
-        color: '#eceece',
-        fontSize: 18,
     },
     buttonInfoText:{
         fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:18,
-        color:'#eceece',
+        color:'#DF6D26',
         paddingTop:50,
         paddingLeft: 5,
         paddingRight: 5,
