@@ -33,21 +33,7 @@ const styles = StyleSheet.create({
   },
 });*/
 
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  map: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0
-  }
-});
+
 /*
 const styles = StyleSheet.create({
   container: {
@@ -168,10 +154,10 @@ export default class Home extends Component<Props> {
     }
     return (
       <View style={styles.container}>
-        <MapView style={styles.map} initialRegion = {initialRegion}>
-          <Marker coordinate={ myCoordinate} />
-          <Marker pinColor={'green'} coordinate={myLocation}/>
-        </MapView>
+          <MapView style={styles.map} initialRegion = {initialRegion}>
+            <Marker coordinate={ myCoordinate} />
+            <Marker pinColor={'green'} coordinate={myLocation}/>
+          </MapView>
       </View>
       //this.renderScreen()
       /*<View style={styles.container}>
@@ -208,3 +194,18 @@ export default class Home extends Component<Props> {
     );
   }
 }
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  map: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0
+  },
+});

@@ -53,8 +53,21 @@ export default class EditProfile extends React.Component {
 
 
                 <ScrollView>
+                    <View style={styles.row}>
+                        <TouchableOpacity
+                            style={styles.planButton}
+                            onPress={() => this.props.navigation.navigate('CalculateBodyFatRatioScreen')}>
+                            <ImageBackground source={require("../../../assets/images/bodyFat.png")}
+                                             style={styles.image}/>
+                        </TouchableOpacity>
 
-
+                        <TouchableOpacity
+                            style={styles.planButton}
+                            onPress={() => this.props.navigation.navigate('CalculateDailyCalorieScreen')}>
+                            <ImageBackground source={require("../../../assets/images/dailyCalorie.png")}
+                                             style={styles.image}/>
+                        </TouchableOpacity>
+                    </View>
                     <View style={styles.row}>
                         <TouchableOpacity
                             style={styles.progressButton}
@@ -63,16 +76,6 @@ export default class EditProfile extends React.Component {
                                              style={styles.progressImage}/>
                         </TouchableOpacity>
                     </View>
-
-                    <TouchableOpacity
-                        style={styles.planButton}
-                        onPress={() => this.props.navigation.navigate('Home')}>
-                        <ImageBackground source={require("../../../assets/images/dailyCalorie.png")}
-                                         style={styles.image}/>
-                    </TouchableOpacity>
-
-
-
                 </ScrollView>
             </View>
         );
@@ -86,7 +89,6 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
     },
-
     personalInfo: {
         fontFamily:'Mulish-Regular',
         //flex: 0.3,
@@ -154,5 +156,4 @@ const styles = StyleSheet.create({
         marginRight: 10,
 
     },
-
 });

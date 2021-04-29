@@ -36,7 +36,20 @@ function MainTabNavigator({navigation, route}){
                 backgroundColor: "#937298",
               }
             }}>
-          <Tab.Screen name='AppMenuScreen' component={AppMenuScreen}
+            <Tab.Screen name='EditProfile' component={EditProfile}
+                        options={{
+                            title: '',
+                            tabBarIcon: ({size,focused,color}) => {
+                                return (
+                                    <Image
+                                        style={{ width: 45, height: 45,     alignItems: 'center',
+                                            justifyContent: 'center'}}
+                                        source={editProfile}
+                                    />
+                                );
+                            },
+            }}/>
+          <Tab.Screen name='CreateMealPlan' component={CreateMealPlan}
             options={{
               title: '',
               tabBarIcon: ({size,focused,color}) => {
@@ -44,26 +57,39 @@ function MainTabNavigator({navigation, route}){
                   <Image
                     style={{ width: 50, height: 44,     alignItems: 'center',
                       justifyContent: 'center'}}
-                    source={home}
+                    source={CreateMealPlan}
                   />
                 );
               },
-            }}
-
-          />
-          <Tab.Screen name='EditProfile' component={EditProfile}
+            }}/>
+          <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan}
                       options={{
+                          title: '',
+                          tabBarIcon: ({size,focused,color}) => {
+                              return (
+                                  <Image
+                                      style={{ width: 50, height: 44,     alignItems: 'center',
+                                          justifyContent: 'center'}}
+                                      source={CreateWorkoutPlan}
+                                  />
+                              );
+                          },
+                      }}
+          />
+        <Tab.Screen name='Home' component={Home}
+                    options={{
                         title: '',
                         tabBarIcon: ({size,focused,color}) => {
-                          return (
-                            <Image
-                              style={{ width: 45, height: 45,     alignItems: 'center',
-                                justifyContent: 'center'}}
-                              source={editProfile}
-                            />
-                          );
+                            return (
+                                <Image
+                                    style={{ width: 50, height: 44,     alignItems: 'center',
+                                        justifyContent: 'center'}}
+                                    source={Home}
+                                />
+                            );
                         },
-                      }}/>
+                    }}
+        />
 
         </Tab.Navigator>
     )

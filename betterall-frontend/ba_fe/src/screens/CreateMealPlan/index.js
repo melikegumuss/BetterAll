@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { useState } from 'react';
 import Vegan from '../../../assets/images/vegan.png';
+import { List } from 'react-native-paper';
 import Flexitarian from '../../../assets/images/flexitarian.png';
 
 import Vegetarian from '../../../assets/images/vegetarian.png';
@@ -15,7 +16,8 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  TextInput
+  TextInput,
+  SafeAreaView,
 } from "react-native";
 import Tags from "react-native-tags";
 import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
@@ -159,10 +161,20 @@ export default class CreateMealPlan extends Component {
 
     return (
         <View style={styles.container}>
+          <SafeAreaView>
           <View style={styles.centeredView}>
-            <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Meal Plans</Text>
+            <Text style={styles.tagTextStyle}>List of Meal Plans</Text>
 
-
+            <List.Item
+                title="Food Name"
+                description="Description"
+                left={props => <List.Icon {...props} icon='food' />}
+            />
+            <List.Item
+              title="Food Name"
+              description="Description"
+              left={props => <List.Icon {...props} icon='food' />}
+            />
 
             <Modal
                 animationType="slide"
@@ -173,7 +185,7 @@ export default class CreateMealPlan extends Component {
                   this.setModalVisible(!modalVisible);
                 }}
             >
-              <View style={styles.centeredView}>
+
                 <View style={styles.modalView}>
 
                   <ScrollView>
@@ -432,11 +444,10 @@ export default class CreateMealPlan extends Component {
 
                   <TouchableOpacity
                       style={[styles.button, styles.buttonClose]}
-                      onPress={() => this.setModalVisible(!modalVisible)}
-                  >
+                      onPress={() => this.setModalVisible(!modalVisible)}>
                     <Text style={styles.textStyle}>GET YOUR MEAL PLAN!</Text>
                   </TouchableOpacity>
-                </View>
+
               </View>
             </Modal>
 
@@ -448,6 +459,7 @@ export default class CreateMealPlan extends Component {
             </TouchableOpacity>
 
           </View>
+          </SafeAreaView>
         </View>
 
     );
@@ -526,7 +538,8 @@ const styles = StyleSheet.create({
     //flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+    //backgroundColor: "red",
   },
   modalView: {
     margin: 30,

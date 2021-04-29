@@ -17,24 +17,7 @@ import {
 import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
 
-const fruits = ['Apples', 'Oranges', 'Pears']
-// --- OR ---
-// const fruits = [
-//   { label: 'Apples', value: 'appls' },
-//   { label: 'Oranges', value: 'orngs' },
-//   { label: 'Pears', value: 'pears' }
-// ]
 
-const renderLabel = (label, style) => {
-  return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-      <Image style={{width: 42, height: 42}} source={{uri: 'https://dummyimage.com/100x100/52c25a/fff&text=S'}} />
-      <View style={{marginLeft: 10}}>
-        <Text style={style}>{label}</Text>
-      </View>
-    </View>
-  )
-}
 
 
 
@@ -43,18 +26,14 @@ export default class ViewProgressScreen extends React.Component {
     super();
   }
 
-  state = { selectedFruits: [] }
-
-  onSelectionsChange = (selectedFruits) => {
-    // selectedFruits is array of { label, value }
-    this.setState({ selectedFruits })
-  }
 
 
   render() {
     return (
           <View style={styles.container}>
-            <Text style={styles.header}>ViewProgress</Text>
+              <View style={styles.centeredView}>
+
+              <Text style={styles.header}>ViewProgress</Text>
 
               <Text style={styles.titleStyle}>Weight</Text>
             <LineChart
@@ -113,42 +92,43 @@ export default class ViewProgressScreen extends React.Component {
                 }}
               />
 
-
-            <SelectMultiple
-              items={fruits}
-              renderLabel={renderLabel}
-              selectedItems={this.state.selectedFruits}
-              onSelectionsChange={this.onSelectionsChange} />
+              </View>
           </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#CDDA7E',
-    paddingLeft: 30,
-    paddingRight: 30,
-  },
-  header: {
-    fontSize: 48,
-    fontFamily:'Mulish-Regular',
-    color:'#7B8235',
-    paddingBottom: 10,
-    marginTop: 30,
-    marginBottom: 40,
-    borderBottomColor: '#7B8235',
-    //borderBottomColor: '#199187',
-    borderBottomWidth: 1,
-  },
-  titleStyle: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    fontFamily:'Mulish-Regular',
-    fontSize: 26,
-    //fontWeight: '700',
-    color: "#3D4182",
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#CDDA7E',
+        paddingLeft: 30,
+        paddingRight: 30,
+    },
+    header: {
+        fontSize: 48,
+        fontFamily:'Mulish-Regular',
+        color:'#7B8235',
+        paddingBottom: 10,
+        marginTop: 30,
+        marginBottom: 40,
+        borderBottomColor: '#7B8235',
+        //borderBottomColor: '#199187',
+        borderBottomWidth: 1,
+    },
+    titleStyle: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontFamily:'Mulish-Regular',
+        fontSize: 26,
+        //fontWeight: '700',
+        color: "#3D4182",
+    },
+    centeredView: {
+        //flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
 
 });

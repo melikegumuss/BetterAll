@@ -16,6 +16,7 @@ export default class Welcome extends React.Component {
     render() {
         return (
             <View style={styles.container} >
+                <View style={styles.centeredView}>
                 <ScrollView>
                     <Text style={styles.textBetterAll}>BetterAll</Text>
                     <Text style={styles.smallText}>Maintain a healthier lifestyle with meal plans, workout plans and progress tracking all in one app. </Text>
@@ -38,6 +39,7 @@ export default class Welcome extends React.Component {
                             </TouchableOpacity>
                         </View>
                 </ScrollView>
+                </View>
             </View>
         );
     }
@@ -106,5 +108,11 @@ const styles = StyleSheet.create({
         paddingTop:50,
         paddingLeft: 5,
         paddingRight: 5,
+    },
+    centeredView: {
+        //flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        //marginTop: 22
     },
 });

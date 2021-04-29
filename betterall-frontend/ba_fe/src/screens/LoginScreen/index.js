@@ -73,6 +73,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.centeredView}>
         <Text style={styles.header}>Welcome back!</Text>
           <ScrollView>
             <View style={styles.inputView} >
@@ -100,6 +101,7 @@ export default class LoginScreen extends React.Component {
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
+            </View>
           </View>
     );
   }
@@ -165,5 +167,11 @@ const styles = StyleSheet.create({
   datePickerStyle: {
     width: 200,
     marginTop: 20,
+  },
+  centeredView: {
+    //flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
   },
 });
