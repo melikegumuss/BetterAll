@@ -8,7 +8,7 @@ import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
 import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
-import Home from '../Home';
+import MapScreen from '../MapScreen';
 
 export default class EditProfile extends React.Component {
     constructor() {
