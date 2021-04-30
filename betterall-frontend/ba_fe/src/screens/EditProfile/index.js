@@ -8,8 +8,9 @@ import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
 import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
-import Home from '../Home';
+
 import LinearGradient from "react-native-linear-gradient";
+
 
 export default class EditProfile extends React.Component {
     constructor() {

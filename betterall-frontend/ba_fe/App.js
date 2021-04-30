@@ -11,9 +11,8 @@ import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
 import Welcome from "./src/screens/Welcome";
-import Home from "./src/screens/Home";
+import MapScreen from "./src/screens/MapScreen";
 import EditProfile from "./src/screens/EditProfile";
-
 import "../ba_fe/assets/images/mealPlan.png";
 import editProfile from "../ba_fe/assets/images/edit-profile.png";
 import home from "../ba_fe/assets/images/home.png";
@@ -82,7 +81,7 @@ function MainTabNavigator({navigation, route}){
                           },
                       }}
           />
-        <Tab.Screen name='Home' component={Home}
+        <Tab.Screen name='MapScreen' component={MapScreen}
                     options={{
                         title: '',
                         tabBarIcon: ({size,focused,color}) => {
@@ -106,7 +105,7 @@ function MainTabNavigator({navigation, route}){
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="StartupScreen"
+      initialRouteName="MapScreen"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -181,9 +180,9 @@ function NavStack() {
       />
 
       <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{title: 'Home', headerShown: false}}
+          name="MapScreen"
+          component={MapScreen}
+          options={{title: 'MapScreen', headerShown: false}}
       />
 
 
