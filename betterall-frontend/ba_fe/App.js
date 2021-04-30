@@ -19,6 +19,12 @@ import home from "../ba_fe/assets/images/home.png";
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Image } from "react-native";
+import ProfileTab from "../../betterall-frontend/ba_fe/assets/images/profileTab.png"
+import MealTab from "../../betterall-frontend/ba_fe/assets/images/mealTab.png"
+import WorkoutTab from "../../betterall-frontend/ba_fe/assets/images/workoutTab.png"
+import MapTab from "../../betterall-frontend/ba_fe/assets/images/mapTab.png"
+
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -41,9 +47,9 @@ function MainTabNavigator({navigation, route}){
                             tabBarIcon: ({size,focused,color}) => {
                                 return (
                                     <Image
-                                        style={{ width: 45, height: 45,     alignItems: 'center',
+                                        style={{ width: 35, height: 35,     alignItems: 'center',
                                             justifyContent: 'center'}}
-                                        source={editProfile}
+                                        source={ProfileTab}
                                     />
                                 );
                             },
@@ -54,9 +60,9 @@ function MainTabNavigator({navigation, route}){
               tabBarIcon: ({size,focused,color}) => {
                 return (
                   <Image
-                    style={{ width: 50, height: 44,     alignItems: 'center',
+                    style={{ width: 35, height: 35,     alignItems: 'center',
                       justifyContent: 'center'}}
-                    source={CreateMealPlan}
+                    source={MealTab}
                   />
                 );
               },
@@ -67,9 +73,9 @@ function MainTabNavigator({navigation, route}){
                           tabBarIcon: ({size,focused,color}) => {
                               return (
                                   <Image
-                                      style={{ width: 50, height: 44,     alignItems: 'center',
+                                      style={{ width: 35, height: 35,     alignItems: 'center',
                                           justifyContent: 'center'}}
-                                      source={CreateWorkoutPlan}
+                                      source={WorkoutTab}
                                   />
                               );
                           },
@@ -81,9 +87,13 @@ function MainTabNavigator({navigation, route}){
                         tabBarIcon: ({size,focused,color}) => {
                             return (
                                 <Image
-                                    style={{ width: 50, height: 44,     alignItems: 'center',
+                                    style={{ width: 35, height: 35,     alignItems: 'center',
                                         justifyContent: 'center'}}
+<<<<<<< HEAD
                                     source={MapScreen}
+=======
+                                    source={MapTab}
+>>>>>>> 2fe210c991900f1fc8e600b543b02b2baca25f25
                                 />
                             );
                         },

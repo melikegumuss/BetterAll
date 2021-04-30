@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {View, Image, Text, StyleSheet, Animated, LogBox} from 'react-native';
+import {View, Image, Text, StyleSheet, Animated, LogBox, ImageBackground, ScrollView} from 'react-native';
 import Logo from '../../../assets/images/betterall-logo-200x200.png';
 import RegisterScreen from '../RegisterScreen';
 import Welcome from '../Welcome';
 import "../../../assets/fonts/Mulish-Regular.ttf";
+import LogoTextAnime from "../../../assets/images/baTitle.png"
+import BATitle from "../../../assets/images/baTitle.png";
 
 
 export default class StartupScreen extends Component {
@@ -68,7 +70,7 @@ export default class StartupScreen extends Component {
           <Image source={Logo} />
         </Animated.View>
         <Animated.View style={{opacity: this.state.LogoTextAnime}}>
-          <Text style={styles.logoText}>BetterAll</Text>
+          <Image source={BATitle} style={{width: 250, height:150}}/>
         </Animated.View>
         </View>
       </View>
