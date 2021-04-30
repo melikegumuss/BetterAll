@@ -16,6 +16,14 @@ import AppMenuScreen from '../AppMenuScreen';
 import * as ImagePicker from "react-native-image-picker";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import Unavailable from "../../../assets/images/unavailable-photo.png"
+import LinearGradient from "react-native-linear-gradient";
+
+/*import RNFS from 'react-native-fs';
+
+RNFS.readFile(this.state.imagePath, 'base64')
+    .then(res =>{
+      console.log(res);
+    });*/
 
 export default class CalculateBodyFatRatioScreen extends React.Component {
   //constructor() {
@@ -95,148 +103,86 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
     }
   }
 
-  IncrementWaist = () => {
-    this.setState({ waist: this.state.waist + 1 });
-  }
-  DecreaseWaist = () => {
-    this.setState({ waist: this.state.waist - 1 });
-  }
-  IncrementChest = () => {
-    this.setState({ chest: this.state.chest + 1 });
-  }
-  DecreaseChest = () => {
-    this.setState({ chest: this.state.chest - 1 });
-  }
-  IncrementHip = () => {
-    this.setState({ hip: this.state.hip + 1 });
-  }
-  DecreaseHip = () => {
-    this.setState({ hip: this.state.hip - 1 });
-  }
-
   render() {
 
     return (
-          <View style={{ backgroundColor: '#CDDA7E',flex: 1,
-            paddingLeft: 30,
-            paddingRight: 30,}} >
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
 
             <ScrollView >
               <SafeAreaView>
-                <View>
-                  <Text>***Manually insert the data***</Text>
-                  <Text style={{textAlign:'center',marginTop: 8, fontSize:13}}>Waist </Text>
 
-                  <View style={{ flexDirection:"row", marginTop: 10 , justifyContent: 'center',}}>
-
-                    <View  style={{width: 35, height: 40}}>
-                      <Button onPress={this.IncrementWaist} title="+" ></Button>
-                    </View>
-
-                    <Text style={{textAlign:'center',marginTop: 8,marginLeft: 8,marginRight: 8}}>
-                      {this.state.waist}</Text>
-
-                    <View  style={{width: 35,height: 40}} >
-                      <Button onPress={this.DecreaseWaist} title="-"></Button>
-                    </View>
-
-                  </View>
-
-                  <Text style={{textAlign:'center',marginTop: 8, fontSize:13}}>Chest </Text>
-                  <View style={{ flexDirection:"row", marginTop: 10 , justifyContent: 'center',}}>
-
-                    <View  style={{width: 35, height: 50}}>
-                      <Button onPress={this.IncrementChest} title="+" ></Button>
-                    </View>
-
-                    <Text style={{textAlign:'center',marginTop: 8,marginLeft: 8,marginRight: 8}}>
-                      {this.state.chest}</Text>
-
-                    <View  style={{width: 35,height: 50}} >
-                      <Button onPress={this.DecreaseChest} title="-"></Button>
-                    </View>
-
-                  </View>
-
-                  <Text style={{textAlign:'center',marginTop: 8, fontSize:13}}>Hip </Text>
-                  <View style={{ flexDirection:"row", marginTop: 10 , justifyContent: 'center',}}>
-
-                    <View  style={{width: 35, height: 50}}>
-                      <Button onPress={this.IncrementHip} title="+" ></Button>
-                    </View>
-
-                    <Text style={{textAlign:'center',marginTop: 8,marginLeft: 8,marginRight: 8}}>
-                      {this.state.hip}</Text>
-
-                    <View  style={{width: 35,height: 50}} >
-                      <Button onPress={this.DecreaseHip} title="-"></Button>
-                    </View>
-
-                  </View>
-
-                </View>
 
                 <View>
                   <View style={{alignItems: 'center'}}>
-                    <Text style={{textAlign:'center'}}>Selected Images will be there</Text>
                     {this.withURI()}
                   </View>
                 </View>
 
                 <View style={{flexDirection:"column",alignItems: 'center', justifyContent:'center'}}>
                   <View>
-                    <Text style={{fontSize:20,paddingBottom:20,textAlign: 'center'}}>Pick Images</Text>
-                      <View style={{paddingBottom:20}} >
-                        <TouchableOpacity onPress={this.imageLibrary} style={{
-                          width: 185,
-                          height: 40,
-                          backgroundColor: 'whitesmoke',
-                          justifyContent: 'center'
-                          //marginBottom:10,
-                          //alignItems: 'center',
-                          //marginLeft: 100,
-                          }}  >
-                          <Text style={{textAlign: 'center'}}>Pick From Gallery</Text>
+                      <View style={{paddingBottom:20}}>
+                        <TouchableOpacity
+                            onPress={this.imageLibrary}
+                            style={styles.buttonYellow}>
+                          <Text style={styles.buttonText}>Pick from gallery</Text>
                         </TouchableOpacity>
                       </View>
                   </View>
 
                   <View>
-                      <TouchableOpacity onPress={this.openCamera} style={{
-                        width: 185,
-                        height: 40,
-                        backgroundColor: 'white',
-                        justifyContent: 'center'
-                        //marginBottom:10,
-                        //alignItems: 'center',
-                        //marginLeft: 100,
-                      }}  >
-                        <Text style={{textAlign: 'center'}}>Open camera</Text>
+                      <TouchableOpacity style={styles.buttonYellowCamera}
+                         onPress={this.openCamera}>
+                        <Text style={styles.buttonText}>Open camera</Text>
                       </TouchableOpacity>
                   </View>
 
                 </View>
 
-
-
-
-
               </SafeAreaView>
 
             </ScrollView>
-          </View>
+        </LinearGradient>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    backgroundColor: '#CDDA7E',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
   images: {
-    width: 150,
-    height: 150,
-    borderColor: 'black',
-    borderWidth: 2,
+    marginTop:80,
+    width: 300,
+    height: 300,
     marginHorizontal: 3,
+  },
+  buttonYellow:{
+    width: 300,
+    backgroundColor:"#ffcc33",
+    borderRadius:25,
+    height:55,
+    alignItems:"center",
+    justifyContent:"center",
+    //marginLeft:240,
+    marginTop:120,
+    marginBottom:10
+  },
+  buttonYellowCamera:{
+    width: 300,
+    backgroundColor:"#ffcc33",
+    borderRadius:25,
+    height:55,
+    alignItems:"center",
+    justifyContent:"center",
+    //marginLeft:240,
+    marginBottom:100
+  },
+  buttonText:{
+    fontFamily:'Mulish-Regular',
+    color: "#222b14",
   },
 
 

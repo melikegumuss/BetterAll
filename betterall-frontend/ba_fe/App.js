@@ -35,7 +35,7 @@ function MainTabNavigator({navigation, route}){
       //NavStack(),
         <Tab.Navigator
             initialRouteName={AppMenuScreen}
-            barStyle={{ backgroundColor: '#CDDA7E', height: 60 }}
+            barStyle={{ backgroundColor: '#47657a', height: 60 }}
             tabBarOptions={{
               activeTintColor: "#937298",
               style: {
@@ -68,7 +68,7 @@ function MainTabNavigator({navigation, route}){
                 );
               },
             }}/>
-          <Tab.Screen name='CreateWorkoutPlan' component={CreateWorkoutPlan}
+          <Tab.Screen name='CalculateBodyFatRatioScreen' component={CalculateBodyFatRatioScreen}
                       options={{
                           title: '',
                           tabBarIcon: ({size,focused,color}) => {

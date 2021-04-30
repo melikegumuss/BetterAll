@@ -5,22 +5,22 @@ import "../../../assets/fonts/Mulish-Regular.ttf";
 import LoginScreen from '../LoginScreen';
 import RegisterScreen from '../RegisterScreen';
 import SunflowerBG from '../../../assets/images/wallpaperSunflower.png'
+import LinearGradient from 'react-native-linear-gradient';
+import "../../../assets/fonts/Mulish-Regular.ttf";
+
+
 export default class Welcome extends React.Component {
     constructor() {
         super();
     }
-
-    state={
-    }
-
     render() {
         return (
             <View style={styles.container} >
+                <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
                 <View style={styles.centeredView}>
                 <ScrollView>
-                    <ImageBackground source={SunflowerBG}  style={styles.container}/>
-
-                    <Text style={styles.smallText}>Maintain your well-being with meal & workout plans,
+                    <Text style={styles.textBetterAll}>BETTERALL</Text>
+                    <Text style={styles.smallText}>Maintain your well-being with meal plans,
                         see your progress and many more... </Text>
                     <Text style={styles.smallTextSlogan}>BetterAll in one app. </Text>
 
@@ -43,6 +43,7 @@ export default class Welcome extends React.Component {
                         </View>
                 </ScrollView>
                 </View>
+                </LinearGradient>
             </View>
         );
     }
@@ -50,30 +51,47 @@ export default class Welcome extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 150,
+        //paddingTop: 150,
         flex: 1,
-        backgroundColor: '#cdda7e',
-        paddingLeft: 30,
-        paddingRight: 30,
+        alignItems:'center',
+        //backgroundColor: '#cdda7e',
+        //paddingLeft: 30,
+        //paddingRight: 30,
+    },
+    baTextStyle:{
+        color: '#eceece',
+        fontFamily:'Mulish-Regular',
+        fontSize: 45,
+        //marginTop: 29.1,
+    },
+    imageStyle:{
+        paddingTop: 250,
+        flex: 1,
+        width: 300,
+        height: 150,
+        paddingLeft: 100,
+        paddingBottom: 100,
+        //backgroundColor: '#cdda7e',
     },
     backgroundImage:{
         alignSelf: 'stretch',
     },
     textBetterAll: {
+        //paddingTop: 150,
         fontFamily:'Mulish-Regular',
         textAlign:'center',
-        fontSize:60,
+        fontSize:50,
         fontWeight:'bold',
-        color:'#7F8343',
-        paddingLeft: 40,
-        paddingRight: 30,
+        color:'#eceece',
+        //paddingLeft: 150,
+        //paddingRight: 150,
     },
 
     smallText: {
         fontFamily:'Mulish-Regular',
         textAlign:'center',
-        fontSize:26,
-        color:'#ECEECE',
+        fontSize:20,
+        color:'#eceece',
         paddingTop:30,
         paddingBottom:40,
         paddingLeft: 5,
@@ -82,20 +100,22 @@ const styles = StyleSheet.create({
     smallTextSlogan: {
         fontFamily:'Mulish-Regular',
         textAlign:'center',
-        fontSize:22,
-        color:'#7F8343',
+        fontSize:16,
+        color:'#eceece',
         //paddingBottom:10,
         paddingLeft: 5,
         paddingRight: 5,
     },
     buttonText:{
         fontFamily:'Mulish-Regular',
-        color: '#222b14',
+        color: '#eceece',
         fontSize: 18,
     },
     whole: {
         alignItems:'center',
         paddingTop:150,
+        marginLeft:50,
+        marginRight:50,
     },
     register: {
         alignItems:'center',
@@ -107,13 +127,13 @@ const styles = StyleSheet.create({
     },
     button:{
         width:300,
-        height: 30,
-        //backgroundColor:"#F7C916",
+        height: 50,
+        backgroundColor:"#2a2a72",
         borderRadius:26,
         alignItems:"center",
         justifyContent:"center",
-        marginLeft:30,
-        marginTop:5,
+        marginLeft:60,
+        marginTop:55,
         //marginBottom:10
     },
     buttonInfoText:{
@@ -131,4 +151,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         //marginTop: 22
     },
+    gradient: {
+        flex: 1,
+        paddingTop: 150,
+        backgroundColor: '#cdda7e',
+        //paddingLeft: 30,
+        //paddingRight: 30,
+    }
 });

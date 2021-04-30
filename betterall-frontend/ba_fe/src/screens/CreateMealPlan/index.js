@@ -21,6 +21,7 @@ import {
 } from "react-native";
 import Tags from "react-native-tags";
 import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
+import LinearGradient from "react-native-linear-gradient";
 
 export default class CreateMealPlan extends Component {
   state = {
@@ -160,21 +161,26 @@ export default class CreateMealPlan extends Component {
 
 
     return (
-        <View style={styles.container}>
-          <SafeAreaView>
-          <View style={styles.centeredView}>
-            <Text style={styles.tagTextStyle}>List of Meal Plans</Text>
+          <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+            <View style={styles.centeresdView}>
+            <Text style={styles.tagTextStyle}>Today's Menu</Text>
 
-            <List.Item
-                title="Food Name"
-                description="Description"
+            <List.Item style={styles.listItemStyle}
+                title="Scrambled eggs"
+              description="Breakfast"
                 left={props => <List.Icon {...props} icon='food' />}
             />
-            <List.Item
-              title="Food Name"
-              description="Description"
+            <List.Item style={styles.listItemStyle}
+              title="Fried rice and caesar salad"
+              description="Lunch"
               left={props => <List.Icon {...props} icon='food' />}
             />
+            <List.Item style={styles.listItemStyle}
+                       title="Steak and sauteed vegetables"
+                       description="Dinner"
+                       left={props => <List.Icon {...props} icon='food' />}
+            />
+
 
             <Modal
                 animationType="slide"
@@ -195,14 +201,14 @@ export default class CreateMealPlan extends Component {
                     <Dropdown
                         icon='chevron-down'
                         iconColor='#E1E1E1'
-                        label='List from Suggestic'
+                        label='Peanuts'
                         data={data_allergy}
 
                     />
 
                     <View style={styles.column}>
                       <Text style={styles.titleStyle}>
-                        Dietary Restriction
+                        Vegan
                       </Text>
 
                       <Dropdown
@@ -454,13 +460,11 @@ export default class CreateMealPlan extends Component {
             <TouchableOpacity
                 style={styles.planButton}
                 onPress={() => this.setModalVisible(true)}>
-              <ImageBackground source={require("../../../assets/images/mealPlan.png")}
-                               style={styles.image}/>
+              <Text style={styles.planButtonText}>CREATE</Text>
             </TouchableOpacity>
 
           </View>
-          </SafeAreaView>
-        </View>
+          </LinearGradient>
 
     );
   }
@@ -474,6 +478,10 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     //justifyContent: 'center',
   },
+  listItemStyle:{
+    //paddingRight: 120,
+    paddingLeft: 40,
+  },
   buttonStyle: {
     //flex: 1,
     width: 170,
@@ -481,31 +489,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     //backgroundColor: 'red',
   },
-  /*column: {
-    flex: 1,
-    flexDirection: 'column',
-  },*/
-  row: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-    justifyContent: 'space-evenly',
-    //resizeMode: 'contain',
-    marginBottom: 10,
-  },
-  tagTouchable: {
-    width: 80,
-    height: 30,
-    resizeMode: 'contain',
-    backgroundColor: "#ffcc33",
-    borderRadius: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 8,
-  },
   tagTextStyle: {
+    paddingTop: 100,
+    paddingBottom:30,
     fontFamily: "Mulish-Regular",
+    fontSize: 28,
     color: "#eceece",
+    paddingLeft: 40,
+
   },
   titleStyle: {
     paddingTop: 10,
@@ -583,19 +574,24 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     justifyContent: 'center',
-    //alignItems: 'center',
-    //resizeMode: 'contain'
+    paddingRight: 390,
+    marginTop: -10,
+    marginBottom: 150,
   },
   planButton:{
-    width: 140,
-    height: 140,
-    justifyContent: 'center',
-    alignItems: 'center',
-    //borderColor:'rgba(0,0,0,0.6)',
-    //backgroundColor: 'white',
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 25,
-    marginBottom: 25,
+    marginTop: 60,
+    paddingLeft: 100,
+    marginBottom: 250,
+    marginLeft:100,
+    width:100,
+    backgroundColor:"#ffcc33",
+    borderRadius:25,
+    height:35,
+    alignItems:"center",
+    justifyContent:"center",
+  },
+  planButtonText:{
+    fontFamily:'Mulish-Regular',
+    color:'rgba(0,0,0,0.6)',
   },
 });

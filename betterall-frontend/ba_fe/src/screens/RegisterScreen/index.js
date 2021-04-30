@@ -13,6 +13,7 @@ import React, {useState} from 'react';
 import {Component} from 'react';
 import LoginScreen from '../LoginScreen';
 import "../../../assets/fonts/Mulish-Regular.ttf";
+import LinearGradient from "react-native-linear-gradient";
 
 
 export default class RegisterScreen extends Component {
@@ -76,121 +77,85 @@ export default class RegisterScreen extends Component {
 
 
   render() {
-    /*const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-
-    const onChange = (event, selectedDate) => {
-      const currentDate = selectedDate || date;
-      setShow(Platform.OS === 'android');
-      setDate(currentDate);
-    };
-
-    const showMode = (currentMode) => {
-      setShow(true);
-      setMode(currentMode);
-    };
-    const showDatePicker = () => {
-      showMode('date');
-    };
-    const showTimepicker = () => {
-      showMode('time');
-    };
-    */
     return (
-      <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+        <View style={styles.centeredView}>
         <Text style={styles.header}>Register</Text>
-        <ScrollView>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Username"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({username: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="betterall@gmail.com"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({email: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              secureTextEntry
-              style={styles.inputText}
-              placeholder="Password..."
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Name"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({name: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Surname"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({surname: text})}
-            />
-          </View>
+          <ScrollView>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Username"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({username: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="betterall@email.com"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({email: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                secureTextEntry
+                style={styles.inputText}
+                placeholder="Password..."
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({password: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Name"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({name: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Surname"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({surname: text})}
+              />
+            </View>
 
-          {/*
-          <View>
-            <Button onPress={showDatePicker} title="Show date picker!" />
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Height"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({height: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Weight"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({weight: text})}
+              />
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Gender"
+                placeholderTextColor="rgba(0,0,0,0.35)"
+                onChangeText={(text) => this.setState({gender: text})}
+              />
+            </View>
+            <TouchableOpacity
+              style={styles.signupButton}
+              onPress={() => {this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
+              <Text style={styles.signupButtonText}>SIGN UP</Text>
+            </TouchableOpacity>
+          </ScrollView>
           </View>
-          <View>
-            show && (
-                <DateTimePicker
-                  testID="dateTimePicker"
-                  value={date}
-                  mode={mode}
-                  is24Hour={true}
-                  display="default"
-                  onChange={onChange}
-                />
-              )
-          </View>*/}
-
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Height"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({height: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Weight"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({weight: text})}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Gender"
-              placeholderTextColor="rgba(0,0,0,0.35)"
-              onChangeText={(text) => this.setState({gender: text})}
-            />
-          </View>
-          <TouchableOpacity
-            style={styles.signupButton}
-            onPress={() => {this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
-            <Text style={styles.signupButtonText}>SIGN UP</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
+        </LinearGradient>
     );
   }
 }
@@ -198,9 +163,17 @@ export default class RegisterScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#CDDA7E',
+    //backgroundColor: '#CDDA7E',
+    alignItems: 'center',
+    //paddingLeft: 100,
+  },
+  gradient: {
+    flex: 1,
     paddingLeft: 30,
     paddingRight: 30,
+    backgroundColor: '#cdda7e',
+    //paddingLeft: 50,
+    //paddingRight: 200,
   },
   header: {
     fontSize: 48,
@@ -214,6 +187,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   inputView: {
+    flex: 1,
     fontFamily:'Mulish-Regular',
     width: '100%',
     backgroundColor: 'rgba(0,0,0,0.09)',
@@ -238,7 +212,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffcc33',
     borderRadius: 25,
     height: 50,
-    alignItems: 'center',
+    //alignItems: 'center',
     justifyContent: 'center',
     marginTop: 15,
     marginBottom: 10,
@@ -246,9 +220,12 @@ const styles = StyleSheet.create({
   signupButtonText: {
     fontFamily:'Mulish-Regular',
     color: 'rgba(0,0,0,0.6)',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
-  datePickerStyle: {
-    width: 200,
-    marginTop: 20,
+  centeredView: {
+    //flex: 1,
+    //justifyContent: "center",
+    marginTop: 22
   },
 });

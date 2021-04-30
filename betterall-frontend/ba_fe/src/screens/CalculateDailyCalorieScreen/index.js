@@ -12,6 +12,7 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class CalculateDailyCalorieScreen extends React.Component {
   constructor() {
@@ -33,7 +34,7 @@ export default class CalculateDailyCalorieScreen extends React.Component {
 
   render() {
     return (
-          <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
             <Text style={styles.header}>Daily Calories</Text>
             <StackedBarChart
               style={{
@@ -63,14 +64,14 @@ export default class CalculateDailyCalorieScreen extends React.Component {
               chartConfig={{
                 barPercentage: 1.1,
                 backgroundColor: "#ffc533",
-                backgroundGradientFrom: "#473933",
-                backgroundGradientTo: "#FF0054",
+                backgroundGradientFrom: "#2a2a72",
+                backgroundGradientTo: "#2a2a72",
                 decimalPlaces: 2, // optional, defaults to 2dp
                 color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
               }}
             />
-          </View>
+        </LinearGradient>
     );
   }
 }
@@ -79,19 +80,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#CDDA7E',
-    paddingLeft: 30,
-    paddingRight: 30,
   },
   header: {
     fontSize: 48,
     fontFamily:'Mulish-Regular',
     color:'#7B8235',
-    paddingBottom: 10,
-    marginTop: 30,
-    marginBottom: 40,
+    paddingLeft: 40,
+    marginTop: 70,
+    marginBottom: 100,
     borderBottomColor: '#7B8235',
     //borderBottomColor: '#199187',
     borderBottomWidth: 1,
+  },
+  gradient:{
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom:400,
   },
 
 });

@@ -9,6 +9,7 @@ import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
 import Home from '../Home';
+import LinearGradient from "react-native-linear-gradient";
 
 export default class EditProfile extends React.Component {
     constructor() {
@@ -21,7 +22,7 @@ export default class EditProfile extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
 
                 {/*
         ***** These methods of displaying profile pictures might be used when there is a photo of the user
@@ -39,20 +40,11 @@ export default class EditProfile extends React.Component {
           requirePicture="http://examplepicturesite.examplecom/picture/profilepicture.png"
           shape='rounded'
         />*/}
-                <Text style={styles.personalInfo}>
-                    FirstName LastName
-
-                    <ProfilePicture style={styles.profilePicture}
-                        // With user name
-                                    backgroundColor="rgba(0,0,0,0.35)"
-                                    isPicture={false}
-                                    user="FirstName LastName"
-                                    shape='rounded'
-                    />
-                </Text>
-
 
                 <ScrollView>
+                    <Text style={styles.personalInfo}>
+                        My Profile
+                    </Text>
                     <View style={styles.row}>
                         <TouchableOpacity
                             style={styles.planButton}
@@ -77,7 +69,7 @@ export default class EditProfile extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
-            </View>
+            </LinearGradient>
         );
     }
 }
@@ -92,12 +84,12 @@ const styles = StyleSheet.create({
     personalInfo: {
         fontFamily:'Mulish-Regular',
         //flex: 0.3,
-        fontSize: 14,
+        fontSize: 24,
         color:'#7B8235',
         paddingTop: 10,
         paddingBottom: 10,
         marginBottom: 10,
-        marginLeft: 140,
+        //marginLeft: 10,
         borderBottomColor: '#7B8235',
         //borderBottomColor: '#199187',
         borderBottomWidth: 5,
@@ -105,8 +97,8 @@ const styles = StyleSheet.create({
         //paddingRight: 30,
     },
     profilePicture:{
-        marginLeft: 30,
-        marginRight: 30,
+        paddingLeft: 130,
+        marginRight: 150,
         //justifyContent: "space-between",
     },
     planButton:{
@@ -124,7 +116,7 @@ const styles = StyleSheet.create({
     progressButton:{
         width: 320,
         height: 200,
-        marginTop: 50,
+        marginTop: -40,
         marginBottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
@@ -151,9 +143,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'stretch',
         justifyContent: 'space-between',
-        marginBottom: 15,
-        marginLeft: 10,
-        marginRight: 10,
+        marginBottom: 105,
+        marginTop: 30,
+        marginLeft: 50,
+        marginRight: 30,
 
     },
 });

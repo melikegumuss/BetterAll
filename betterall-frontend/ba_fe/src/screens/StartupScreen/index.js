@@ -6,6 +6,7 @@ import Welcome from '../Welcome';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import LogoTextAnime from "../../../assets/images/baTitle.png"
 import BATitle from "../../../assets/images/baTitle.png";
+import LinearGradient from "react-native-linear-gradient";
 
 
 export default class StartupScreen extends Component {
@@ -58,6 +59,7 @@ export default class StartupScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
         <View style={styles.centeredView}>
         <Animated.View
           style={{
@@ -73,6 +75,7 @@ export default class StartupScreen extends Component {
           <Image source={BATitle} style={{width: 250, height:150}}/>
         </Animated.View>
         </View>
+          </LinearGradient>
       </View>
     );
   }
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#cdda7e',
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
 
   logoText: {
@@ -95,6 +98,13 @@ const styles = StyleSheet.create({
     //flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    //marginTop: 22
   },
+  gradient: {
+    flex: 1,
+        paddingTop: 150,
+        backgroundColor: '#cdda7e',
+    //paddingLeft: 30,
+    //paddingRight: 30,
+  }
 });

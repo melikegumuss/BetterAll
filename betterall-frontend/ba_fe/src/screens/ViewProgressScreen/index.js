@@ -15,6 +15,7 @@ import {
 } from "react-native-chart-kit";
 
 import { Dimensions } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 const screenWidth = Dimensions.get("window").width;
 
 
@@ -30,12 +31,12 @@ export default class ViewProgressScreen extends React.Component {
 
   render() {
     return (
-          <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
               <View style={styles.centeredView}>
 
-              <Text style={styles.header}>ViewProgress</Text>
+              <Text style={styles.header}>Progress</Text>
 
-              <Text style={styles.titleStyle}>Weight</Text>
+              <Text style={styles.titleStyle}>My Weight Journey</Text>
             <LineChart
             data={{
                   labels : ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -71,7 +72,7 @@ export default class ViewProgressScreen extends React.Component {
                 chartConfig={{
                   scrollableInfoOffset: 500,
                   backgroundColor: "#e26a00",
-                  backgroundGradientFrom: "#3D4182",
+                  backgroundGradientFrom: "#e57171",
                   backgroundGradientTo: "#7685B3",
                   decimalPlaces: 2, // optional, defaults to 2dp
                   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -93,7 +94,7 @@ export default class ViewProgressScreen extends React.Component {
               />
 
               </View>
-          </View>
+        </LinearGradient>
     );
   }
 }
@@ -109,12 +110,12 @@ const styles = StyleSheet.create({
         fontSize: 48,
         fontFamily:'Mulish-Regular',
         color:'#7B8235',
-        paddingBottom: 10,
-        marginTop: 30,
+        paddingBottom: 100,
+        marginTop: -90,
         marginBottom: 40,
         borderBottomColor: '#7B8235',
         //borderBottomColor: '#199187',
-        borderBottomWidth: 1,
+        //borderBottomWidth: 1,
     },
     titleStyle: {
         paddingTop: 10,
@@ -129,6 +130,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 22
+    },
+    gradient: {
+        flex: 1,
+        paddingTop: 150,
+        paddingLeft: 30,
+        paddingRight: 30,
     },
 
 });

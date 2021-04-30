@@ -14,6 +14,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Tags from "react-native-tags";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class CreateWorkoutPlan extends Component {
   state = {
@@ -34,6 +35,8 @@ export default class CreateWorkoutPlan extends Component {
     const { modalVisible } = this.state;
     return (
       <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+
         <SafeAreaView>
           <View style={styles.centeredView}>
 
@@ -220,6 +223,7 @@ export default class CreateWorkoutPlan extends Component {
               left={props => <List.Icon {...props} icon='weight-lifter' />}
           />
         </SafeAreaView>
+        </LinearGradient>
       </View>
     );
   }
