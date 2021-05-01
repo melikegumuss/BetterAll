@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {View, Text, PermissionsAndroid, Alert, Platform, TouchableOpacity, Linking, Image, StyleSheet} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, {PROVIDER_GOOGLE, Marker, Polyline, AnimatedRegion, Callout} from 'react-native-maps';
-import GetLocation from 'react-native-get-location';
+//import GetLocation from 'react-native-get-location';
 import axios from 'axios';
 import PlaceholderGym from '../../../assets/images/placeholder_gym.png';
 import PlaceholderRestaurant from '../../../assets/images/placeholder_restaurant.png';
@@ -26,6 +26,7 @@ export default class MapScreen extends React.Component {
     };
   }
   async componentDidMount() {
+/*
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
       timeout: 15000,
@@ -37,6 +38,7 @@ export default class MapScreen extends React.Component {
        const { code, message } = error;
        console.warn(code, message);
      });
+*/
 
     Geolocation.getCurrentPosition(
       position => {
@@ -94,7 +96,7 @@ export default class MapScreen extends React.Component {
           longitude: this.state.longitude,
           categories: 'gyms',
           sort_by: 'distance',
-          sort_by: 'rating',
+          //sort_by: 'rating',
           radius: 4000
       },
   })
@@ -130,7 +132,7 @@ export default class MapScreen extends React.Component {
       console.log('DATA NOT RETURNED', error);
   });
   }
-  
+
   async getData(){
       axios.get('https://api.yelp.com/v3/businesses/search', {
           headers: {
@@ -191,9 +193,14 @@ export default class MapScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <MapView
+        <View>
+            <View style={{backgroundColor:'#47657a', paddingBottom: 30,}}>
+                <Text style={styles.mapTxt}>What is nearby?</Text>
+            </View>
+
+          <MapView
           provider={PROVIDER_GOOGLE}
-          style={{height:720, overflow: 'hidden'}}
+          style={{height:570, overflow: 'hidden'}}
           region={{
             latitude: this.state.latitude,
             longitude: this.state.longitude,
@@ -204,7 +211,7 @@ export default class MapScreen extends React.Component {
             coordinate={{
               latitude: this.state.latitude,
               longitude: this.state.longitude,
-            }}></Marker>
+            }}/>
           <Polyline
             coordinates={this.state.coordinates}
             strokeColor="#bf8221"
@@ -221,22 +228,23 @@ export default class MapScreen extends React.Component {
           {this.workoutLocationMarkers()}
           {this.groceryShopMarkers()}
         </MapView>
-        <View style ={styles.buttonGroup}>
-        <TouchableOpacity
-        style={styles.restaurantButtonView}
-        onPress={() => { this.getData()}}>
-          <Text style = {styles.buttonText}>Find Nearby Restaurants!</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={styles.gymButtonView}
-        onPress={() => { this.getWorkoutLocations()}}>
-          <Text style = {styles.buttonText}>Find Nearby Gyms!</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={styles.groceryButtonView}
-        onPress={() => { this.getGroceryShops()}}>
-          <Text style={styles.buttonText}>Find Nearby Grocery Shops!</Text>
-        </TouchableOpacity>
+            <View style ={styles.buttonGroup}>
+                <TouchableOpacity
+                    style={styles.restaurantButtonView}
+                    onPress={() => { this.getData()}}>
+                    <Text style = {styles.buttonTxt}>Restaurants!</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.gymButtonView}
+                    onPress={() => { this.getWorkoutLocations()}}>
+                    <Text style = {styles.buttonTxt}>Gyms!</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.groceryButtonView}
+                    onPress={() => { this.getGroceryShops()}}>
+                    <Text style={styles.buttonTxt}>Grocery Shops!</Text>
+                </TouchableOpacity>
+            </View>
         </View>
       </View>
     );
@@ -244,11 +252,9 @@ export default class MapScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  buttonText:{
-    fontFamily:'Mulish-Regular',
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: 'bold',
+  container: {
+    flex: 1,
+    backgroundColor: '#CDDA7E',
   },
   restaurantButtonView:{
     width:"30%",
@@ -282,8 +288,23 @@ const styles = StyleSheet.create({
     marginTop:10,
   },
   buttonGroup:{
+    paddingBottom: 10,
     flexDirection: 'row',
-    backgroundColor: '#cdda7e',
-    flex: 1
-  }
+    backgroundColor: '#47657a',
+    //flex: 1
+  },
+  buttonTxt:{
+    fontFamily:'Mulish-Regular',
+    color: "#222b14",
+    textAlign: 'center',
+  },
+    mapTxt:{
+        fontFamily:'Mulish-Regular',
+        color: "#ffc501",
+        textAlign: 'center',
+        fontSize: 26,
+        justifyContent: 'center',
+        marginTop: 30,
+    },
+
 })

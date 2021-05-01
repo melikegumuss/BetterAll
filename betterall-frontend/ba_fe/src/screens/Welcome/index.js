@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         //paddingRight: 30,
     },
     baTextStyle:{
-        color: '#eceece',
+        color: '#222b14',
         fontFamily:'Mulish-Regular',
         fontSize: 45,
         //marginTop: 29.1,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:20,
-        color:'#eceece',
+        color:'#222b14',
         paddingTop:30,
         paddingBottom:40,
         paddingLeft: 5,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:16,
-        color:'#eceece',
+        color:'#222b14',
         //paddingBottom:10,
         paddingLeft: 5,
         paddingRight: 5,
@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
     buttonText:{
         fontFamily:'Mulish-Regular',
         color: '#eceece',
-        fontSize: 18,
+        fontWeight: 'bold',
+        fontSize: 16,
     },
     whole: {
         alignItems:'center',
