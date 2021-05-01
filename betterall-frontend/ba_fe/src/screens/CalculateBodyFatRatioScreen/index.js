@@ -39,11 +39,7 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
     }
   }
 
-  componentDidMount(){
-    //this.calculateBodyFat();
-  }
-
-  calculateBodyFat(){
+  calculateBodyFat(photos){
     try{
       fetch('http://www.fitimage.io/api/api_fat_predict/',{
         method: 'post',
@@ -53,9 +49,9 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(
-          { "token": "367682e0b6cc177fd992a3255f5983579dc9c64e",
+          { "token": "66acdfd9b207438de940c6aa9f1314c222abdd28",
             "gender": "female",
-            "image": this.state.base64
+            "image": photos
           }
         )
       }).then(response=>response.json()).then(data=>{
@@ -74,6 +70,7 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
       base64: base64data
     });
     console.log(this.state.base64);
+    this.calculateBodyFat(this.state.base64);
   }
 
   imageLibrary = () => {
@@ -94,9 +91,9 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
           path: response,
           photoURI: response.uri,
         });
+        this.convertImageToBase64.bind(this);
       }
     });
-    this.convertImageToBase64.bind(this);
   }
 
   openCamera = () => {
@@ -116,9 +113,9 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
           path: response,
           photoURI: response.uri
         });
+        this.convertImageToBase64.bind(this);
       }
     });
-    this.convertImageToBase64();
   }
 
   withURI() {
@@ -139,7 +136,6 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
 
     return (
         <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
-
             <ScrollView >
               <SafeAreaView>
                 <View>
@@ -147,7 +143,9 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
                     {this.withURI()}
                   </View>
                 </View>
-
+                <View>
+                  <Text>Your body fat is: {this.state.bodyFat}</Text>
+                </View>
                 <View style={{flexDirection:"column",alignItems: 'center', justifyContent:'center'}}>
                   <View>
                       <View style={{paddingBottom:20}}>
@@ -158,6 +156,7 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
                         </TouchableOpacity>
                       </View>
                   </View>
+                  
                   <View>
                       <TouchableOpacity style={styles.buttonYellowCamera}
                          onPress={this.openCamera}>
@@ -166,14 +165,8 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
                   </View>
                   <View>
                       <TouchableOpacity style={styles.buttonYellowCalculate}
-                         onPress={this.convertImageToBase64}>
+                         onPress={()=>{this.convertImageToBase64()}}>
                         <Text style={styles.buttonText}>Calculate My Body Fat</Text>
-                      </TouchableOpacity>
-                  </View>
-                  <View>
-                      <TouchableOpacity style={styles.buttonYellowCalculate}
-                         onPress={this.calculateBodyFat.bind(this)}>
-                        <Text style={styles.buttonText}>AAAAAAAAAAAAAAAAAAAAAAAA</Text>
                       </TouchableOpacity>
                   </View>
                 </View>
@@ -196,6 +189,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     marginHorizontal: 3,
+    resizeMode: 'contain'
   },
   buttonYellow:{
     width: 300,
@@ -234,6 +228,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
   },
-
-
+  fitImage:{
+    aspectRatio: 1,
+    height: undefined,
+    width: '100%',
+    alignItems: 'center'
+  },
 });
