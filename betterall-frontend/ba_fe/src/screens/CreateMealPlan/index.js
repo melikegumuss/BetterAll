@@ -15,37 +15,117 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  TextInput
+  TextInput,
+  Picker
 } from "react-native";
 import Tags from "react-native-tags";
 import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
+import DropdownItem from "react-native-material-dropdown-v2-fixed/src/components/item";
 
 export default class CreateMealPlan extends Component {
   state = {
-    dietaryRestriction: '',
-    modalVisible: false,
-    calorie:'',
-    carbsPerc:'',
-    proteinPerc:'',
-    fatPerc:'',
-    omega3Perc:'',
-    error:0.1,
-    addDays:false,
-    ignoreLock:false,
-    repeat:null,
-    kcalLimit: 0.50,
-    maxNumOfServings:15,
-    maxServingWeight:600,
-    minServingWeight:100,
-    breakfastDistribution:'',
-    lunchDistribution:'',
-    dinnerDistribution:'',
-    snackDistribution:'',
+
 
   };
 
   constructor() {
     super();
+    this.state={
+      options:[],
+      selectedRestriction:'',
+      dietSelectedValue:'',
+      modalVisible: false,
+      calorie:2000,
+      carbsPerc:0.45,
+      proteinPerc:0.25,
+      fatPerc:0.3,
+      omega3Perc:0.09,
+      error:0.5,
+      addDays:false,
+      ignoreLock:false,
+      repeat:null,
+      kcalLimit: 0.50,
+      maxNumOfServings:15,
+      maxServingWeight:600,
+      minServingWeight:100,
+      breakfastDistribution:0.1,
+      lunchDistribution:0.1,
+      dinnerDistribution:0.1,
+      snackDistribution:0.1,
+      selectedGoal:'',
+      goal:[],
+
+    }
+  }
+
+  generateNewPlan = () =>{
+    console.log("generateNewPlan:", this.state.selectedRestriction,this.state.selectedGoal,
+        this.state.dietSelectedValue, this.state.calorie,
+        this.state.carbsPerc,
+        this.state.proteinPerc,
+        this.state.fatPerc,
+        this.state.omega3Perc,
+        this.state.error,
+        this.state.kcalLimit,
+        this.state.maxNumOfServings,
+        this.state.maxServingWeight,
+        this.state.minServingWeight,
+       this.state.breakfastDistribution,
+       this.state.lunchDistribution,
+       this.state.snackDistribution,
+       this.state.dinnerDistribution
+
+       /* addDays:false,
+        ignoreLock:false,
+        repeat:null,*/
+
+  )
+  }
+
+  getMealPlan = () =>{
+    var myHeaders = new Headers();
+    myHeaders.append("sg-user", "3d719962-cca4-4a88-b7e4-402ef42e8cd2");
+    myHeaders.append("Authorization", "Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef");
+    myHeaders.append("Content-Type", "application/json");
+
+    var graphql = JSON.stringify({
+      query: `mutation {\r\n  profileRestrictionsUpdate(\r\n    restrictions: [\r\n            "${this.state.selectedRestriction}"\r\n    ]) {\r\n    success\r\n  }\r\n} `,
+      variables: {}
+    })
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: graphql,
+      redirect: 'follow'
+    };
+
+    fetch("https://production.suggestic.com/graphql", requestOptions)
+        .then(response => response.json())
+        .then(result => {console.log(result);
+              var myHeaders = new Headers();
+              myHeaders.append("sg-user", "3d719962-cca4-4a88-b7e4-402ef42e8cd2");
+              myHeaders.append("Authorization", "Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef");
+              myHeaders.append("Content-Type", "application/json");
+
+              var graphql = JSON.stringify({
+                query: `mutation {\r\n  profileMealPlanSettings (\r\n    calories: ${this.state.calorie}\r\n    carbsPerc: ${this.state.carbsPerc}\r\n    proteinPerc: ${this.state.proteinPerc}\r\n    fatPerc: ${this.state.fatPerc}\r\n    omega3Perc: ${this.state.omega3Perc}\r\n	  format: ${this.state.dietSelectedValue}\r\n	  error: ${this.state.error}\r\n  ) {\r\n      success\r\n  }\r\n}`,
+                variables: {}
+              })
+              var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: graphql,
+                redirect: 'follow'
+              };
+
+              fetch("https://production.suggestic.com/graphql", requestOptions)
+                  .then(response => response.text())
+                  .then(result => console.log(result))
+                  .catch(error => console.log('error', error));
+        }
+
+        )
+        .catch(error => console.log('error', error));
   }
 
   suggestic = () => {
@@ -72,52 +152,51 @@ export default class CreateMealPlan extends Component {
     }).then(response=>response.json()).then(data=>{console.log(data);
     }).catch(err=>console.error(err));
   };
-
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
   handleText = (text) => {
-    this.setState({ calorie: text });
+    this.setState({ calorie: +text });
     console.log('caloriecalorie',this.state.calorie)
   }
   handleCarb= (text) => {
-    this.setState({ carbsPerc: text });
+    this.setState({ carbsPerc: +text });
   }
   handleProtein= (text) => {
-    this.setState({ proteinPerc: text });
+    this.setState({ proteinPerc: +text });
   }
   handleFat= (text) => {
-    this.setState({ fatPerc: text });
+    this.setState({ fatPerc: +text });
   }
   handleOmega= (text) => {
-    this.setState({ omega3Perc: text });
+    this.setState({ omega3Perc: +text });
   }
   handleError= (text) => {
-    this.setState({ error: text });
+    this.setState({ error: +text });
   }
   kcalLimitFunction= (text) => {
-    this.setState({ kcalLimit: text });
+    this.setState({ kcalLimit: +text });
   }
   maxNumOfServingsFunction= (text) => {
-    this.setState({ maxNumOfServings: text });
+    this.setState({ maxNumOfServings: +text });
   }
   maxServingWeightFunction= (text) => {
-    this.setState({ maxServingWeight: text });
+    this.setState({ maxServingWeight: +text });
   }
   minServingWeightFunction= (text) => {
-    this.setState({ minServingWeight: text });
+    this.setState({ minServingWeight: +text });
   }
   breakfastDistributionFunction= (text) => {
-    this.setState({ breakfastDistribution: text });
+    this.setState({ breakfastDistribution: +text });
   }
   lunchDistributionFunction= (text) => {
-    this.setState({ lunchDistribution: text });
+    this.setState({ lunchDistribution: +text });
   }
   dinnerDistributionFunction= (text) => {
-    this.setState({ dinnerDistribution: text });
+    this.setState({ dinnerDistribution: +text });
   }
   snackDistributionFunction= (text) => {
-    this.setState({ snackDistribution: text });
+    this.setState({ snackDistribution: +text });
   }
   ignoreLockFunction= (text) => {
     this.setState({ ignoreLock: text });
@@ -126,16 +205,89 @@ export default class CreateMealPlan extends Component {
     this.setState({ repeat: text });
   }
 
+  getRestrictionData = () => {
+
+    var myHeaders = new Headers();
+    myHeaders.append("sg-user", "3d719962-cca4-4a88-b7e4-402ef42e8cd2");
+    myHeaders.append("Authorization", "Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef");
+    myHeaders.append("Content-Type", "application/json");
+
+    var graphql = JSON.stringify({
+      query: "{\r\n  restrictions(first: 10) {\r\n    edges {\r\n      node {\r\n        id\r\n        name\r\n        subcategory\r\n        slugname\r\n        isOnProgram\r\n      }\r\n    }\r\n  }\r\n}",
+      variables: {}
+    })
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: graphql,
+      redirect: 'follow'
+    };
+
+    fetch("https://production.suggestic.com/graphql", requestOptions)
+        .then(response => response.json())
+        .then(result => {console.log('result', result); this.setState({options:result.data.restrictions.edges})})
+        .catch(error => console.log('error', error));
+
+  }
+
+  getMyGoal= () => {
+    var myHeaders = new Headers();
+    myHeaders.append("sg-user", "3d719962-cca4-4a88-b7e4-402ef42e8cd2");
+    myHeaders.append("Authorization", "Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef");
+    myHeaders.append("Content-Type", "application/json");
+
+    var graphql = JSON.stringify({
+      query: "{\r\n  programs {\r\n    edges {\r\n      node {\r\n        id\r\n        databaseId\r\n        name\r\n        author\r\n      }\r\n    }\r\n  }\r\n}",
+      variables: {}
+    })
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: graphql,
+      redirect: 'follow'
+    };
+
+    fetch("https://production.suggestic.com/graphql", requestOptions)
+        .then(response => response.json())
+        .then(result => {console.log(result); this.setState({goal:result.data.programs.edges})})
+        .catch(error => console.log('error', error));
+  }
+
+
+  getMyMealPlan= () => {
+    var myHeaders = new Headers();
+    myHeaders.append("sg-user", "3d719962-cca4-4a88-b7e4-402ef42e8cd2");
+    myHeaders.append("Authorization", "Token 4efbe99a39de42eb211ca1270cbe2a87ea482fef");
+    myHeaders.append("Content-Type", "application/json");
+
+    var graphql = JSON.stringify({
+      query: "{\r\n  mealPlan {\r\n    day\r\n    date(useDatetime: false)\r\n    calories\r\n    meals {\r\n      id\r\n      calories\r\n      meal\r\n      numOfServings\r\n      recipe {\r\n        name\r\n        numberOfServings\r\n        nutrientsPerServing {\r\n          calories\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+      variables: {}
+    })
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: graphql,
+      redirect: 'follow'
+    };
+
+    fetch("https://production.suggestic.com/graphql", requestOptions)
+        .then(response => response.json())
+        .then(result => console.log("EN SON",result.data.mealPlan[0].meals))
+        .catch(error => console.log('error', error));
+  }
+
+  componentDidMount() {
+    this.getRestrictionData();
+    this.getMyGoal();
+    this.getMealPlan();
+    this.getMyMealPlan();
+
+  }
 
   render() {
     const { modalVisible } = this.state;
-    let data_allergy = [{
-      value: 'allergy',
-    }, {
-      value: 'allergy',
-    }, {
-      value: 'allergy',
-    }];
+
     let data = [{
       value: 'Vegan',
     }, {
@@ -145,15 +297,33 @@ export default class CreateMealPlan extends Component {
     }];
 
     let data_meal_time = [{
-      value: 'BREAKFAST',
+      format:['BREAKFAST','SNACK','LUNCH','DINNER'],
+      value: 'Breakfast-Snack-Lunch-Dinner',
     }, {
-      value: 'SNACK',
+      format:['BREAKFAST','LUNCH','SNACK','DINNER'],
+      value: 'Breakfast-Lunch-Snack-Dinner',
     }, {
-      value: 'LUNCH',
-    },{
-      value: 'DINNER',
+      format:['BREAKFAST','LUNCH','DINNER'],
+      value: 'Breakfast-Lunch-Dinner',
     }];
 
+    let myRestrictions=this.state.options.map((option,index)=>{
+      return(
+          <Picker.Item label={option.node.name} value={option.node.id}></Picker.Item>
+      )
+    })
+
+    let mealTimeType=data_meal_time.map((mealTime,index)=>{
+      return(
+          <Picker.Item label={mealTime.value} value={mealTime.format}></Picker.Item>
+      )
+    })
+
+    let myGoal=this.state.goal.map((current_goal,index)=>{
+      return(
+          <Picker.Item label={current_goal.node.name} value={current_goal.node.id}></Picker.Item>
+      )
+    })
 
 
 
@@ -161,8 +331,6 @@ export default class CreateMealPlan extends Component {
         <View style={styles.container}>
           <View style={styles.centeredView}>
             <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Meal Plans</Text>
-
-
 
             <Modal
                 animationType="slide"
@@ -177,28 +345,36 @@ export default class CreateMealPlan extends Component {
                 <View style={styles.modalView}>
 
                   <ScrollView>
-                    <Text style={styles.titleStyle}>
-                      Allergies
-                    </Text>
-                    <Dropdown
-                        icon='chevron-down'
-                        iconColor='#E1E1E1'
-                        label='List from Suggestic'
-                        data={data_allergy}
 
-                    />
+
+                    <View style={styles.column}>
+                      <Text style={styles.titleStyle}>
+                        Goal
+                      </Text>
+
+                      <Picker
+                          style={{ height: 50, width: 150 }}
+                          selectedValue={this.state.selectedGoal}
+                          onValueChange={(value)=>this.setState({selectedGoal:value})}
+                      >
+                        {myGoal}
+
+                      </Picker>
+                    </View>
 
                     <View style={styles.column}>
                       <Text style={styles.titleStyle}>
                         Dietary Restriction
                       </Text>
 
-                      <Dropdown
-                         icon='chevron-down'
-                          iconColor='#E1E1E1'
-                          label='List from Suggestic'
-                          data={data}
-                      />
+                      <Picker
+                          style={{ height: 50, width: 150 }}
+                          selectedValue={this.state.selectedRestriction}
+                          onValueChange={(value)=>this.setState({selectedRestriction:value})}
+                      >
+                        {myRestrictions}
+
+                      </Picker>
                     </View>
 
                     <View style={styles.column}>
@@ -206,12 +382,15 @@ export default class CreateMealPlan extends Component {
                         Meal Time Type
                       </Text>
 
-                      <Dropdown
-                          icon='chevron-down'
-                          iconColor='#E1E1E1'
-                          label='Meal Time Type'
-                          data={data_meal_time}
-                      />
+                      <Picker
+                          style={{ height: 50, width: 150 }}
+                          selectedValue={this.state.dietSelectedValue}
+                          onValueChange={(value)=>this.setState({dietSelectedValue:value})}
+                      >
+                        {mealTimeType}
+
+                      </Picker>
+
                     </View>
 
                     <View>
@@ -432,7 +611,10 @@ export default class CreateMealPlan extends Component {
 
                   <TouchableOpacity
                       style={[styles.button, styles.buttonClose]}
-                      onPress={() => this.setModalVisible(!modalVisible)}
+                      onPress={() => {this.setModalVisible(!modalVisible),
+                          this.generateNewPlan()
+                      }
+                      }
                   >
                     <Text style={styles.textStyle}>GET YOUR MEAL PLAN!</Text>
                   </TouchableOpacity>
