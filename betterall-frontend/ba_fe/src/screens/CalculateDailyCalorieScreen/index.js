@@ -3,7 +3,6 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, ScrollView
 import React, {useState} from 'react';
 import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
-
 import {
   LineChart,
   BarChart,
@@ -60,7 +59,7 @@ export default class CalculateDailyCalorieScreen extends React.Component {
               barPercentage={50}
               //showLegend={false}
               width={360}
-              height={320}
+              height={500}
               chartConfig={{
                 barPercentage: 1.1,
                 backgroundColor: "#ffc533",
@@ -84,18 +83,19 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 48,
     fontFamily:'Mulish-Regular',
-    color:'#7B8235',
+    color: "#222b14",
+    fontWeight: 'bold',
     paddingLeft: 40,
-    marginTop: 70,
-    marginBottom: 100,
-    borderBottomColor: '#7B8235',
+    marginTop: 100,
+    marginBottom: 50,
+    //borderBottomColor: '#7B8235',
     //borderBottomColor: '#199187',
-    borderBottomWidth: 1,
+    //borderBottomWidth: 1,
   },
   gradient:{
     paddingLeft: 30,
     paddingRight: 30,
-    paddingBottom:400,
+    paddingBottom:100,
   },
 
 });
