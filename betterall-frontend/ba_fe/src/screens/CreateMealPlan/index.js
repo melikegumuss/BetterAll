@@ -222,7 +222,6 @@ export default class CreateMealPlan extends Component {
       body: graphql,
       redirect: 'follow'
     };
-
     fetch("https://production.suggestic.com/graphql", requestOptions)
         .then(response => response.json())
         .then(result => {console.log('result', result); this.setState({options:result.data.restrictions.edges})})
