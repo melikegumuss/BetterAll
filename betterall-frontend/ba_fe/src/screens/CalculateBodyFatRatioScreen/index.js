@@ -9,7 +9,9 @@ import {
   Image,
   ScrollView,
   SafeAreaView,
-  Dimensions
+  Dimensions,
+  ImageEditor,
+  NativeModules
 } from "react-native";
 import React, {useState} from 'react';
 import AppMenuScreen from '../AppMenuScreen';
@@ -17,14 +19,7 @@ import * as ImagePicker from "react-native-image-picker";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import Unavailable from "../../../assets/images/unavailable-photo.png"
 import LinearGradient from "react-native-linear-gradient";
-
-/*import RNFS from 'react-native-fs';
-
-RNFS.readFile(this.state.imagePath, 'base64')
-    .then(res =>{
-      console.log(res);
-    });*/
-
+var RNFS = require('react-native-fs')
 export default class CalculateBodyFatRatioScreen extends React.Component {
   //constructor() {
   //  super();
@@ -36,13 +31,50 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
         uri: ''
       },
       photoURI: '',
+      base64: '',
       waist: 50,
       chest:50,
       hip:50,
+      bodyFat: ''
     }
   }
 
+  componentDidMount(){
+    //this.calculateBodyFat();
+  }
 
+  calculateBodyFat(){
+    try{
+      fetch('http://www.fitimage.io/api/api_fat_predict/',{
+        method: 'post',
+        mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+          { "token": "367682e0b6cc177fd992a3255f5983579dc9c64e",
+            "gender": "female",
+            "image": this.state.base64
+          }
+        )
+      }).then(response=>response.json()).then(data=>{
+        this.setState({bodyFat: data.api_data.predictions[0].fat})
+        console.log("Fonk ici:" + data.api_data.predictions[0].fat)
+      }).catch(err=>console.error(err));
+    }catch(e){
+      console.log(e);
+    }
+  }
+
+  convertImageToBase64 = async() => {
+    const base64data = await RNFS.readFile(this.state.path.uri, 'base64').then();
+    //console.log(base64data);
+    this.setState({
+      base64: base64data
+    });
+    console.log(this.state.base64);
+  }
 
   imageLibrary = () => {
     let options = {
@@ -60,11 +92,11 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
         const source = { uri: response.uri };
         this.setState({
           path: response,
-          photoURI: response.uri
+          photoURI: response.uri,
         });
       }
     });
-
+    this.convertImageToBase64.bind(this);
   }
 
   openCamera = () => {
@@ -86,7 +118,7 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
         });
       }
     });
-
+    this.convertImageToBase64();
   }
 
   withURI() {
@@ -110,8 +142,6 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
 
             <ScrollView >
               <SafeAreaView>
-
-
                 <View>
                   <View style={{alignItems: 'center'}}>
                     {this.withURI()}
@@ -128,18 +158,26 @@ export default class CalculateBodyFatRatioScreen extends React.Component {
                         </TouchableOpacity>
                       </View>
                   </View>
-
                   <View>
                       <TouchableOpacity style={styles.buttonYellowCamera}
                          onPress={this.openCamera}>
                         <Text style={styles.buttonText}>Open camera</Text>
                       </TouchableOpacity>
                   </View>
-
+                  <View>
+                      <TouchableOpacity style={styles.buttonYellowCalculate}
+                         onPress={this.convertImageToBase64}>
+                        <Text style={styles.buttonText}>Calculate My Body Fat</Text>
+                      </TouchableOpacity>
+                  </View>
+                  <View>
+                      <TouchableOpacity style={styles.buttonYellowCalculate}
+                         onPress={this.calculateBodyFat.bind(this)}>
+                        <Text style={styles.buttonText}>AAAAAAAAAAAAAAAAAAAAAAAA</Text>
+                      </TouchableOpacity>
+                  </View>
                 </View>
-
               </SafeAreaView>
-
             </ScrollView>
         </LinearGradient>
     );
@@ -178,7 +216,17 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     //marginLeft:240,
-    marginBottom:100
+    marginBottom: 30
+  },
+  buttonYellowCalculate:{
+    width: 300,
+    backgroundColor:"#ffcc33",
+    borderRadius:25,
+    height:55,
+    alignItems:"center",
+    justifyContent:"center",
+    //marginLeft:240,
+    marginBottom: 90
   },
   buttonText:{
     fontFamily:'Mulish-Regular',
