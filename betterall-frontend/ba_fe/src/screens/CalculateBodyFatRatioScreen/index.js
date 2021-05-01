@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
   buttonText:{
     fontFamily:'Mulish-Regular',
     color: "#222b14",
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 
 

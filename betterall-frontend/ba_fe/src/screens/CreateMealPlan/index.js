@@ -460,7 +460,7 @@ export default class CreateMealPlan extends Component {
             <TouchableOpacity
                 style={styles.planButton}
                 onPress={() => this.setModalVisible(true)}>
-              <Text style={styles.planButtonText}>CREATE</Text>
+              <Text style={styles.planButtonText}>WHAT'S THE PLAN?</Text>
             </TouchableOpacity>
 
           </View>
@@ -493,9 +493,10 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     paddingBottom:30,
     fontFamily: "Mulish-Regular",
-    fontSize: 28,
-    color: "#eceece",
+    fontSize: 44,
+    color: "#222b14",
     paddingLeft: 40,
+    fontWeight: 'bold',
 
   },
   titleStyle: {
@@ -580,18 +581,19 @@ const styles = StyleSheet.create({
   },
   planButton:{
     marginTop: 60,
-    paddingLeft: 100,
     marginBottom: 250,
-    marginLeft:100,
-    width:100,
     backgroundColor:"#ffcc33",
     borderRadius:25,
-    height:35,
+    height:45,
+    marginLeft:180,
+    width: 200,
     alignItems:"center",
     justifyContent:"center",
   },
   planButtonText:{
     fontFamily:'Mulish-Regular',
-    color:'rgba(0,0,0,0.6)',
+    color: "#222b14",
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });

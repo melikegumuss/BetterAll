@@ -80,7 +80,7 @@ export default class RegisterScreen extends Component {
     return (
         <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
         <View style={styles.centeredView}>
-        <Text style={styles.header}>Register</Text>
+        <Text style={styles.header}>New to BetterAll ?</Text>
           <ScrollView>
             <View style={styles.inputView}>
               <TextInput
@@ -151,7 +151,7 @@ export default class RegisterScreen extends Component {
             <TouchableOpacity
               style={styles.signupButton}
               onPress={() => {this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
-              <Text style={styles.signupButtonText}>SIGN UP</Text>
+              <Text style={styles.signupButtonText}>JOIN US!</Text>
             </TouchableOpacity>
           </ScrollView>
           </View>
@@ -178,13 +178,16 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 48,
     fontFamily:'Mulish-Regular',
-    color: '#7B8235',
+    color: '#222b14',
     paddingBottom: 10,
     marginTop: 30,
-    marginBottom: 40,
-    borderBottomColor: '#7B8235',
+    marginBottom: 20,
+    fontWeight: 'bold',
+    alignItems: 'center',
+    justifyContent: 'center',
+    //borderBottomColor: '#222b14',
     //borderBottomColor: '#199187',
-    borderBottomWidth: 1,
+    //borderBottomWidth: 1,
   },
   inputView: {
     flex: 1,
@@ -201,6 +204,7 @@ const styles = StyleSheet.create({
     fontFamily:'Mulish-Regular',
     height: 50,
     color: 'white',
+    fontWeight: 'bold',
   },
   buttonText: {
     fontFamily:'Mulish-Regular',
@@ -219,7 +223,9 @@ const styles = StyleSheet.create({
   },
   signupButtonText: {
     fontFamily:'Mulish-Regular',
-    color: 'rgba(0,0,0,0.6)',
+    color: "#222b14",
+    fontSize: 20,
+    fontWeight: 'bold',
     justifyContent: 'center',
     textAlign: 'center',
   },

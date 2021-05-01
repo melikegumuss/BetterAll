@@ -34,9 +34,9 @@ export default class ViewProgressScreen extends React.Component {
         <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
               <View style={styles.centeredView}>
 
-              <Text style={styles.header}>Progress</Text>
+              <Text style={styles.header}>My Progress</Text>
 
-              <Text style={styles.titleStyle}>My Weight Journey</Text>
+              <Text style={styles.titleStyle}>My Weight Loss Journey</Text>
             <LineChart
             data={{
                   labels : ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -71,9 +71,8 @@ export default class ViewProgressScreen extends React.Component {
                 yAxisInterval={0.5} // optional, defaults to 1
                 chartConfig={{
                   scrollableInfoOffset: 500,
-                  backgroundColor: "#e26a00",
-                  backgroundGradientFrom: "#e57171",
-                  backgroundGradientTo: "#7685B3",
+                  backgroundGradientFrom: "#f39c00",
+                  backgroundGradientTo: "#f191ac",
                   decimalPlaces: 2, // optional, defaults to 2dp
                   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -83,7 +82,7 @@ export default class ViewProgressScreen extends React.Component {
                   propsForDots: {
                     r: "6",
                     strokeWidth: "2",
-                    stroke: "#ffa726"
+                    stroke: "#2a2a72"
                   }
                 }}
                 bezier
@@ -109,21 +108,25 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 48,
         fontFamily:'Mulish-Regular',
-        color:'#7B8235',
         paddingBottom: 100,
         marginTop: -90,
-        marginBottom: 40,
-        borderBottomColor: '#7B8235',
+        marginBottom: 10,
+        //borderBottomColor: '#7B8235',
         //borderBottomColor: '#199187',
         //borderBottomWidth: 1,
+
+        color: "#222b14",
+        fontWeight: 'bold',
+        paddingLeft: 10,
+
     },
     titleStyle: {
         paddingTop: 10,
         paddingBottom: 10,
         fontFamily:'Mulish-Regular',
         fontSize: 26,
-        //fontWeight: '700',
-        color: "#3D4182",
+        fontWeight: "bold",
+        color: "#fae6e7",
     },
     centeredView: {
         //flex: 1,

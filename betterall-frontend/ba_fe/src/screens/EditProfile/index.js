@@ -8,10 +8,9 @@ import CalculateBodyFatRatioScreen from '../CalculateBodyFatRatioScreen';
 import ViewProgressScreen from '../ViewProgressScreen';
 import CreateMealPlan from '../CreateMealPlan';
 import CreateWorkoutPlan from '../CreateWorkoutPlan';
-
 import LinearGradient from "react-native-linear-gradient";
 
-
+import MapScreen from "../MapScreen";
 export default class EditProfile extends React.Component {
     constructor() {
         super();
@@ -85,17 +84,19 @@ const styles = StyleSheet.create({
     personalInfo: {
         fontFamily:'Mulish-Regular',
         //flex: 0.3,
-        fontSize: 24,
-        color:'#7B8235',
-        paddingTop: 10,
-        paddingBottom: 10,
-        marginBottom: 10,
+        fontSize: 44,
+        color:'#222b14',
+        paddingTop: 100,
+        //marginBottom: 10,
         //marginLeft: 10,
-        borderBottomColor: '#7B8235',
+        borderBottomColor: '#222b14',
         //borderBottomColor: '#199187',
-        borderBottomWidth: 5,
-        paddingLeft: 30,
+        //borderBottomWidth: 5,
+        paddingLeft: 110,
         //paddingRight: 30,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     profilePicture:{
         paddingLeft: 130,
@@ -104,39 +105,43 @@ const styles = StyleSheet.create({
     },
     planButton:{
         width: 140,
-        height: 140,
+        height: 190,
         justifyContent: 'center',
         alignItems: 'center',
         //borderColor:'rgba(0,0,0,0.6)',
         //backgroundColor: 'white',
-        marginLeft: 5,
-        marginRight: 5,
+        //marginLeft: 5,
+        marginRight: 15,
         marginTop: 25,
         marginBottom: 25,
+        //backgroundColor: 'red',
     },
     progressButton:{
         width: 320,
-        height: 200,
+        height: 120,
         marginTop: -40,
         marginBottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
+        //backgroundColor: 'red',
         //borderRadius:100,
         //borderColor:'rgba(0,0,0,0.6)',
     },
 
     image: {
         flex: 1,
-        width: 150,
-        height: 150,
+        width: 250,
+        height: 250,
         justifyContent: 'center',
         //alignItems: 'center',
         //resizeMode: 'contain'
     },
     progressImage: {
         flex: 1,
-        width: 320,
-        height: 200,
+        width: 384,
+        height: 264,
+        marginTop: -90,
+        marginRight: 50,
         //resizeMode: 'contain'
     },
     row: {
