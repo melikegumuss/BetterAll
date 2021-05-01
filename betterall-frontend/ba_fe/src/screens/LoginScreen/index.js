@@ -4,6 +4,8 @@ import React, {useState} from 'react';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import AppMenuScreen from '../AppMenuScreen';
 import axios from 'axios';
+import LinearGradient from 'react-native-linear-gradient';
+
 export default class LoginScreen extends React.Component {
   constructor() {
     super();
@@ -73,6 +75,8 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+        <View style={styles.centeredView}>
         <Text style={styles.header}>Welcome back!</Text>
           <ScrollView>
             <View style={styles.inputView} >
@@ -90,7 +94,7 @@ export default class LoginScreen extends React.Component {
                     placeholderTextColor="rgba(0,0,0,0.35)"
                     onChangeText={text => this.setState({password:text})}/>
               </View>
-              <TouchableOpacity style={styles.forgotPassword}>
+              <TouchableOpacity>
                 <Text style={styles.forgotPassword}>Forgot password?</Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -100,6 +104,8 @@ export default class LoginScreen extends React.Component {
                 <Text style={styles.loginButtonText}>LOGIN</Text>
               </TouchableOpacity>
             </ScrollView>
+            </View>
+        </LinearGradient>
           </View>
     );
   }
@@ -108,6 +114,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#CDDA7E',
+    //paddingLeft: 30,
+    //paddingRight: 30,
+    //alignItems: 'center',
+  },
+  gradient: {
+    flex: 1,
+    paddingTop: 150,
+    backgroundColor: '#cdda7e',
     paddingLeft: 30,
     paddingRight: 30,
   },
@@ -143,13 +157,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   loginButton:{
-    width:"30%",
+    width:100,
     backgroundColor:"#ffcc33",
     borderRadius:25,
     height:35,
     alignItems:"center",
     justifyContent:"center",
-    marginLeft:240,
+    marginLeft:250,
     marginTop:15,
     //marginBottom:10
   },
@@ -160,10 +174,12 @@ const styles = StyleSheet.create({
   forgotPassword:{
     fontFamily:'Mulish-Regular',
     color:'rgba(0,0,0,0.6)',
-    marginLeft:120,
+    marginLeft:240,
+    paddingTop: 10,
   },
-  datePickerStyle: {
-    width: 200,
-    marginTop: 20,
+  centeredView: {
+    //flex: 1,
+    justifyContent: "center",
+    marginTop: 22
   },
 });

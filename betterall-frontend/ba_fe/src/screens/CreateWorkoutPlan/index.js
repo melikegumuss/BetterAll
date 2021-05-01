@@ -5,7 +5,7 @@ import GetFit from '../../../assets/images/getFit.png';
 import GetStronger from '../../../assets/images/getStronger.png';
 import LoseWeight from '../../../assets/images/loseWeight.png';
 import Slider from "react-native-smooth-slider";
-
+import { List } from 'react-native-paper';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +14,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Tags from "react-native-tags";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class CreateWorkoutPlan extends Component {
   state = {
@@ -34,8 +35,13 @@ export default class CreateWorkoutPlan extends Component {
     const { modalVisible } = this.state;
     return (
       <View style={styles.container}>
+        <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+
         <SafeAreaView>
+          <View style={styles.centeredView}>
+
           <Text style={{marginTop: 20,marginRight: 20,marginLeft: 20}}>List of Workout Plans</Text>
+
           <Modal
               animationType="slide"
               transparent={true}
@@ -45,7 +51,6 @@ export default class CreateWorkoutPlan extends Component {
                 this.setModalVisible(!modalVisible);
               }}
           >
-            <View style={styles.centeredView}>
               <View style={styles.modalView}>
 
                 <ScrollView>
@@ -195,7 +200,7 @@ export default class CreateWorkoutPlan extends Component {
                   <Text style={styles.textStyle}>GET YOUR WORKOUT PLAN!</Text>
                 </TouchableOpacity>
               </View>
-            </View>
+
           </Modal>
 
           <TouchableOpacity
@@ -204,7 +209,21 @@ export default class CreateWorkoutPlan extends Component {
             <ImageBackground source={require("../../../assets/images/workoutPlan.png")}
                              style={styles.image}/>
           </TouchableOpacity>
+      </View>
+          <List.Item
+              style={styles.listItemStyle}
+              title="Workout Name"
+              description="Description"
+              left={props => <List.Icon {...props} icon='weight-lifter' />}
+          />
+          <List.Item
+              style={styles.listItemStyle}
+              title="Workout Name"
+              description="Description"
+              left={props => <List.Icon {...props} icon='weight-lifter' />}
+          />
         </SafeAreaView>
+        </LinearGradient>
       </View>
     );
   }
@@ -316,7 +335,8 @@ const styles = StyleSheet.create({
     //flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+    //backgroundColor: "red",
   },
   modalView: {
     margin: 30,
@@ -374,5 +394,8 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginTop: 25,
     marginBottom: 25,
+  },
+  listItemStyle:{
+    paddingLeft:45,
   },
 });

@@ -11,15 +11,20 @@ import ViewProgressScreen from "./src/screens/ViewProgressScreen";
 import CreateMealPlan from "./src/screens/CreateMealPlan";
 import CreateWorkoutPlan from "./src/screens/CreateWorkoutPlan";
 import Welcome from "./src/screens/Welcome";
-import Home from "./src/screens/Home";
+import MapScreen from "./src/screens/MapScreen";
 import EditProfile from "./src/screens/EditProfile";
-
 import "../ba_fe/assets/images/mealPlan.png";
 import editProfile from "../ba_fe/assets/images/edit-profile.png";
 import home from "../ba_fe/assets/images/home.png";
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Image } from "react-native";
+import ProfileTab from "../../betterall-frontend/ba_fe/assets/images/profileTab.png"
+import MealTab from "../../betterall-frontend/ba_fe/assets/images/mealTab.png"
+import WorkoutTab from "../../betterall-frontend/ba_fe/assets/images/workoutTab.png"
+import MapTab from "../../betterall-frontend/ba_fe/assets/images/mapTab.png"
+
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -29,41 +34,67 @@ function MainTabNavigator({navigation, route}){
       //NavStack(),
         <Tab.Navigator
             initialRouteName={AppMenuScreen}
-            barStyle={{ backgroundColor: '#CDDA7E', height: 60 }}
+            barStyle={{ backgroundColor: '#47657a', height: 60 }}
             tabBarOptions={{
               activeTintColor: "#937298",
               style: {
                 backgroundColor: "#937298",
               }
             }}>
-          <Tab.Screen name='AppMenuScreen' component={AppMenuScreen}
+            <Tab.Screen name='EditProfile' component={EditProfile}
+                        options={{
+                            title: '',
+                            tabBarIcon: ({size,focused,color}) => {
+                                return (
+                                    <Image
+                                        style={{ width: 35, height: 35,     alignItems: 'center',
+                                            justifyContent: 'center'}}
+                                        source={ProfileTab}
+                                    />
+                                );
+                            },
+            }}/>
+          <Tab.Screen name='CreateMealPlan' component={CreateMealPlan}
             options={{
               title: '',
               tabBarIcon: ({size,focused,color}) => {
                 return (
                   <Image
-                    style={{ width: 50, height: 44,     alignItems: 'center',
+                    style={{ width: 35, height: 35,     alignItems: 'center',
                       justifyContent: 'center'}}
-                    source={home}
+                    source={MealTab}
                   />
                 );
               },
-            }}
-
-          />
-          <Tab.Screen name='EditProfile' component={EditProfile}
+            }}/>
+          <Tab.Screen name='CalculateBodyFatRatioScreen' component={CalculateBodyFatRatioScreen}
                       options={{
+                          title: '',
+                          tabBarIcon: ({size,focused,color}) => {
+                              return (
+                                  <Image
+                                      style={{ width: 35, height: 35,     alignItems: 'center',
+                                          justifyContent: 'center'}}
+                                      source={WorkoutTab}
+                                  />
+                              );
+                          },
+                      }}
+          />
+        <Tab.Screen name='MapScreen' component={MapScreen}
+                    options={{
                         title: '',
                         tabBarIcon: ({size,focused,color}) => {
-                          return (
-                            <Image
-                              style={{ width: 45, height: 45,     alignItems: 'center',
-                                justifyContent: 'center'}}
-                              source={editProfile}
-                            />
-                          );
+                            return (
+                                <Image
+                                    style={{ width: 35, height: 35,     alignItems: 'center',
+                                        justifyContent: 'center'}}
+                                    source={MapTab}
+                                />
+                            );
                         },
-                      }}/>
+                    }}
+        />
 
         </Tab.Navigator>
     )
@@ -74,7 +105,7 @@ function MainTabNavigator({navigation, route}){
 function NavStack() {
   return (
     <Stack.Navigator
-      initialRouteName="StartupScreen"
+      initialRouteName="MapScreen"
       /*screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -149,9 +180,9 @@ function NavStack() {
       />
 
       <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{title: 'Home', headerShown: false}}
+          name="MapScreen"
+          component={MapScreen}
+          options={{title: 'MapScreen', headerShown: false}}
       />
 
 
