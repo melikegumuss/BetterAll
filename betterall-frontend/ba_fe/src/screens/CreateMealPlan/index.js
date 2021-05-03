@@ -360,7 +360,7 @@ export default class CreateMealPlan extends Component {
                         transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => {
-                            Alert.alert("Modal has been closed.");
+                            Alert.alert("Your meal plan is added to the queue.");
                             this.setModalVisible(!modalVisible);
                         }}
                     >
@@ -634,6 +634,7 @@ export default class CreateMealPlan extends Component {
                                     onPress={() => {
                                         this.setModalVisible(!modalVisible),
                                             this.generateNewPlan()
+                                        Alert.alert("Your meal plan is added to the queue.");
                                     }
                                     }
                                 >
@@ -646,7 +647,8 @@ export default class CreateMealPlan extends Component {
 
                     <TouchableOpacity
                         style={styles.planButton}
-                        onPress={() => this.setModalVisible(true)}>
+                        onPress={() => this.setModalVisible(true)
+                        }>
                         <Text style={styles.planButtonText}>WHAT'S THE PLAN?</Text>
                     </TouchableOpacity>
 
@@ -683,7 +685,7 @@ const styles = StyleSheet.create({
         fontSize: 44,
         color: "#222b14",
         paddingLeft: 40,
-        fontWeight: 'bold',
+        ///fontWeight: 'bold',
 
     },
     titleStyle: {
@@ -750,7 +752,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         color: "white",
-        fontWeight: "bold",
+        //fontWeight: "bold",
         //textAlign: "center"
     },
     modalText: {
@@ -781,6 +783,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Mulish-Regular',
         color: "#222b14",
         fontSize: 20,
-        fontWeight: 'bold',
+        //fontWeight: 'bold',
     },
 });

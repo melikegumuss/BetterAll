@@ -6,22 +6,34 @@ import AppMenuScreen from '../AppMenuScreen';
 import axios from 'axios';
 import LinearGradient from 'react-native-linear-gradient';
 
+
+
 export default class LoginScreen extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    //this.setState({username:props.route.params.username});
+    this.state={
+      username:'',
+      email:'',
+      password:'',
+      name:'',
+      surname:'',
+      height:'',
+      weight:'',
+      gender:'',
+/*      email:props.route.params.email,
+      password:props.route.params.username,
+      name:props.route.params.password,
+      surname:props.route.params.surname,
+      height:props.route.params.height,
+      weight:props.route.params.weight,
+      gender:props.route.params.gender,*/
+      nameList: [],
+      //age: new Date(),
+    }
+
   }
-  state={
-    username:"",
-    email:"",
-    password:"",
-    name:"",
-    surname:"",
-    height:"",
-    weight:"",
-    gender:"",
-    nameList: []
-    //age: new Date(),
-  }
+
   /*
   async componentDidMount(){
     try{
@@ -52,7 +64,6 @@ export default class LoginScreen extends React.Component {
   }*/
    getData(){
     console.log("IN HERE");
-
         try{
           fetch('https://noble-feat-310319.nw.r.appspot.com/graphql',{
           method: 'get',
@@ -73,6 +84,8 @@ export default class LoginScreen extends React.Component {
   }
 
   render() {
+    //let username = this.props.navigation.getParam('username', null);
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+this.state.username);
     return (
       <View style={styles.container}>
         <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>

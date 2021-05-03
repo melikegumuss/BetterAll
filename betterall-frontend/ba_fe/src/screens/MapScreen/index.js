@@ -144,6 +144,7 @@ export default class MapScreen extends React.Component {
               categories: 'restaurants',
               //sort_by: 'review_count',
               sort_by: 'distance',
+              //term: 'chicken',
               //sort_by: 'rating',
               limit: 5,
               radius: 2000

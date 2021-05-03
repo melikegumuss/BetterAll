@@ -17,6 +17,7 @@ import LoginScreen from '../LoginScreen';
 import "../../../assets/fonts/Mulish-Regular.ttf";
 import LinearGradient from "react-native-linear-gradient";
 
+
 const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
   const paddingToBottom = 20;
   return layoutMeasurement.height + contentOffset.y >=
@@ -171,7 +172,8 @@ export default class RegisterScreen extends Component {
             <TouchableOpacity
               disabled={ !this.state.accepted }
               style={this.state.accepted ? styles.signupButton : styles.buttonDisabled }
-              onPress={() => {this.function1(); this.props.navigation.navigate('AppMenuScreen')}}>
+//              onPress={() => {this.function1(); this.props.navigation.navigate('LoginScreen', {username:this.state.username})}}>
+              onPress={() => {this.function1(); this.props.navigation.navigate('LoginScreen')}}>
               <Text style={styles.signupButtonText}>JOIN US!</Text>
             </TouchableOpacity>
           </ScrollView>
@@ -239,7 +241,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     marginTop: 30,
     marginBottom: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     alignItems: 'center',
     justifyContent: 'center',
     //borderBottomColor: '#222b14',
@@ -261,12 +263,12 @@ const styles = StyleSheet.create({
     fontFamily:'Mulish-Regular',
     height: 50,
     color: 'white',
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   buttonText: {
     fontFamily:'Mulish-Regular',
     color: '#fff',
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   signupButton: {
     width: '100%',
@@ -282,7 +284,7 @@ const styles = StyleSheet.create({
     fontFamily:'Mulish-Regular',
     color: "#222b14",
     fontSize: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     justifyContent: 'center',
     textAlign: 'center',
   },
@@ -316,13 +318,15 @@ modalView: {
 tcP: {
   marginTop: 10,
   marginBottom: 10,
-  fontSize: 16
+  //fontSize: 16,
+  fontFamily:'Mulish-Regular',
 },
 tcL:{
   //marginLeft: 10,
   marginTop: 10,
   marginBottom: 10,
-  fontSize: 16
+  //fontSize: 16,
+  fontFamily:'Mulish-Regular',
 },
 tcContainer: {
   marginTop: 15,
@@ -331,17 +335,18 @@ tcContainer: {
 },
 title: {
   fontSize: 22,
-  alignSelf: 'center'
+  alignSelf: 'center',
+  fontFamily:'Mulish-Regular',
 },
 button:{
   backgroundColor: '#ffcc33',
-  borderRadius: 5,
+  borderRadius: 25,
   padding: 10
 },
 
 buttonDisabled:{
-backgroundColor: '#999',
-borderRadius: 5,
+backgroundColor: '#ffcc33',
+borderRadius: 25,
 padding: 10
 },
 
@@ -355,8 +360,9 @@ termsText:{
     fontFamily:'Mulish-Regular',
     color: "#222b14",
     fontSize: 14,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     justifyContent: 'center',
     textAlign: 'center',
+  paddingBottom: 15,
 },
 });

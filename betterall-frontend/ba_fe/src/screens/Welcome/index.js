@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         fontFamily:'Mulish-Regular',
         textAlign:'center',
         fontSize:50,
-        fontWeight:'bold',
+        //fontWeight:'bold',
         color:'#eceece',
         //paddingLeft: 150,
         //paddingRight: 150,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     buttonText:{
         fontFamily:'Mulish-Regular',
         color: '#eceece',
-        fontWeight: 'bold',
+        //fontWeight: 'bold',
         fontSize: 16,
     },
     whole: {

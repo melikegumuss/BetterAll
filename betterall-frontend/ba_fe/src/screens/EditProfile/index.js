@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         //borderBottomWidth: 5,
         paddingLeft: 110,
         //paddingRight: 30,
-        fontWeight: 'bold',
+        ///fontWeight: 'bold',
         alignItems: 'center',
         justifyContent: 'center',
     },
