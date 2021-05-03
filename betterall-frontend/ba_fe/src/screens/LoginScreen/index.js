@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 48,
     fontFamily:'Mulish-Regular',
-    fontWeight:"bold",
+    //fontWeight:"bold",
     color:'#222b14',
     paddingBottom: 10,
     marginTop: 30,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     paddingLeft:30,
     padding:20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   inputText:{
     fontFamily:'Mulish-Regular',
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily:'Mulish-Regular',
     color: "#222b14",
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   loginButton:{
     width:100,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     fontFamily:'Mulish-Regular',
     color: "#222b14",
     fontSize: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   forgotPassword:{
     fontFamily:'Mulish-Regular',
