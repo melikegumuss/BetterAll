@@ -32,10 +32,9 @@ export default class ViewProgressScreen extends React.Component {
   render() {
     return (
         <LinearGradient colors={['#cdda7e', '#8aa07c', '#47657a']} style={styles.gradient}>
+          <ScrollView>
               <View style={styles.centeredView}>
-
               <Text style={styles.header}>My Progress</Text>
-
               <Text style={styles.titleStyle}>My Weight Loss Journey</Text>
             <LineChart
             data={{
@@ -61,7 +60,6 @@ export default class ViewProgressScreen extends React.Component {
                   ]
                 }
             }
-
                 width={360}
                 //width={Dimensions.get("window").width} // from react-native
                 height={220}
@@ -91,8 +89,64 @@ export default class ViewProgressScreen extends React.Component {
                   borderRadius: 16
                 }}
               />
-
               </View>
+              <View style={styles.centeredView}>
+              <Text style={styles.titleStyle}>Body Fat Tracker</Text>
+              <LineChart
+            data={{
+                  labels : ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                  datasets: [
+                    {
+                      data: [
+                        36.2,
+                        31.4,
+                        32.8,
+                        33.4,
+                        34,
+                        32.6,
+                        30.9,
+                        28.7,
+                        27.9,
+                        29.4,
+                        28.7,
+                        28.3,
+                      ]
+                    }
+                  ]
+                }
+            }
+                width={360}
+                //width={Dimensions.get("window").width} // from react-native
+                height={220}
+                //yAxisLabel="$"
+                xAxisSuffix="month"
+                yAxisSuffix="%"
+                yAxisInterval={0.5} // optional, defaults to 1
+                chartConfig={{
+                  scrollableInfoOffset: 500,
+                  backgroundGradientFrom: "#f39c00",
+                  backgroundGradientTo: "#f191ac",
+                  decimalPlaces: 2, // optional, defaults to 2dp
+                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  style: {
+                    borderRadius: 16
+                  },
+                  propsForDots: {
+                    r: "6",
+                    strokeWidth: "2",
+                    stroke: "#2a2a72"
+                  }
+                }}
+                bezier
+                style={{
+                  marginVertical: 8,
+                  borderRadius: 16
+                }}
+              />
+              </View>
+          </ScrollView>
         </LinearGradient>
     );
   }
@@ -108,8 +162,8 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 48,
         fontFamily:'Mulish-Regular',
-        paddingBottom: 100,
-        marginTop: -90,
+        //paddingBottom: 100,
+        marginTop: -10,
         marginBottom: 10,
         //borderBottomColor: '#7B8235',
         //borderBottomColor: '#199187',
@@ -136,9 +190,8 @@ const styles = StyleSheet.create({
     },
     gradient: {
         flex: 1,
-        paddingTop: 150,
+        //paddingTop: 150,
         paddingLeft: 30,
         paddingRight: 30,
     },
-
 });
